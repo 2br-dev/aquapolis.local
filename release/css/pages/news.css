@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300..500&family=Sofia+Sans:wght@300..800&display=swap");
+body {
+  font-family: 'Sofia Sans', 'Roboto', sans-serif;
+  font-size: calc(16px + .15vmax);
+  line-height: 1.5em;
+  font-weight: 300;
+  color: #333; }
+  body .rur-sign {
+    font-size: .9em; }
+  body h1 {
+    font-size: 4.5rem;
+    font-weight: 800;
+    color: #26C6DA;
+    line-height: 1.5em; }
+  body h2 {
+    font-size: 3.4rem;
+    font-weight: 740;
+    color: #26C6DA;
+    line-height: 1.5em; }
+  body h3, body #news .news-entry-xl .news-title, #news .news-entry-xl body .news-title {
+    font-size: 2.3rem;
+    font-weight: 720;
+    line-height: 1.5em; }
+  body h4, body #news .news-l-info .news-title, #news .news-l-info body .news-title, body #news .news-entry-small .nes-title, #news .news-entry-small body .nes-title {
+    font-size: 1.2rem;
+    font-weight: 680;
+    text-transform: uppercase;
+    line-height: 1.5em; }
+  @media (max-width: 1200px) {
+    body h1 {
+      font-size: calc(2.5rem + 0.1vmax);
+      line-height: 1em; }
+    body h2 {
+      font-size: calc(2rem + 0.1vmax);
+      line-height: 1em; }
+    body h3, body #news .news-entry-xl .news-title, #news .news-entry-xl body .news-title {
+      font-size: calc(1.5rem + 0.1vmax);
+      line-height: 1em; }
+    body h4, body #news .news-l-info .news-title, #news .news-l-info body .news-title, body #news .news-entry-small .nes-title, #news .news-entry-small body .nes-title {
+      font-size: calc(1.2rem + 0.1vmax);
+      line-height: 1em; } }
+
+#news h2 {
+  margin: 0; }
+
+#news .news-entry-xl {
+  position: relative;
+  background-size: cover;
+  background-position: center center;
+  margin: 0;
+  padding: 4vmin;
+  border-radius: 16px;
+  overflow: hidden;
+  color: #fff;
+  margin-top: 4vmax; }
+  #news .news-entry-xl a {
+    color: #fff; }
+  #news .news-entry-xl .col {
+    padding-bottom: initial; }
+  #news .news-entry-xl:before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(41, 98, 255, 0.8); }
+  #news .news-entry-xl .lazy {
+    border-radius: 8px; }
+    @media (max-width: 800px) {
+      #news .news-entry-xl .lazy {
+        margin: 1vmax 0; } }
+
+#news .news-l-image img {
+  border-radius: 8px; }
+
+#news .divider {
+  margin: 1vmax 0; }
+
+#news .news-entry-small .nes-image {
+  border-radius: 8px; }
+
+#news-entry .news-main-image {
+  min-width: 100%;
+  border-radius: 8px; }

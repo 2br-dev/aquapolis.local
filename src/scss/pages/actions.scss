@@ -1,0 +1,82 @@
+@import '../parts/vars';
+
+#actions{
+
+	& .actions-swiper{
+
+		position: relative;
+
+		& .swiper-slide{
+			width: fit-content;
+		}
+		
+		& img{
+			height: 400px;
+			width: auto;
+			border-radius: $border-radius;
+		}
+
+		&:before{
+			content: '';
+			display: block;
+			width: 3vmax;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 20;
+			background: linear-gradient(to right, white, transparent);
+			pointer-events: none;
+		}
+
+		&:after{
+			@extend:before;
+			background: linear-gradient(to left, white, transparent);
+			left: unset;
+			right: 0;
+		}
+	}
+
+	& .actions-pagination{
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		margin: 10px 0;
+		
+		& .actions-bullet{
+			display: block;
+			width: 1rem;
+			aspect-ratio: 1 / 1;
+			border-radius: 50%;
+			margin: 0 4px;
+			box-shadow: 0 2px 6px rgba(black, .4) inset;
+			transition: box-shadow .2s, background-color .2s;
+		}
+
+		& .actions-active{
+			background-color: $primary;
+			box-shadow: none;
+		}
+	}
+
+	& .toc-wrapper{
+		padding-left: 60px;
+	}
+}
+
+#action{
+
+	& h1{
+		margin: 0;
+	}
+
+	& .action-header{
+		margin: 2vmax 0;
+		border-radius: $border-radius;
+	}
+
+	& .action-text{
+		font-size: 1.5rem;
+		line-height: 1.4em;
+	}
+}

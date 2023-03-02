@@ -1,0 +1,110 @@
+body #ballance + p {
+  margin-bottom: 60px; }
+
+body .orders-table {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+  max-width: 100%; }
+  body .orders-table thead th {
+    font-size: 12px;
+    color: #888;
+    text-align: left;
+    font-weight: 500; }
+  body .orders-table tbody tr:first-of-type td {
+    border-top: 1px solid rgba(136, 136, 136, 0.4); }
+  body .orders-table tbody tr td {
+    border-bottom: 1px solid rgba(136, 136, 136, 0.4);
+    padding: 6px; }
+  body .orders-table tbody tr:hover {
+    background: rgba(136, 136, 136, 0.1); }
+  body .orders-table thead th:last-of-type {
+    text-align: right; }
+  body .orders-table tbody tr.order {
+    cursor: pointer; }
+    body .orders-table tbody tr.order td:last-of-type .popup-wrapper {
+      width: 40px;
+      margin-left: auto; }
+    @media (min-width: 600px) {
+      body .orders-table tbody tr.order td:last-of-type {
+        text-align: right; } }
+    body .orders-table tbody tr.order td .icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      text-align: center; }
+    body .orders-table tbody tr.order .expander .expander-trigger {
+      width: 16px;
+      height: 16px;
+      background: url(../img/forward.svg) center center no-repeat;
+      transform: translateY(2px);
+      transition: transform .4s; }
+    body .orders-table tbody tr.order + .details td {
+      padding: 0;
+      overflow: hidden;
+      border-bottom: 0; }
+      body .orders-table tbody tr.order + .details td .details-content p {
+        font-size: 0;
+        margin: 0;
+        opacity: 0;
+        transition: font-size .2s, margin .2s, opacity .2s;
+        line-height: 0; }
+        body .orders-table tbody tr.order + .details td .details-content p a {
+          transition: line-height .4s;
+          line-height: unset; }
+        @media (max-width: 600px) {
+          body .orders-table tbody tr.order + .details td .details-content p a {
+            display: block; } }
+    body .orders-table tbody tr.order.expanded .expander .expander-trigger {
+      transform: translateY(2px) rotate(90deg); }
+    body .orders-table tbody tr.order.expanded + .details:after {
+      transition: background-color .4s; }
+    body .orders-table tbody tr.order.expanded + .details td {
+      padding: 1px;
+      padding-left: 20px;
+      border-bottom: 1px solid #bbbbbb;
+      border-left: 4px solid #2962FF;
+      background: #fff;
+      z-index: 20; }
+      body .orders-table tbody tr.order.expanded + .details td .details-content p {
+        font-size: 16px;
+        margin: 16px 0;
+        opacity: 1;
+        line-height: 24px; }
+  @media (max-width: 900px) {
+    body .orders-table .order-date {
+      border: 1px solid orange;
+      display: none; } }
+  @media (max-width: 600px) {
+    body .orders-table .order-payment {
+      display: none; } }
+  @media (max-width: 400px) {
+    body .orders-table .order-state {
+      display: none; } }
+
+body #change-password:not(.visible) {
+  display: none; }
+
+body .ballance-block {
+  display: flex;
+  flex-wrap: wrap; }
+  body .ballance-block + .underline-wrapper {
+    margin-top: 36px; }
+  body .ballance-block input {
+    text-align: left; }
+  body .ballance-block .ballance {
+    width: 20px;
+    flex-grow: 1;
+    box-sizing: border-box; }
+    body .ballance-block .ballance.input-field {
+      margin-right: 20px; }
+    body .ballance-block .ballance:not(.input-field) {
+      padding-top: 20px; }
+  body .ballance-block .action {
+    padding-top: 12px; }
+  body .ballance-block > * {
+    margin: 0;
+    box-sizing: border-box; }
+
+body #checkout #ballance + p {
+  margin-bottom: 60px; }

@@ -1,0 +1,15 @@
+<section id="news">
+	<div class="container">
+		<div class="row">
+			<div class="col s12">
+				<h2>Новости компании</h2>
+			</div>
+		</div>
+		<div class="row">
+			@@loop('./news-entry_small.html', '../html/data/news_short.json')
+		</div>
+		<div class="row">
+			<div class="col s12 center-align"><a href="/news.html" class="bttn">Все новости</a></div>
+		</div>
+	</div>
+</section>

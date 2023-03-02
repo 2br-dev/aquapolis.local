@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+@@include('./parts/head.html', {title: "Новости", style: "news"})
+</head>
+<body>
+	@@include('./parts/header.html')
+	<main id="news">
+		<div class="container">
+			<div class="row flex vcenter">
+				@@loop('./parts/news-entry_top.html', './data/news.json')
+				<div class="col s12">
+					<h1>Новости компании</h1>
+				</div>
+				<div class="col s12"><div class="divider"></div></div>
+				<div class="col s12"><h2>Важно</h2></div>
+				@@loop('./parts/news-entry_large.html', './data/news.json')
+				<div class="col s12"><div class="divider"></div></div>
+				<div class="col s12"><h2>Актуальные новости</h2></div>
+				@@loop('./parts/news-entry_main.html', './data/news.json')
+				<div class="col s12 center-align">
+					<a href="" class="bttn">Загрузить ещё…</a>
+				</div>
+			</div>
+		</div>
+	</main>
+	@@include('./parts/fab.html')
+	@@include('./parts/footer.html')
+	@@include('./parts/scripts.html')
+</body>
+</html>

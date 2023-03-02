@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ru">	
+<head>
+@@include('./parts/head.html', {title: "Продукт", style:"product"})
+</head>
+<body>
+	@@include('./parts/header.html')
+	<main id="product">
+		<section>
+			<div class="container">
+				<div class="row flex">
+					<div class="col xl5 offset-xl1 l6 m8 offset-m2 s12">
+						<div class="product-images">
+							<div class="type-icon-wrapper">
+								<div class="type-icon arthesian"></div>
+								<div class="type-label">Артезианская</div>
+							</div>
+							<div class="swiper entry-slider">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide"><img src="" alt="" class="lazy" data-src="/img/bottles/arhyz.png"></div>
+									<div class="swiper-slide"><img src="" alt="" class="lazy" data-src="/img/bottles/chistogornaya.png"></div>
+									<div class="swiper-slide"><img src="" alt="" class="lazy" data-src="/img/bottles/dombai.png"></div>
+									<div class="swiper-slide"><img src="" alt="" class="lazy" data-src="/img/bottles/elbrusinka.png"></div>
+								</div>
+								<div class="entry-pagination"></div>
+							</div>
+						</div>
+					</div>
+					<div class="col xl offset-xl1 l5 offset-l1 m12 product-details">
+						<h1>Горный ключ</h1>
+						<div class="prices">
+							<div class="price">
+								<div class="price-title">1 бутыль</div>
+								<div class="price-value">240<span class="rur-sign">₽</span></div>
+							</div>
+							<div class="price">
+								<div class="price-title">от 2х бутылей</div>
+								<div class="price-value">240<span class="rur-sign">₽</span></div>
+							</div>
+							<div class="price">
+								<div class="price-title">от 4х бутылей</div>
+								<div class="price-value">240<span class="rur-sign">₽</span></div>
+							</div>
+						</div>
+						<div class="note">* цена указана при условии наличия оборотной тары</div>
+						<div class="divider"></div>
+						<input type="checkbox" class="styled" id="include_empty"><label for="include_empty">Включить в заказ пустую тару</label>
+						<p><strong>Доставка осуществляется бесплатно</strong> в черте города при заказе от 2х бутылей. При доставке в отдалённые раёоны стоимость доставки может измениться.</p>
+						<p><strong>Самовывоз доступен по адресам:</strong></p>
+						<div class="address-popup-wrapper">
+							<ul class="browser-default">
+								<li>
+									<a href="javascript:void(0);">пер. Спасский д. 16, пом 8</a>
+									<div class="address-popup z-depth-1">
+										<div class="name">пер. Спасский д. 16, пом 8</div>
+										<div class="kv-pair">
+											<div class="key">Время работы: </div>
+											<div class="value">8:00 – 18:00</div>
+										</div>
+										<div class="kv-pair">
+											<div class="key">Приём заявок: </div>
+											<div class="value">8:00 — 20:00</div>
+										</div>
+										<div class="kv-pair">
+											<div class="key">Телефон:</div>
+											<div class="value">+7 (918) 66-22-880</div>
+										</div>
+										<a href="https://maps.yandex.ru">Показать на карте »</a>
+									</div>
+								</li>
+								<li>
+									<a href="javascript:void(0);">с. Супсех, ул.Советская д. 19</a>
+									<div class="address-popup z-depth-1">
+										<div class="name">с. Супсех, ул.Советская д. 19</div>
+										<div class="kv-pair">
+											<div class="key">Время работы: </div>
+											<div class="value">8:00 – 18:00</div>
+										</div>
+										<div class="kv-pair">
+											<div class="key">Приём заявок: </div>
+											<div class="value">8:00 — 20:00</div>
+										</div>
+										<div class="kv-pair">
+											<div class="key">Телефон:</div>
+											<div class="value">+7 (918) 66-22-880</div>
+										</div>
+										<a href="https://maps.yandex.ru">Показать на карте »</a>
+									</div>
+								</li>
+								<li>
+									<a href="javascript:void(0);">ул. 160 лет Витязево, 72</a>
+									<div class="address-popup z-depth-1">
+										<div class="name">ул. 160 лет Витязево, 72</div>
+										<div class="kv-pair">
+											<div class="key">Время работы: </div>
+											<div class="value">8:00 – 18:00</div>
+										</div>
+										<div class="kv-pair">
+											<div class="key">Приём заявок: </div>
+											<div class="value">8:00 — 20:00</div>
+										</div>
+										<div class="kv-pair">
+											<div class="key">Телефон:</div>
+											<div class="value">+7 (918) 66-22-880</div>
+										</div>
+										<a href="https://maps.yandex.ru">Показать на карте »</a>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col xl8 offset-xl2 l10 offset-l1 s12">
+						<ul class="product-tabs">
+							<li class="product-tab active"><a href="#desc">
+								<span class="mdi mdi-comment-text-outline hide-m-down"> Описание</span>
+								<span class="mdi mdi-comment-text-outline hide-m-up"></span>
+							</a></li>
+							<li class="product-tab"><a href="#char">
+								<span class="mdi mdi-view-list hide-m-down"> Характеристики</span>
+								<span class="mdi mdi-view-list hide-m-up"></span>
+							</a></li>
+							<li class="product-tab"><a href="#docs">
+								<span class="mdi mdi-file-document-outline hide-m-down"> Документы</span>
+								<span class="mdi mdi-file-document-outline hide-m-up"></span>
+							</a></li>
+							<li class="indicator"></li>
+						</ul>
+						<div class="tabs-content">
+							<div class="tab-content hidden" id="desc">Описание</div>
+							<div class="tab-content hidden" id="char">Характеристики</div>
+							<div class="tab-content hidden" id="docs">Документы</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		@@include('./parts/offers_slider.html', {title: "Вы ещё не пробовали"})
+		@@include('./parts/shops_block.html')
+	</main>
+	@@include('./parts/fab.html')
+	@@include('./parts/footer.html')
+	@@include('./parts/scripts.html')
+</body>
+</html>

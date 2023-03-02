@@ -1,0 +1,93 @@
+@import '../parts/vars';
+@import '../parts/typography';
+
+body{
+
+	& #contacts{
+
+		& .row{
+
+			& .col{
+				margin-bottom: 20px;
+			}
+		}
+
+		& .lazy{
+			aspect-ratio: 16 / 9;
+			border-radius: $border-radius;
+			background-size: cover;
+			transition: filter .4s;
+			// filter: grayscale(1) brightness(1.4) contrast(1.2);
+			// box-shadow: 0 0 0 1px #777 inset;
+
+			&:hover{
+				filter: none;
+			}
+		}
+
+		& .city{
+			@extend h3;
+			margin: 10px 0;
+		}
+
+		& .address{
+			font-weight: bold;
+			color: $fogged;
+		}
+
+		& .kv-pair{
+
+			display: table-row;
+
+			& .key{
+				display: table-cell;
+				font-size: 16px;
+				color: $fogged;
+				font-weight: 300;
+				padding-right: 20px;
+			}
+
+			& .value{
+				display: table-cell;
+				font-weight: bold;
+				color: $text;
+			}
+
+			@media(max-width: $small){
+				display: block;
+
+				& .key, & .value{
+					display: block;
+				}
+			}
+		}
+
+		.contacts-swiper-pagination{
+			
+			display: flex;
+			margin-bottom: 20px;
+
+			& .swiper-pagination-bullet{
+				flex-grow: 1;
+				padding: 2px;
+				background: none;
+				opacity: 1;
+
+				&:before{
+					content: '';
+					display: block;
+					height: 6px;
+					border-radius: 6px;
+					background: $menu_hover;
+					box-shadow: 0 2px 4px rgba(black, .4) inset;
+				}
+			}
+
+			& .swiper-pagination-bullet-active:before{
+				background: $primary;
+				box-shadow: none;
+			}
+		}
+	}
+	
+}

@@ -1,0 +1,44 @@
+<div class="col xl4 l6 s12">
+	<div class="fasad-swiper@@swiperIndex swiper">
+		<div class="swiper-wrapper">
+			@@if(context.addresses){
+				@@for(let i=0; i<addresses.length; i++){
+					<div class="swiper-slide">
+						<div class="lazy" data-bg="` + addresses[i].image + `"></div>
+					</div>
+				}
+			}
+		</div>
+	</div>
+	<div class="city">г. @@city</div>
+	<div class="swiper@@swiperIndex-pagination contacts-swiper-pagination"></div>
+	<div class="fasad-info-swiper@@swiperIndex swiper">
+		<div class="swiper-wrapper">
+			@@if(context.addresses){
+				@@for(let i=0; i<addresses.length; i++){
+					<div class="swiper-slide">
+						<div class="address">` + addresses[i].address + `</div>
+						<div class="kv-pair address">
+							<div class="key">Время работы офиса:</div>
+							<div class="value">`+addresses[i].officeTime+`</div>
+						</div>
+						<div class="kv-pair address">
+							<div class="key">Приём заявок по телефону:</div>
+							<div class="value">`+addresses[i].callTime+`</div>
+						</div>
+						<div class="kv-pair address">
+							<div class="key">Телефон:</div>
+							<div class="value">`+addresses[i].phone+`</div>
+						</div>
+						@@if(context.mobile==true){
+							<div class="kv-pair address">
+								<div class="key">Мобильный:</div>
+								<div class="value">`+addresses[i].mobile+`</div>
+							</div>
+						}
+					</div>
+				}
+			}
+		</div>
+	</div>
+</div>

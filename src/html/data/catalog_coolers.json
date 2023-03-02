@@ -1,0 +1,123 @@
+[
+	{
+		"className": "product",
+		"link": "/product.html",
+		"images":[
+			"/img/coolers/07LD.png"
+		],
+		"name":"SMixx 07LD белый с черным (компактный)",
+		"type":{
+			"className":"floor",
+			"label":"Напольный"
+		},
+		"price1":"8 900",
+		"labels":[
+			{
+				"class":"bestseller",
+				"text": "хит продаж"
+			},
+			{
+				"class":"new",
+				"text": "новинка"
+			}
+		]
+	},
+	{
+		"className": "product",
+		"link": "/product.html",
+		"images":[
+			"/img/coolers/08LD.png"
+		],
+		"name":"SMixx 08LD серебристый (шкаф)",
+		"type":{
+			"className":"floor",
+			"label":"Напольный"
+		},
+		"price1":"9 600",
+		"labels":[
+			{
+				"class":"bestseller",
+				"text": "хит продаж"
+			},
+			{
+				"class":"new",
+				"text": "новинка"
+			}
+		]
+	},
+	{
+		"className": "product",
+		"link": "/product.html",
+		"images":[
+			"/img/coolers/178L.png"
+		],
+		"name":"SMixx 178 L серый с серебром",
+		"type":{
+			"className":"floor",
+			"label":"Напольный"
+		},
+		"price1":"16 050",
+		"labels":[
+			{
+				"class":"bestseller",
+				"text": "хит продаж"
+			},
+			{
+				"class":"new",
+				"text": "новинка"
+			}
+		]
+	},
+	{
+		"className": "product",
+		"link": "/product.html",
+		"images":[
+			"/img/coolers/26TD.png"
+		],
+		"name":"SMixx 26 TD белый(компактный)",
+		"type":{
+			"className":"table",
+			"label":"Настольный"
+		},
+		"price1":"4 800",
+		"labels":[
+			{
+				"class":"bestseller",
+				"text": "хит продаж"
+			},
+			{
+				"class":"new",
+				"text": "новинка"
+			}
+		]
+	},
+	{
+		"className": "product",
+		"link": "/product.html",
+		"images":[
+			"/img/coolers/16LD.png"
+		],
+		"name":"Кулер SMixx 16LD/E серебристый",
+		"type":{
+			"className":"floor",
+			"label":"Напольный"
+		},
+		"price1":"10 500",
+		"labels":[
+			{
+				"class":"bestseller",
+				"text": "хит продаж"
+			},
+			{
+				"class":"new",
+				"text": "новинка"
+			}
+		]
+	},
+	{
+		"className": "action",
+		"image":"/img/actions/action4.jpg",
+		"link": "/action.html"
+	}
+
+]

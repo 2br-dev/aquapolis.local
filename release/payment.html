@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>История операций</title>
+<link rel="stylesheet" href="/css/master.css">
+
+<body>
+	<header>
+	<div class="container">
+		<div class="burger-wrapper">
+			<a href="#mobile" class="sidenav-trigger"><i class="mdi mdi-menu"></i></a>
+		</div>
+		<div class="logo-wrapper">
+			<a href="/index.html" class="logo"></a>
+		</div>
+		<nav>
+			<div class="top">
+				<ul class="sections">
+					<li class="active"><a href="/index.html">Дом</a></li>
+					<li><a href="/index.office.html">Офис</a></li>
+					<li><a href="/index.horeca.html">HoReCa</a></li>
+				</ul>
+				<ul class="geo-city">
+					<li class="current">
+						<i class="mdi mdi-map-marker"></i><span>Ваш город: </span>
+						<a href="javascript:void(0);"><u>г. Анапа</u></a>
+						<i class="mdi mdi-menu-down"></i>
+						<ul class="dropdown-menu">
+							<li><a href="/">г. Крымск</a></li>
+							<li><a href="/">г. Новороссийск</a></li>
+							<li><a href="/">г. Анапа</a></li>
+							<li><a href="/">г. Абинск</a></li>
+							<li><a href="/">г. Славянск-на-Кубани</a></li>
+						</ul>
+					</li>
+				</ul>
+				<div class="separator"></div>
+				<div class="phones">
+					<a href=""><i class="mdi mdi-phone"></i><span>(918) 66-22-880</span></a>
+					<a href=""><i class="mdi mdi-telegram"></i><span>Telegram</span></a>
+					<a href=""><i class="mdi mdi-whatsapp"></i><span>WhatsApp</span></a>
+				</div>
+			</div>
+			<div class="bottom">
+				<div class="catalog">
+					<a href="javascript:void(0);" class="bttn">
+						<i class="mdi mdi-menu"></i>
+						<span>Каталог</span>
+					</a>
+					<ul class="dropdown-menu">
+						<li><a href="/catalog_water.html">Питьевая вода</a></li>
+						<li><a href="/catalog_cooler.html">Кулеры и помпы</a></li>
+						<li><a href="/catalog_cooler.html">Аксессуары</a></li>
+						<li><a href="/catalog_cooler.html">Разное</a></li>
+					</ul>
+				</div>
+				<ul class="main-nav">
+					<li><a href="/actions.html">Акции</a></li>
+					<li><a href="/offers.html">Спец. предложения</a></li>
+					<li><a href="/payment.html">Оплата и доставка</a></li>
+					<li><a href="/service.html">Сервис</a></li>
+					<li><a href="/contacts.html">Контакты</a></li>
+				</ul>
+				<div class="separator"></div>
+				<ul class="my">
+					<li><a href="/basket.html"><i class="mdi mdi-cart"></i><span>Корзина</span></a></li>
+					<li>
+						<a href="javascript:void(0);"><i class="mdi mdi-account-circle"></i><span>Войти</span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#login" class="modal-trigger waves-effect">Авторизация</a></li>
+							<li><a href="#register" class="modal-trigger waves-effect">Регистрация</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+</header>
+<ul class="sidenav" id="mobile">
+	<li class="geo-city-mobile">
+		<a href="javascript:void(0);" class="folder">
+			<div>Ваш город: </div>
+			<i class="mdi mdi-map-marker"></i>
+			<div>Анапа</div>
+			<i class="mdi mdi-menu-down"></i>
+		</a>
+		<ul class="cities">
+			<li><a href="">г. Крымск</a></li>
+			<li><a href="">г. Новороссийск</a></li>
+			<li><a href="">г. Анапа</a></li>
+			<li><a href="">г. Абинск</a></li>
+			<li><a href="">г. Славянск-на-Кубани</a></li>
+		</ul>
+	</li>
+	<li class="logo-wrapper">
+		<a href="/" class="logo"></a>
+	</li>
+	<li>
+		<ul class="sections">
+			<li class="active"><a href="">Дом</a></li>
+			<li><a href="">Офис</a></li>
+			<li><a href="">HoReCa</a></li>
+		</ul>		
+	</li>
+	<li class="catalog">
+		<a href="#!" class="folder">Каталог</a>
+		<ul>
+			<li><a href="/catalog_water.html">Питьевая вода</a></li>
+			<li><a href="/catalog_coolers.html">Кулеры и помпы</a></li>
+			<li><a href="/catalog_coolers.html">Аксессуары</a></li>
+			<li><a href="/catalog_coolers.html">Разное</a></li>
+		</ul>
+	</li>
+	<li><a href="/actions.html">Акции</a></li>
+	<li><a href="/offers.html">Спец. предложения</a></li>
+	<li><a href="/payment.html">Оплата и доставка</a></li>
+	<li><a href="/service.html">Сервис</a></li>
+	<li><a href="/contacts.html">Контакты</a></li>
+</ul>
+	<main>
+		<div class="global-wrapper" id="history">
+			<div class="container">
+				<div class="row">
+					<div class="col s12">
+						<h1>Оплата и доставка</h1>
+					</div>
+					<div class="col xl5 l6 m12">
+						<h2>Оплата товара</h2>
+						<p>В настоящее время оплата товара может осуществлятся одним из следующих способов:</p>
+						<ul class="browser-default">
+							<li>
+								<span class="p-type">Курьеру при получении</span>
+								<p>Вы можете оплатить курьеру с помощью банковской карты или через наличный расчёт.</p>
+							</li>
+							<li>
+								<span class="p-type">Банковской картой на сайте</span>
+								<p>Поддерживаются основные платёжные системы, работающие в России: Visa®, MasterCard™, Мир®</p>
+							</li>
+							<li>
+								<span class="p-type">Экспресс-оплата</span>
+								<p>Если необходим прямой перевод денежных средств, вы можете воспользоваться безналичным переводом через СберБанк с помощью этой ссылки:</p>
+							</li>
+							<li>
+								<span class="p-type">C балланса аккаунта</span>
+								<p>Пополнить балланс аккаунта вы можете либо с помощью экспресс-оплаты, либо из личного кабинета пользователя.</p>
+							</li>
+							<li>
+								<span class="p-type">Безналичный расчёт</span>
+								<p>При формировании заказа будет сформирован счёт, который будет отправлен на электронную почту пользователя.</p>
+							</li>
+							<li>
+								<span class="p-type">Кредит в Сбер®</span>
+								<p>При формировании заказа будет сформирован счёт, который будет отправлен на электронную почту пользователя.</p>
+							</li>
+						</ul>
+						<p>В слу­чае ес­ли Ваш банк под­держи­ва­ет тех­но­логию бе­зопас­но­го про­веде­ния ин­тернет-пла­тежей Verified By Visa или MasterCard Secure Code, для про­веде­ния пла­тежа так­же мо­жет пот­ре­бовать­ся ввод спе­ци­аль­но­го па­роля. Спо­собы и воз­можность по­луче­ния па­ролей для со­вер­ше­ния ин­тернет-пла­тежей Вы мо­жете уточ­нить в бан­ке, вы­пус­тившем кар­ту.</p>
+						<p>Нас­то­ящий сайт под­держи­ва­ет 256-бит­ное шиф­ро­вание. Кон­фи­ден­ци­аль­ность со­об­ща­емой пер­со­наль­ной ин­форма­ции обес­пе­чива­ет­ся ПАО «Сбер­банк Рос­сии». Вве­ден­ная ин­форма­ция не бу­дет пре­дос­тавле­на треть­им ли­цам за ис­клю­чени­ем слу­ча­ев, пре­дус­мотрен­ных за­коно­датель­ством РФ. Про­веде­ние пла­тежей по бан­ков­ским кар­там осу­щест­вля­ет­ся в стро­гом со­от­ветс­твии с тре­бова­ни­ями пла­теж­ных сис­тем Visa Int. и MasterCard Europe Sprl.</p>
+					</div>
+					<div class="col xl4 l6 m12">
+						<h2>Возврат</h2>
+						<h3>Возврат товаров</h3>
+						<p>Возврат питьевых бутилированных вод надлежащего качества, после приёма их покупателем, невозможен по законодательству РФ, так как они являются продуктом питания.</p>
+						<p>Возврат кулеров и прочих товаров магазина происходит согласно Закону о защите прав потребителя, Гражданского кодекса РФ, Положения Правительства РФ от 10.11.2011 №924 и других нормативных законодательных РФ.</p>
+						<h3>Возврат денежных средств при оплате наличными</h3>
+						<p>Возврат наличных денежных средств, поступивших в пользу ИП Гущиной А.Ю., происходит после подачи письменного заявления и предъявления документа, удостоверяющего личность, по адресу Калинина 333.</p>
+						<h3>Возврат денежных средств при оплате картами</h3>
+						<p>При оплате картами возврат наличными денежными средствами не допускается. Порядок возврата регулируется правилами международных платежных систем.</p>
+						<p>Для возврата денежных средств на банковскую карту необходимо заполнить «Заявление о возврате денежных средств», которое высылается Продавцом на электронный адрес Покупателя по запросу, в ответ Покупатель направляет заполненное заявление вместе с приложением копии паспорта по адресу 700601@mail.ru .</p>
+						<p>Возврат денежных средств будет осуществлен на банковскую карту в течение 10 дней рабочих дней с момента получения заявления от Покупателя.</p>
+					</div>
+					<div class="col xl3 l12 m12">
+						<h2>Доставка</h2>
+						<p>Дос­тавка по го­роду - бес­плат­ная. Ус­ло­вия дос­тавки в от­да­лен­ные ре­ги­оны уточ­няй­те у опе­рато­ра</p>
+						<h3>Удалённые районы</h3>
+						<div class="row flex">
+							<div class="col xl12 l6 m6 s12 no-padding">
+								<ul class="browser-default no-margin">
+									<li>пос. Северный</li>
+									<li>пос. Южный</li>
+									<li>пос. Плодородный</li>
+									<li>р-он Витаминкомбината</li>
+									<li>Ейского шоссе</li>
+									<li>Гор.хутор</li>
+									<li>р-он Рубероидного завода</li>
+									<li>ст. Елизаветенская</li>
+									<li>ст. Марьянская</li>
+									<li>ст. Новотитаровская</li>
+									<li>Знаменский</li>
+									<li>Старознаменский</li>
+									<li>Индустриальный</li>
+									<li>Дивный</li>
+								</ul>
+							</div>
+							<div class="col xl12 l6 m6 s12 no-padding">
+								<ul class="browser-default no-margin">
+									<li>х.Копанской</li>
+									<li>р-он Аэропорта</li>
+									<li>Восточный обход</li>
+									<li>Ростовское шоссе до 18 км от Краснодара</li>
+									<li>ближайшие поселения и с/т</li>
+									<li>находящиеся недалеко от трассы Немецкая деревня</li>
+									<li>Западный обход</li>
+									<li>2-ое отд с/х Солнечный</li>
+									<li>Колосистый</li>
+									<li>пос. Яблоновский</li>
+									<li>Тургеневское шоссе</li>
+									<li>Мега Адыгея</li>
+									<li>Радиорынок</li>
+									<li>Новознаменский</li>
+									<li>Хутор Ленина и другие</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+	<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col l2 m12 s12"><a href="" class="logo"></a></div>
+			<div class="col l2 m6 s6 xs12">
+				<div class="footer-header">Навигация по сайту</div>
+				<ul>
+					<li><a href="./catalog.html">Каталог</a></li>
+					<li><a href="./actions.html">Акции</a></li>
+					<li><a href="./offers.html">Специальные предложения</a></li>
+					<li><a href="./payment.html">Оплата и доставка</a></li>
+					<li><a href="./service.html">Сервисный центр</a></li>
+					<li><a href="./contacts.html">Контакты</a></li>
+				</ul>
+			</div>
+			<div class="col l2 m6 s6 xs12">
+				<div class="footer-header">Навигация по каталогу</div>
+				<ul>
+					<li><a href="./catalog_water.html">Вода</a></li>
+					<li><a href="./catalog_cooler.html">Тара</a></li>
+					<li><a href="./catalog_cooler.html">Кулеры</a></li>
+					<li><a href="./catalog_cooler.html">Аксессуары</a></li>
+					<li><a href="./catalog_cooler.html">Кофе</a></li>
+				</ul>
+			</div>
+			<div class="col l4 xl3 m12">
+				<div class="footer-header">Важно</div>
+				<p>
+					Компания «Аквагород» на сайте использует файлы Cookie для обеспечения удобства пользователя. Используя функционал аторизации/регистрации пользователь даёт своё согласие на <a class="underline" href="/collect.html">Сбор и обработку</a> персональных данных в соответствии с <a class="underline" href="/policy.html">Политикой конфиденциальности</a>
+					и <a class="underline" href="/agreement.html">Пользовательским соглашением</a>.
+				</p>
+			</div>
+			<div class="col l2 m6 s6 xs12 offset-xl1">
+				<div class="footer-header">Обратная связь</div>
+				<ul>
+					<li><a href=""><i class="mdi mdi-cellphone"></i><span>(918) 66-22-880</span></a></li>
+					<li><a href=""><i class="mdi mdi-email-open"></i><span>shop@voda-plus.info</span></a></li>
+					<li><a href=""><i class="mdi mdi-telegram"></i><span>Telegram</span></a></li>
+					<li><a href=""><i class="mdi mdi-whatsapp"></i><span>WhatsApp</span></a></li>
+					<li><a href=""><i class="mdi mdi-map-marker"></i><span>пер. Спасский д. 16, пом 8</span></a></li>
+					<li><a href=""><i class="mdi mdi-clock"></i><span>Пн-Вс 8:00 - 19:01</span></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</footer>
+<div class="footer-copyright">
+	<div class="container">
+		<div class="copyright">© АкваГород, 20222</div>
+		<div class="credits">Дизайн, разработка – <strong><a href="">2BR</a></strong></div>
+	</div>
+</div>
+
+<!-- Форма авторизации -->
+<form class="modal" id="login">
+    <div class="modal-content">
+        <a href="#!" class="modal-close"><i class="mdi mdi-close"></i></a>
+        <p class="modal-header">Авторизация</p>
+        <div class="input-field"><input type="text" placeholder="Логин" class="styled"><label for="">Логин</label></div>
+        <div class="input-field"><input type="password" placeholder="Пароль" class="styled"><label for="">Пароль</label></div>
+	</div>
+	<div class="modal-footer">
+        <a class="bttn-outline modal-trigger modal-close" href="#register">Зарегистрироваться</a>
+		<a class="bttn center" href="/profile.html">Войти</a>
+	</div>
+</form>
+
+<!-- Форма регистрации -->
+<form class="modal" id="register">
+    <div class="modal-content">
+        <p class="modal-header">Регистрация</p>
+        <a href="#!" class="modal-close"><i class="mdi mdi-close"></i></a>
+        <div class="type">
+            <input type="radio" value="phisical" name="account-type" checked id="type1" class="styled">
+            <label for="type1">Физическое лицо</label>
+            <input type="radio" value="law" name="account-type" id="type2" class="styled">
+            <label for="type2">Юридическое лицо</label>
+        </div>
+        <div class="row" data-mode="phisical" id="fieldset">
+            <div class="col l4 m6 s12 law">
+                <div class="input-field"><input type="text" class="styled" placeholder="Организация"><label for="">Организация</label></div>
+            </div>
+            <div class="col l4 m6 s12">
+                <div class="input-field"><input type="text" class="styled" placeholder="Фамилия"><label for="">Фамилия</label></div>
+            </div>
+            <div class="col l4 m6 s12">
+                <div class="input-field"><input type="text" class="styled" placeholder="Имя"><label for="">Имя</label></div>
+            </div>
+            <div class="col l4 m6 s12">
+                <div class="input-field"><input type="text" class="styled" placeholder="Отчество"><label for="">Отчество</label></div>
+            </div>
+            <div class="col l4 m6 s12">
+                <div class="input-field"><input type="text" class="styled" placeholder="Телефон"><label for="">Телефон</label></div>
+            </div>
+            <div class="col l4 m6 s12 law">
+                <div class="input-field"><input type="text" class="styled" placeholder="ИНН"><label for="">ИНН</label></div>
+            </div>
+            <div class="col l4 m6 s12 law">
+                <div class="input-field"><input type="text" class="styled" placeholder="ОГРН/ОГРИП"><label for="">ОГРН/ОГРИП</label></div>
+            </div>
+            <div class="col l4 m6 s12">
+                <div class="input-field"><input type="email" class="styled" placeholder="E-mail"><label for="">E-mail</label></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col l4 m6 s12">
+                <div class="input-field"><input type="password" class="styled" placeholder="Пароль"><label for="">Пароль</label></div>
+            </div>
+            <div class="col l4 m6 s12">
+                <div class="input-field"><input type="password" class="styled" placeholder="Подтверждение"><label for="">Подтверждение</label></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                <p class="note">
+                    Нажимая кнопку «Регистрация», я принимаю условия <a href="/agreement.html">Пользовательского соглашения</a> 
+                    и даю своё согласие на обработку персональных данных ООО "Акватория" и ИП Картамышева А.А., в соответствии с <a href="http://www.consultant.ru/document/cons_doc_LAW_61801/" >Федеральным законом</a> 
+                    от 27.07.2006 года №152-ФЗ «О персональных данных», на условиях и для целей, определенных <a href="/policy.html" >Политикой конфиденциальности</a> 
+                    и Политикой в отношении обработки персональных данных</p>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a class="bttn-outline modal-trigger modal-close" href="#login">Авторизация</a>
+        <a class="bttn" href="/profile.html">Регистрация</a>
+    </div>
+</form>
+	<script src="/js/swiper-bundle.min.js"></script>
+<script src="/js/master.js"></script>
+</body>
+</html>

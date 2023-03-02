@@ -1,0 +1,80 @@
+@@if(context.className){
+
+	@@if(className==="product"){
+		<div class="swiper-slide">
+			<div class="card-water">
+				<div class="labels">
+					@@for(let i = 0; i < labels.length; i++){
+						<div class="label ` + labels[i].class + `"><span>` + labels[i].text + `</span></div>
+					}
+				</div>
+				<div class="name-wrapper">
+					<svg viewBox="0 0 50 70">
+						<g transform="translate(50 70)">
+							<text class="name" transform="rotate(-90)">
+								@@name
+							</text>
+						</g>
+					</svg>
+				</div>
+				<div class="image-wrapper">
+					<div class="swiper product-swiper">
+						<div class="swiper-wrapper">
+							@@for(let i=0; i<images.length; i++){
+								<a href="@@link" class="swiper-slide lazy" data-bg="` + images[i] + `"></a>
+							}
+						</div>
+						<div class="swiper-pagination"></div>
+					</div>
+
+					<div class="product-type @@type.className" title="@@type.label"></div>
+				</div>
+				<div class="product-info">
+					<div class="name"><a href="@@link">@@name</a></div>
+					<div class="prices">
+						@@if(context.price1){
+							<div class="price">
+								<div class="price-header">за 1 бут</div>
+								<div class="price-value">@@price1<span class="rur-sign">₽</span></div>
+							</div>
+						}
+						@@if(context.price2){
+							<div class="price">
+								<div class="price-header">от 2х бут.</div>
+								<div class="price-value">@@price2<span class="rur-sign">₽</span></div>
+							</div>
+						}
+						@@if(context.price3){
+							<div class="price">
+								<div class="price-header">от 4х бут.</div>
+								<div class="price-value">@@price3<span class="rur-sign">₽</span></div>
+							</div>
+						}
+					</div>
+					<div class="action">
+						<div class="avers"><a href="" class="bttn-outline buy waves-effect">В корзину</a></div>
+						<div class="revers">
+							<form action="">
+								<a href="" class="card-button minus"><i class="mdi mdi-minus"></i></a>
+								<input type="number" value="0" min="0" max="99" />
+								<a href="" class="card-button plus"><i class="mdi mdi-plus"></i></a>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	}
+	
+	@@if(className==="action-wide"){
+		<div class="col xl4 l6 m8">
+			<img class="card-action-wide lazy" data-src="@@image">
+		</div>
+	}
+	
+	@@if(className==="action"){
+		<div class="col xl2 l3 m4 s6 t6">
+			<img class="card-action lazy" data-src="@@image">
+		</div>
+	}
+}

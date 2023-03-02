@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300..500&family=Sofia+Sans:wght@300..800&display=swap");
+body {
+  font-family: 'Sofia Sans', 'Roboto', sans-serif;
+  font-size: calc(16px + .15vmax);
+  line-height: 1.5em;
+  font-weight: 300;
+  color: #333; }
+  body .rur-sign {
+    font-size: .9em; }
+  body h1 {
+    font-size: 4.5rem;
+    font-weight: 800;
+    color: #26C6DA;
+    line-height: 1.5em; }
+  body h2 {
+    font-size: 3.4rem;
+    font-weight: 740;
+    color: #26C6DA;
+    line-height: 1.5em; }
+  body h3, body #contacts .city {
+    font-size: 2.3rem;
+    font-weight: 720;
+    line-height: 1.5em; }
+  body h4 {
+    font-size: 1.2rem;
+    font-weight: 680;
+    text-transform: uppercase;
+    line-height: 1.5em; }
+  @media (max-width: 1200px) {
+    body h1 {
+      font-size: calc(2.5rem + 0.1vmax);
+      line-height: 1em; }
+    body h2 {
+      font-size: calc(2rem + 0.1vmax);
+      line-height: 1em; }
+    body h3, body #contacts .city {
+      font-size: calc(1.5rem + 0.1vmax);
+      line-height: 1em; }
+    body h4 {
+      font-size: calc(1.2rem + 0.1vmax);
+      line-height: 1em; } }
+
+body #contacts .row .col {
+  margin-bottom: 20px; }
+
+body #contacts .lazy {
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  background-size: cover;
+  transition: filter .4s; }
+  body #contacts .lazy:hover {
+    filter: none; }
+
+body #contacts .city {
+  margin: 10px 0; }
+
+body #contacts .address {
+  font-weight: bold;
+  color: #777; }
+
+body #contacts .kv-pair {
+  display: table-row; }
+  body #contacts .kv-pair .key {
+    display: table-cell;
+    font-size: 16px;
+    color: #777;
+    font-weight: 300;
+    padding-right: 20px; }
+  body #contacts .kv-pair .value {
+    display: table-cell;
+    font-weight: bold;
+    color: #333; }
+  @media (max-width: 600px) {
+    body #contacts .kv-pair {
+      display: block; }
+      body #contacts .kv-pair .key, body #contacts .kv-pair .value {
+        display: block; } }
+
+body #contacts .contacts-swiper-pagination {
+  display: flex;
+  margin-bottom: 20px; }
+  body #contacts .contacts-swiper-pagination .swiper-pagination-bullet {
+    flex-grow: 1;
+    padding: 2px;
+    background: none;
+    opacity: 1; }
+    body #contacts .contacts-swiper-pagination .swiper-pagination-bullet:before {
+      content: '';
+      display: block;
+      height: 6px;
+      border-radius: 6px;
+      background: rgba(0, 0, 0, 0.05);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4) inset; }
+  body #contacts .contacts-swiper-pagination .swiper-pagination-bullet-active:before {
+    background: #2962FF;
+    box-shadow: none; }

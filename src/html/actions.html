@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+@@include('./parts/head.html', {title: "Акции", style:"actions"})
+</head>
+<body>
+	@@include('./parts/header.html')
+	<main id="actions">
+		<section>
+			<div class="container">
+				<div class="row flex">
+					<div class="col s12">
+						<h1>Акции</h1>
+					</div>
+					<div class="col l9 m12">
+						<div class="row flex section scrollspy" id="home-section">
+							<div class="col s12"><h2>Для дома</h2></div>
+							<div class="swiper actions-swiper home-swiper" id="home">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide">
+										<a href="/action.html"><img src="/img/actions/action1.jpg"></a>
+									</div>
+									<div class="swiper-slide">
+										<a href="/action.html"><img src="/img/actions/action2.jpg"></a>
+									</div>
+									<div class="swiper-slide">
+										<a href="/action.html"><img src="/img/actions/action3.jpg"></a>
+									</div>
+									<div class="swiper-slide">
+										<a href="/action.html"><img src="/img/actions/action4.jpg"></a>
+									</div>
+									<div class="swiper-slide">
+										<a href="/action.html"><img src="/img/actions/action5.jpg"></a>
+									</div>
+								</div>
+							</div>
+							<div class="home-pagination actions-pagination" id="office"></div>
+						</div>
+						<div class="row flex section scrollspy" id="office-section">
+							<div class="col s12"><h2>Для офиса</h2></div>
+								<div class="swiper actions-swiper office-swiper" id="office">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide">
+										<a href="/action.html"><img src="/img/actions/action1.jpg"></a>
+									</div>
+									<div class="swiper-slide">
+										<a href="/action.html"><img src="/img/actions/action2.jpg"></a>
+									</div>
+									<div class="swiper-slide">
+										<a href="/action.html"><img src="/img/actions/action3.jpg"></a>
+									</div>
+									<div class="swiper-slide">
+										<a href="/action.html"><img src="/img/actions/action4.jpg"></a>
+									</div>
+									<div class="swiper-slide">
+										<a href="/action.html"><img src="/img/actions/action5.jpg"></a>
+									</div>
+								</div>
+							</div>
+							<div class="office-pagination actions-pagination"></div>
+						</div>
+						<div class="row flex section scrollspy" id="horeca-section">
+							<div class="col s12"><h2>Для HoReCa</h2></div>
+								<div class="swiper actions-swiper horeca-swiper" id="horeca">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide">
+										<a href="/action.html"><img src="/img/actions/action1.jpg"></a>
+									</div>
+									<div class="swiper-slide">
+										<a href="/action.html"><img src="/img/actions/action2.jpg"></a>
+									</div>
+									<div class="swiper-slide">
+										<a href="/action.html"><img src="/img/actions/action3.jpg"></a>
+									</div>
+									<div class="swiper-slide">
+										<a href="/action.html"><img src="/img/actions/action4.jpg"></a>
+									</div>
+									<div class="swiper-slide">
+										<a href="/action.html"><img src="/img/actions/action5.jpg"></a>
+									</div>
+								</div>
+							</div>
+							<div class="horeca-pagination actions-pagination"></div>
+						</div>
+						<div class="row flex section scrollspy" id="social-section">
+							<div class="col s12"><h2>Для социальной сферы</h2></div>
+								<div class="swiper actions-swiper social-swiper" id="social">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide">
+										<a href="/action.html"><img src="/img/actions/action1.jpg"></a>
+									</div>
+									<div class="swiper-slide">
+										<a href="/action.html"><img src="/img/actions/action2.jpg"></a>
+									</div>
+									<div class="swiper-slide">
+										<a href="/action.html"><img src="/img/actions/action3.jpg"></a>
+									</div>
+									<div class="swiper-slide">
+										<a href="/action.html"><img src="/img/actions/action4.jpg"></a>
+									</div>
+									<div class="swiper-slide">
+										<a href="/action.html"><img src="/img/actions/action5.jpg"></a>
+									</div>
+								</div>
+							</div>
+							<div class="social-pagination actions-pagination"></div>
+						</div>
+					</div>
+					<div class="col l3 hide-l-down">
+						<div class="toc-wrapper pin">
+							<ul class="section table-of-contents">
+								<li><a href="#home-section">Для дома</a></li>
+								<li><a href="#office-section">Для офиса</a></li>
+								<li><a href="#horeca-section">Для HoReCa</a></li>
+								<li><a href="#social-section">Для социальной сферы</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		@@include('./parts/shops_block.html')
+	</main>
+	@@include('./parts/fab.html')
+	@@include('./parts/footer.html')
+	@@include('./parts/scripts.html')
+</body>
+</html>

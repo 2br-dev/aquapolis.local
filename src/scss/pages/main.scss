@@ -1,0 +1,191 @@
+@import '../parts/vars';
+@import '../parts/typography';
+
+#main{
+
+	& section{
+
+		&#hero{
+
+			@media(min-width: $medium){
+				min-height: 90vh;
+			}
+			
+			position: relative;
+			
+			& .lazy{
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				background-size: cover;
+				background-position: right center;
+
+				&:before{
+					content: '';
+					position: absolute;
+					display: block;
+					top: 0;
+					left: 0;
+					width: 65%;
+					height: 100%;
+					background: linear-gradient(to right, white 50%, transparent);
+				}
+	
+				&:after{
+					content: '';
+					position: absolute;
+					display: block;
+					bottom: 0;
+					left: 0;
+					height: 25%;
+					width: 100%;
+					background: linear-gradient(to bottom, transparent, white 90%);
+				}
+			}
+
+
+			& .communication{
+				position: absolute;
+				z-index: 2;
+				width: 700px;
+
+				@media(max-width: $large){
+					width: 400px;
+				}
+
+				left: 10vmax;
+				top: 20%;
+
+				& h1{
+					margin-top: 0;
+				}
+			}
+
+			@media(max-width: $medium){
+
+				& .lazy{
+
+					position: relative;
+					width: 100%;
+					aspect-ratio: 16 / 9;
+					background-position: unset;
+					background-size: cover;
+
+					&:before{
+						display: none;
+					}
+				}
+
+				& .communication{
+					position: initial;
+					padding: 20px;
+					top: unset;
+					left: unset;
+					width: 100%;
+				}
+			}
+		}
+
+		&#categories{
+
+			& .category{
+
+				border-radius: $border-radius;
+				display: flex;
+				align-items: center;
+				background: #fff linear-gradient(to bottom, #fff, #F3F3F3);
+				background-position: 0 0;
+				overflow: hidden;
+				box-shadow: 0 -4px 0 0 $primary inset, 0 2px 6px rgba(black, .4);
+				transition: background-position .2s;
+
+				&:hover{
+					background-position: 0 90px;
+				}
+
+				& .lazy{
+					display: block;
+					aspect-ratio: 1 / 1;
+					height: 7vmax;
+					min-height: 120px;
+					flex-shrink: 0;
+					background-size: contain;
+				}
+
+				& .category-info{
+					flex-grow: 1;
+					padding: 0 20px;
+
+					& .category-name{
+						font-weight: 600;
+						font-size: 1.6rem;
+					}
+
+					& .category-desc{
+						color: $fogged;
+					}
+				}
+			}
+		}
+
+		& .main-water-pagination{
+			bottom: -20px;
+		}
+
+		& .offers-swiper{
+
+			position: relative;
+
+			& .swiper-slide{
+				width: fit-content;
+			}
+			
+			& img{
+				height: 400px;
+				width: auto;
+				border-radius: $border-radius;
+			}
+
+			& .offers-pagination{
+				bottom: -30px;
+			}
+
+			&:before{
+				content: '';
+				display: block;
+				width: 3vmax;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 20;
+				background: linear-gradient(to right, white, transparent);
+				pointer-events: none;
+			}
+
+			&:after{
+				@extend:before;
+				background: linear-gradient(to left, white, transparent);
+				left: unset;
+				right: 0;
+			}
+
+
+		}
+
+		&#easy{
+
+			& .easy-image{
+				width: 100%;
+				display: block;
+				aspect-ratio: 1 / 1;
+			}
+
+			& .easy-header{
+				@extend h3;
+				text-transform: uppercase;
+				margin: 20px 0;
+			}
+		}
+	}
+}

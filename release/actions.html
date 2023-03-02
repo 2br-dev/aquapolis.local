@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Акции</title>
+<link rel="stylesheet" href="/css/master.css">
+
+<link rel="stylesheet" href="/css/pages/actions.css">
+
+</head>
+<body>
+	<header>
+	<div class="container">
+		<div class="burger-wrapper">
+			<a href="#mobile" class="sidenav-trigger"><i class="mdi mdi-menu"></i></a>
+		</div>
+		<div class="logo-wrapper">
+			<a href="/index.html" class="logo"></a>
+		</div>
+		<nav>
+			<div class="top">
+				<ul class="sections">
+					<li class="active"><a href="/index.html">Дом</a></li>
+					<li><a href="/index.office.html">Офис</a></li>
+					<li><a href="/index.horeca.html">HoReCa</a></li>
+				</ul>
+				<ul class="geo-city">
+					<li class="current">
+						<i class="mdi mdi-map-marker"></i><span>Ваш город: </span>
+						<a href="javascript:void(0);"><u>г. Анапа</u></a>
+						<i class="mdi mdi-menu-down"></i>
+						<ul class="dropdown-menu">
+							<li><a href="/">г. Крымск</a></li>
+							<li><a href="/">г. Новороссийск</a></li>
+							<li><a href="/">г. Анапа</a></li>
+							<li><a href="/">г. Абинск</a></li>
+							<li><a href="/">г. Славянск-на-Кубани</a></li>
+						</ul>
+					</li>
+				</ul>
+				<div class="separator"></div>
+				<div class="phones">
+					<a href=""><i class="mdi mdi-phone"></i><span>(918) 66-22-880</span></a>
+					<a href=""><i class="mdi mdi-telegram"></i><span>Telegram</span></a>
+					<a href=""><i class="mdi mdi-whatsapp"></i><span>WhatsApp</span></a>
+				</div>
+			</div>
+			<div class="bottom">
+				<div class="catalog">
+					<a href="javascript:void(0);" class="bttn">
+						<i class="mdi mdi-menu"></i>
+						<span>Каталог</span>
+					</a>
+					<ul class="dropdown-menu">
+						<li><a href="/catalog_water.html">Питьевая вода</a></li>
+						<li><a href="/catalog_cooler.html">Кулеры и помпы</a></li>
+						<li><a href="/catalog_cooler.html">Аксессуары</a></li>
+						<li><a href="/catalog_cooler.html">Разное</a></li>
+					</ul>
+				</div>
+				<ul class="main-nav">
+					<li><a href="/actions.html">Акции</a></li>
+					<li><a href="/offers.html">Спец. предложения</a></li>
+					<li><a href="/payment.html">Оплата и доставка</a></li>
+					<li><a href="/service.html">Сервис</a></li>
+					<li><a href="/contacts.html">Контакты</a></li>
+				</ul>
+				<div class="separator"></div>
+				<ul class="my">
+					<li><a href="/basket.html"><i class="mdi mdi-cart"></i><span>Корзина</span></a></li>
+					<li>
+						<a href="javascript:void(0);"><i class="mdi mdi-account-circle"></i><span>Войти</span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#login" class="modal-trigger waves-effect">Авторизация</a></li>
+							<li><a href="#register" class="modal-trigger waves-effect">Регистрация</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+</header>
+<ul class="sidenav" id="mobile">
+	<li class="geo-city-mobile">
+		<a href="javascript:void(0);" class="folder">
+			<div>Ваш город: </div>
+			<i class="mdi mdi-map-marker"></i>
+			<div>Анапа</div>
+			<i class="mdi mdi-menu-down"></i>
+		</a>
+		<ul class="cities">
+			<li><a href="">г. Крымск</a></li>
+			<li><a href="">г. Новороссийск</a></li>
+			<li><a href="">г. Анапа</a></li>
+			<li><a href="">г. Абинск</a></li>
+			<li><a href="">г. Славянск-на-Кубани</a></li>
+		</ul>
+	</li>
+	<li class="logo-wrapper">
+		<a href="/" class="logo"></a>
+	</li>
+	<li>
+		<ul class="sections">
+			<li class="active"><a href="">Дом</a></li>
+			<li><a href="">Офис</a></li>
+			<li><a href="">HoReCa</a></li>
+		</ul>		
+	</li>
+	<li class="catalog">
+		<a href="#!" class="folder">Каталог</a>
+		<ul>
+			<li><a href="/catalog_water.html">Питьевая вода</a></li>
+			<li><a href="/catalog_coolers.html">Кулеры и помпы</a></li>
+			<li><a href="/catalog_coolers.html">Аксессуары</a></li>
+			<li><a href="/catalog_coolers.html">Разное</a></li>
+		</ul>
+	</li>
+	<li><a href="/actions.html">Акции</a></li>
+	<li><a href="/offers.html">Спец. предложения</a></li>
+	<li><a href="/payment.html">Оплата и доставка</a></li>
+	<li><a href="/service.html">Сервис</a></li>
+	<li><a href="/contacts.html">Контакты</a></li>
+</ul>
+	<main id="actions">
+		<section>
+			<div class="container">
+				<div class="row flex">
+					<div class="col s12">
+						<h1>Акции</h1>
+					</div>
+					<div class="col l9 m12">
+						<div class="row flex section scrollspy" id="home-section">
+							<div class="col s12"><h2>Для дома</h2></div>
+							<div class="swiper actions-swiper home-swiper" id="home">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide">
+										<a href="/action.html"><img src="/img/actions/action1.jpg"></a>
+									</div>
+									<div class="swiper-slide">
+										<a href="/action.html"><img src="/img/actions/action2.jpg"></a>
+									</div>
+									<div class="swiper-slide">
+										<a href="/action.html"><img src="/img/actions/action3.jpg"></a>
+									</div>
+									<div class="swiper-slide">
+										<a href="/action.html"><img src="/img/actions/action4.jpg"></a>
+									</div>
+									<div class="swiper-slide">
+										<a href="/action.html"><img src="/img/actions/action5.jpg"></a>
+									</div>
+								</div>
+							</div>
+							<div class="home-pagination actions-pagination" id="office"></div>
+						</div>
+						<div class="row flex section scrollspy" id="office-section">
+							<div class="col s12"><h2>Для офиса</h2></div>
+								<div class="swiper actions-swiper office-swiper" id="office">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide">
+										<a href="/action.html"><img src="/img/actions/action1.jpg"></a>
+									</div>
+									<div class="swiper-slide">
+										<a href="/action.html"><img src="/img/actions/action2.jpg"></a>
+									</div>
+									<div class="swiper-slide">
+										<a href="/action.html"><img src="/img/actions/action3.jpg"></a>
+									</div>
+									<div class="swiper-slide">
+										<a href="/action.html"><img src="/img/actions/action4.jpg"></a>
+									</div>
+									<div class="swiper-slide">
+										<a href="/action.html"><img src="/img/actions/action5.jpg"></a>
+									</div>
+								</div>
+							</div>
+							<div class="office-pagination actions-pagination"></div>
+						</div>
+						<div class="row flex section scrollspy" id="horeca-section">
+							<div class="col s12"><h2>Для HoReCa</h2></div>
+								<div class="swiper actions-swiper horeca-swiper" id="horeca">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide">
+										<a href="/action.html"><img src="/img/actions/action1.jpg"></a>
+									</div>
+									<div class="swiper-slide">
+										<a href="/action.html"><img src="/img/actions/action2.jpg"></a>
+									</div>
+									<div class="swiper-slide">
+										<a href="/action.html"><img src="/img/actions/action3.jpg"></a>
+									</div>
+									<div class="swiper-slide">
+										<a href="/action.html"><img src="/img/actions/action4.jpg"></a>
+									</div>
+									<div class="swiper-slide">
+										<a href="/action.html"><img src="/img/actions/action5.jpg"></a>
+									</div>
+								</div>
+							</div>
+							<div class="horeca-pagination actions-pagination"></div>
+						</div>
+						<div class="row flex section scrollspy" id="social-section">
+							<div class="col s12"><h2>Для социальной сферы</h2></div>
+								<div class="swiper actions-swiper social-swiper" id="social">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide">
+										<a href="/action.html"><img src="/img/actions/action1.jpg"></a>
+									</div>
+									<div class="swiper-slide">
+										<a href="/action.html"><img src="/img/actions/action2.jpg"></a>
+									</div>
+									<div class="swiper-slide">
+										<a href="/action.html"><img src="/img/actions/action3.jpg"></a>
+									</div>
+									<div class="swiper-slide">
+										<a href="/action.html"><img src="/img/actions/action4.jpg"></a>
+									</div>
+									<div class="swiper-slide">
+										<a href="/action.html"><img src="/img/actions/action5.jpg"></a>
+									</div>
+								</div>
+							</div>
+							<div class="social-pagination actions-pagination"></div>
+						</div>
+					</div>
+					<div class="col l3 hide-l-down">
+						<div class="toc-wrapper pin">
+							<ul class="section table-of-contents">
+								<li><a href="#home-section">Для дома</a></li>
+								<li><a href="#office-section">Для офиса</a></li>
+								<li><a href="#horeca-section">Для HoReCa</a></li>
+								<li><a href="#social-section">Для социальной сферы</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section id="shops">
+	<div class="row flex">
+		<div class="col s12 center-align">
+			<h2>Наши магазины</h2>
+		</div>
+		<div class="col xl9 l8 m6 no-padding hide-m-down"><div id="ymap"></div></div>
+		<div class="col xl3 l4 m6 no-padding">
+			<div class="city-wrapper">
+				<div class="cities">
+					<div class="city" data-city="0" data-lon="44.941" data-lat="37.33" data-zoom="12">
+	<a class="city-trigger waves-effect" href="#!">
+		<span class="name">Анапа</span>
+		<i class="arrow mdi mdi-chevron-right"></i>
+	</a>
+	<div class="city-description hidden">
+		<div class="fasad-swiper1 swiper">
+			<div class="swiper-wrapper">
+				
+					
+						<div class="swiper-slide">
+							<div class="lazy" data-bg="/img/fasads/anapa_spassky.jpg"></div>
+						</div>
+					
+						<div class="swiper-slide">
+							<div class="lazy" data-bg="/img/fasads/anapa_supseh.jpg"></div>
+						</div>
+					
+						<div class="swiper-slide">
+							<div class="lazy" data-bg="/img/fasads/anapa_vityazevo.jpg"></div>
+						</div>
+					
+				
+			</div>
+		</div>
+		<div class="description-city">г. Анапа</div>
+		<div class="swiper1-pagination contacts-swiper-pagination"></div>
+		<div class="fasad-info-swiper1 swiper">
+			<div class="swiper-wrapper">
+				
+					
+						<div class="swiper-slide">
+							<div class="addressName">пер. Спасский д. 16, пом 8</div>
+							<div class="kv-pair address">
+								<div class="key">Время работы офиса:</div>
+								<div class="value">8:00 — 19:00</div>
+							</div>
+							<div class="kv-pair address">
+								<div class="key">Приём заявок по телефону:</div>
+								<div class="value">8:00 – 20:00</div>
+							</div>
+							<div class="kv-pair address">
+								<div class="key">Телефон:</div>
+								<div class="value">+7 (918) 66-22-880</div>
+							</div>
+							
+						</div>
+					
+						<div class="swiper-slide">
+							<div class="addressName">с. Супсех, ул.Советская д.19.</div>
+							<div class="kv-pair address">
+								<div class="key">Время работы офиса:</div>
+								<div class="value">8:00 — 19:00</div>
+							</div>
+							<div class="kv-pair address">
+								<div class="key">Приём заявок по телефону:</div>
+								<div class="value">8:00 – 20:00</div>
+							</div>
+							<div class="kv-pair address">
+								<div class="key">Телефон:</div>
+								<div class="value">+7 (918) 66-22-880</div>
+							</div>
+							
+						</div>
+					
+						<div class="swiper-slide">
+							<div class="addressName">с. Витязево, ул.160 лет Витязево д.72.</div>
+							<div class="kv-pair address">
+								<div class="key">Время работы офиса:</div>
+								<div class="value">8:00 — 19:00</div>
+							</div>
+							<div class="kv-pair address">
+								<div class="key">Приём заявок по телефону:</div>
+								<div class="value">8:00 – 20:00</div>
+							</div>
+							<div class="kv-pair address">
+								<div class="key">Телефон:</div>
+								<div class="value">+7 (918) 66-22-880</div>
+							</div>
+							
+						</div>
+					
+				
+			</div>
+		</div>
+	</div>
+</div><div class="city" data-city="1" data-lon="44.928114" data-lat="37.979836" data-zoom="16">
+	<a class="city-trigger waves-effect" href="#!">
+		<span class="name">Крымск</span>
+		<i class="arrow mdi mdi-chevron-right"></i>
+	</a>
+	<div class="city-description hidden">
+		<div class="fasad-swiper@@swiperIndex swiper">
+			<div class="swiper-wrapper">
+				
+					
+						<div class="swiper-slide">
+							<div class="lazy" data-bg="/img/fasads/krymsk.jpg"></div>
+						</div>
+					
+				
+			</div>
+		</div>
+		<div class="description-city">г. Крымск</div>
+		<div class="swiper@@swiperIndex-pagination contacts-swiper-pagination"></div>
+		<div class="fasad-info-swiper@@swiperIndex swiper">
+			<div class="swiper-wrapper">
+				
+					
+						<div class="swiper-slide">
+							<div class="addressName">ул. Горная 13</div>
+							<div class="kv-pair address">
+								<div class="key">Время работы офиса:</div>
+								<div class="value">8:00 — 18:00</div>
+							</div>
+							<div class="kv-pair address">
+								<div class="key">Приём заявок по телефону:</div>
+								<div class="value">8:00 – 20:00</div>
+							</div>
+							<div class="kv-pair address">
+								<div class="key">Телефон:</div>
+								<div class="value">+7 (918) 66-22-880</div>
+							</div>
+							
+						</div>
+					
+				
+			</div>
+		</div>
+	</div>
+</div><div class="city" data-city="2" data-lon="44.757288" data-lat="37.725065" data-zoom="16">
+	<a class="city-trigger waves-effect" href="#!">
+		<span class="name">Новороссийск</span>
+		<i class="arrow mdi mdi-chevron-right"></i>
+	</a>
+	<div class="city-description hidden">
+		<div class="fasad-swiper@@swiperIndex swiper">
+			<div class="swiper-wrapper">
+				
+					
+						<div class="swiper-slide">
+							<div class="lazy" data-bg="/img/fasads/novoros.jpg"></div>
+						</div>
+					
+				
+			</div>
+		</div>
+		<div class="description-city">г. Новороссийск</div>
+		<div class="swiper@@swiperIndex-pagination contacts-swiper-pagination"></div>
+		<div class="fasad-info-swiper@@swiperIndex swiper">
+			<div class="swiper-wrapper">
+				
+					
+						<div class="swiper-slide">
+							<div class="addressName">с. Цемдолина ул. Ленина, 79</div>
+							<div class="kv-pair address">
+								<div class="key">Время работы офиса:</div>
+								<div class="value">8:00 — 19:00</div>
+							</div>
+							<div class="kv-pair address">
+								<div class="key">Приём заявок по телефону:</div>
+								<div class="value">8:00 – 20:00</div>
+							</div>
+							<div class="kv-pair address">
+								<div class="key">Телефон:</div>
+								<div class="value">+7 (8617) 69-00-30</div>
+							</div>
+							
+								<div class="kv-pair address">
+									<div class="key">Мобильный:</div>
+									<div class="value">+7 (918) 66-22-880</div>
+								</div>
+							
+						</div>
+					
+				
+			</div>
+		</div>
+	</div>
+</div><div class="city" data-city="3" data-lon="44.86" data-lat="38.16" data-zoom="15">
+	<a class="city-trigger waves-effect" href="#!">
+		<span class="name">Абинск</span>
+		<i class="arrow mdi mdi-chevron-right"></i>
+	</a>
+	<div class="city-description hidden">
+		<div class="fasad-swiper2 swiper">
+			<div class="swiper-wrapper">
+				
+					
+						<div class="swiper-slide">
+							<div class="lazy" data-bg="/img/fasads/abinsk_cemdolina.jpg"></div>
+						</div>
+					
+						<div class="swiper-slide">
+							<div class="lazy" data-bg="/img/fasads/abinsk_sovetov.jpg"></div>
+						</div>
+					
+				
+			</div>
+		</div>
+		<div class="description-city">г. Абинск</div>
+		<div class="swiper2-pagination contacts-swiper-pagination"></div>
+		<div class="fasad-info-swiper2 swiper">
+			<div class="swiper-wrapper">
+				
+					
+						<div class="swiper-slide">
+							<div class="addressName">ул. Советов, 38В (Каротажная)</div>
+							<div class="kv-pair address">
+								<div class="key">Время работы офиса:</div>
+								<div class="value">8:00 — 19:00</div>
+							</div>
+							<div class="kv-pair address">
+								<div class="key">Приём заявок по телефону:</div>
+								<div class="value">8:00 – 20:00</div>
+							</div>
+							<div class="kv-pair address">
+								<div class="key">Телефон:</div>
+								<div class="value">+7 (918) 31-65-65-7</div>
+							</div>
+							
+						</div>
+					
+						<div class="swiper-slide">
+							<div class="addressName">ул.Пионерская, 30</div>
+							<div class="kv-pair address">
+								<div class="key">Время работы офиса:</div>
+								<div class="value">8:00 — 19:00</div>
+							</div>
+							<div class="kv-pair address">
+								<div class="key">Приём заявок по телефону:</div>
+								<div class="value">8:00 – 20:00</div>
+							</div>
+							<div class="kv-pair address">
+								<div class="key">Телефон:</div>
+								<div class="value">+7 (918) 31-65-65-7</div>
+							</div>
+							
+						</div>
+					
+				
+			</div>
+		</div>
+	</div>
+</div><div class="city" data-city="4" data-lon="45.260433" data-lat="38.125147" data-zoom="16">
+	<a class="city-trigger waves-effect" href="#!">
+		<span class="name">Славянск-на-Кубани</span>
+		<i class="arrow mdi mdi-chevron-right"></i>
+	</a>
+	<div class="city-description hidden">
+		<div class="fasad-swiper@@swiperIndex swiper">
+			<div class="swiper-wrapper">
+				
+					
+						<div class="swiper-slide">
+							<div class="lazy" data-bg="/img/fasads/slavyansk.jpg"></div>
+						</div>
+					
+				
+			</div>
+		</div>
+		<div class="description-city">г. Славянск-на-Кубани</div>
+		<div class="swiper@@swiperIndex-pagination contacts-swiper-pagination"></div>
+		<div class="fasad-info-swiper@@swiperIndex swiper">
+			<div class="swiper-wrapper">
+				
+					
+						<div class="swiper-slide">
+							<div class="addressName">ул. Ковтюха, 34</div>
+							<div class="kv-pair address">
+								<div class="key">Время работы офиса:</div>
+								<div class="value">8:00 — 19:00</div>
+							</div>
+							<div class="kv-pair address">
+								<div class="key">Приём заявок по телефону:</div>
+								<div class="value">8:00 – 20:00</div>
+							</div>
+							<div class="kv-pair address">
+								<div class="key">Телефон:</div>
+								<div class="value">+7 (918) 31-65-65-7</div>
+							</div>
+							
+						</div>
+					
+				
+			</div>
+		</div>
+	</div>
+</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row hide-m-down">
+		<div class="col l12 center-align">
+			<div class="quick-navi">
+				<a href="" 
+	data-index="0" 
+	data-lon="44.941"
+	data-lat="37.33"
+	data-zoom="12"
+	class="map-navi quick-navi-entry">
+	Анапа
+</a><a href="" 
+	data-index="1" 
+	data-lon="44.928114"
+	data-lat="37.979836"
+	data-zoom="16"
+	class="map-navi quick-navi-entry">
+	Крымск
+</a><a href="" 
+	data-index="2" 
+	data-lon="44.757288"
+	data-lat="37.725065"
+	data-zoom="16"
+	class="map-navi quick-navi-entry">
+	Новороссийск
+</a><a href="" 
+	data-index="3" 
+	data-lon="44.86"
+	data-lat="38.16"
+	data-zoom="15"
+	class="map-navi quick-navi-entry">
+	Абинск
+</a><a href="" 
+	data-index="4" 
+	data-lon="45.260433"
+	data-lat="38.125147"
+	data-zoom="16"
+	class="map-navi quick-navi-entry">
+	Славянск-на-Кубани
+</a>
+			</div>
+		</div>
+	</div>
+</section>
+	</main>
+	<ul class="fab">
+	<li>
+		<a href="javascript:void(0);" class="mdi mdi-phone z-depth-3"></a>
+	</li>
+	<ul>
+		<li><a href="" class="mdi z-depth-1 mdi-cellphone-iphone"></a></li>
+		<li><a href="" class="mdi z-depth-1 mdi-telegram"></a></li>
+		<li><a href="" class="mdi z-depth-1 mdi-whatsapp"></a></li>
+	</ul>
+</ul>
+	<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col l2 m12 s12"><a href="" class="logo"></a></div>
+			<div class="col l2 m6 s6 xs12">
+				<div class="footer-header">Навигация по сайту</div>
+				<ul>
+					<li><a href="./catalog.html">Каталог</a></li>
+					<li><a href="./actions.html">Акции</a></li>
+					<li><a href="./offers.html">Специальные предложения</a></li>
+					<li><a href="./payment.html">Оплата и доставка</a></li>
+					<li><a href="./service.html">Сервисный центр</a></li>
+					<li><a href="./contacts.html">Контакты</a></li>
+				</ul>
+			</div>
+			<div class="col l2 m6 s6 xs12">
+				<div class="footer-header">Навигация по каталогу</div>
+				<ul>
+					<li><a href="./catalog_water.html">Вода</a></li>
+					<li><a href="./catalog_cooler.html">Тара</a></li>
+					<li><a href="./catalog_cooler.html">Кулеры</a></li>
+					<li><a href="./catalog_cooler.html">Аксессуары</a></li>
+					<li><a href="./catalog_cooler.html">Кофе</a></li>
+				</ul>
+			</div>
+			<div class="col l4 xl3 m12">
+				<div class="footer-header">Важно</div>
+				<p>
+					Компания «Аквагород» на сайте использует файлы Cookie для обеспечения удобства пользователя. Используя функционал аторизации/регистрации пользователь даёт своё согласие на <a class="underline" href="/collect.html">Сбор и обработку</a> персональных данных в соответствии с <a class="underline" href="/policy.html">Политикой конфиденциальности</a>
+					и <a class="underline" href="/agreement.html">Пользовательским соглашением</a>.
+				</p>
+			</div>
+			<div class="col l2 m6 s6 xs12 offset-xl1">
+				<div class="footer-header">Обратная связь</div>
+				<ul>
+					<li><a href=""><i class="mdi mdi-cellphone"></i><span>(918) 66-22-880</span></a></li>
+					<li><a href=""><i class="mdi mdi-email-open"></i><span>shop@voda-plus.info</span></a></li>
+					<li><a href=""><i class="mdi mdi-telegram"></i><span>Telegram</span></a></li>
+					<li><a href=""><i class="mdi mdi-whatsapp"></i><span>WhatsApp</span></a></li>
+					<li><a href=""><i class="mdi mdi-map-marker"></i><span>пер. Спасский д. 16, пом 8</span></a></li>
+					<li><a href=""><i class="mdi mdi-clock"></i><span>Пн-Вс 8:00 - 19:01</span></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</footer>
+<div class="footer-copyright">
+	<div class="container">
+		<div class="copyright">© АкваГород, 20222</div>
+		<div class="credits">Дизайн, разработка – <strong><a href="">2BR</a></strong></div>
+	</div>
+</div>
+
+<!-- Форма авторизации -->
+<form class="modal" id="login">
+    <div class="modal-content">
+        <a href="#!" class="modal-close"><i class="mdi mdi-close"></i></a>
+        <p class="modal-header">Авторизация</p>
+        <div class="input-field"><input type="text" placeholder="Логин" class="styled"><label for="">Логин</label></div>
+        <div class="input-field"><input type="password" placeholder="Пароль" class="styled"><label for="">Пароль</label></div>
+	</div>
+	<div class="modal-footer">
+        <a class="bttn-outline modal-trigger modal-close" href="#register">Зарегистрироваться</a>
+		<a class="bttn center" href="/profile.html">Войти</a>
+	</div>
+</form>
+
+<!-- Форма регистрации -->
+<form class="modal" id="register">
+    <div class="modal-content">
+        <p class="modal-header">Регистрация</p>
+        <a href="#!" class="modal-close"><i class="mdi mdi-close"></i></a>
+        <div class="type">
+            <input type="radio" value="phisical" name="account-type" checked id="type1" class="styled">
+            <label for="type1">Физическое лицо</label>
+            <input type="radio" value="law" name="account-type" id="type2" class="styled">
+            <label for="type2">Юридическое лицо</label>
+        </div>
+        <div class="row" data-mode="phisical" id="fieldset">
+            <div class="col l4 m6 s12 law">
+                <div class="input-field"><input type="text" class="styled" placeholder="Организация"><label for="">Организация</label></div>
+            </div>
+            <div class="col l4 m6 s12">
+                <div class="input-field"><input type="text" class="styled" placeholder="Фамилия"><label for="">Фамилия</label></div>
+            </div>
+            <div class="col l4 m6 s12">
+                <div class="input-field"><input type="text" class="styled" placeholder="Имя"><label for="">Имя</label></div>
+            </div>
+            <div class="col l4 m6 s12">
+                <div class="input-field"><input type="text" class="styled" placeholder="Отчество"><label for="">Отчество</label></div>
+            </div>
+            <div class="col l4 m6 s12">
+                <div class="input-field"><input type="text" class="styled" placeholder="Телефон"><label for="">Телефон</label></div>
+            </div>
+            <div class="col l4 m6 s12 law">
+                <div class="input-field"><input type="text" class="styled" placeholder="ИНН"><label for="">ИНН</label></div>
+            </div>
+            <div class="col l4 m6 s12 law">
+                <div class="input-field"><input type="text" class="styled" placeholder="ОГРН/ОГРИП"><label for="">ОГРН/ОГРИП</label></div>
+            </div>
+            <div class="col l4 m6 s12">
+                <div class="input-field"><input type="email" class="styled" placeholder="E-mail"><label for="">E-mail</label></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col l4 m6 s12">
+                <div class="input-field"><input type="password" class="styled" placeholder="Пароль"><label for="">Пароль</label></div>
+            </div>
+            <div class="col l4 m6 s12">
+                <div class="input-field"><input type="password" class="styled" placeholder="Подтверждение"><label for="">Подтверждение</label></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                <p class="note">
+                    Нажимая кнопку «Регистрация», я принимаю условия <a href="/agreement.html">Пользовательского соглашения</a> 
+                    и даю своё согласие на обработку персональных данных ООО "Акватория" и ИП Картамышева А.А., в соответствии с <a href="http://www.consultant.ru/document/cons_doc_LAW_61801/" >Федеральным законом</a> 
+                    от 27.07.2006 года №152-ФЗ «О персональных данных», на условиях и для целей, определенных <a href="/policy.html" >Политикой конфиденциальности</a> 
+                    и Политикой в отношении обработки персональных данных</p>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a class="bttn-outline modal-trigger modal-close" href="#login">Авторизация</a>
+        <a class="bttn" href="/profile.html">Регистрация</a>
+    </div>
+</form>
+	<script src="/js/swiper-bundle.min.js"></script>
+<script src="/js/master.js"></script>
+</body>
+</html>

@@ -17,6 +17,9 @@ body{
 			border-radius: $border-radius;
 			background-size: cover;
 			transition: filter .4s;
+			display: block;
+			width: 100%;
+			object-fit: cover;
 			// filter: grayscale(1) brightness(1.4) contrast(1.2);
 			// box-shadow: 0 0 0 1px #777 inset;
 

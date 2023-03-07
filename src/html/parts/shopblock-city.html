@@ -9,7 +9,7 @@
 				@@if(context.addresses){
 					@@for(let i=0; i<addresses.length; i++){
 						<div class="swiper-slide">
-							<div class="lazy" data-bg="` + addresses[i].image + `"></div>
+							<img class="lazy" data-src="` + addresses[i].image + `">
 						</div>
 					}
 				}

@@ -6,6 +6,7 @@ module.exports = {
 		path: path.resolve(__dirname, 'src'),
 		filename: 'master.js'
 	},
+	devtool: "source-map",
 	mode: "development",
 	resolve: {
 		extensions: ['.ts', '.tsx', '.js']

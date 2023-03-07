@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300..500&family=Sofia+Sans:wght@300..800&display=swap");
 body {
   font-family: 'Sofia Sans', 'Roboto', sans-serif;
   font-size: calc(16px + .15vmax);
@@ -47,7 +46,11 @@ body #contacts .lazy {
   aspect-ratio: 16 / 9;
   border-radius: 8px;
   background-size: cover;
-  transition: filter .4s; }
+  transition: filter .4s;
+  display: block;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover; }
   body #contacts .lazy:hover {
     filter: none; }
 

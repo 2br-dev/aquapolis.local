@@ -22647,7 +22647,7 @@ header {
         display: block;
         width: 213px;
         aspect-ratio: 2.6 / 1;
-        background-image: url(/img/logo-light.svg);
+        background-image: url(../img/logo-light.svg);
         background-position: center center;
         background-repeat: no-repeat;
         background-size: contain; }
@@ -22803,7 +22803,7 @@ header {
     width: 100%;
     height: unset;
     aspect-ratio: 2.6 / 1;
-    background-image: url(/img/logo-light.svg);
+    background-image: url(../img/logo-light.svg);
     background-color: transparent;
     background-repeat: no-repeat;
     background-position: center; }
@@ -23204,9 +23204,9 @@ body {
         background-size: cover;
         z-index: 2; }
         body .row .col .card-water .product-type.thawed {
-          background-image: url(/img/thawed.svg); }
+          background-image: url(../img/thawed.svg); }
         body .row .col .card-water .product-type.arthesian {
-          background-image: url(/img/arthesian.svg); }
+          background-image: url(../img/arthesian.svg); }
       body .row .col .card-water .labels {
         position: absolute;
         top: 20px;
@@ -23472,7 +23472,7 @@ footer {
       margin-bottom: 40px;
       aspect-ratio: 2.6 / 1;
       background-color: transparent;
-      background-image: url(/img/logo-dark.svg);
+      background-image: url(../img/logo-dark.svg);
       background-size: contain;
       background-position: top left;
       background-repeat: no-repeat; }
@@ -23524,7 +23524,11 @@ section#shops {
           flex-grow: 1;
           padding: 0 10px; }
       section#shops .city-wrapper .cities .city .city-description .lazy {
+        display: block;
         aspect-ratio: 16 / 9;
+        width: 100%;
+        -o-object-fit: cover;
+           object-fit: cover;
         background-size: cover;
         background-position: center center;
         border-radius: 4px; }

@@ -53,13 +53,18 @@ section{
 					& .city-description{
 
 						& .lazy{
+							display: block;
 							aspect-ratio: 16 / 9;
+							width: 100%;
+							object-fit: cover;
+
 							background-size: cover;
 							background-position: center center;
 							border-radius: #{$border-radius / 2};
 						}
 
 						& .swiper:not(.swiper-initialized){
+
 							& + .description-city{
 
 								& + .contacts-swiper-pagination{

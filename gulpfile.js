@@ -29,7 +29,7 @@ gulp.task('scss', () => {
 			includePaths: ['node_modules']
 		}))
 		.pipe(autoPrefixer())
-		.pipe(replace('"/img', '"../img'))
+		.pipe(replace('url(/img', 'url(../img'))
 		.pipe(gulp.dest('./release/css'))
 		.pipe(sync.stream());
 })

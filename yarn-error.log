@@ -28,7 +28,7 @@ Trace:
 
 npm manifest: 
   {
-    "name": "inoe-tech.local",
+    "name": "aquapolis.local",
     "version": "1.0.0",
     "main": "index.js",
     "license": "MIT",

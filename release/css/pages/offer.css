@@ -16,9 +16,9 @@
       background-position: center;
       background-repeat: no-repeat; }
       #offer .product-images .type-icon-wrapper .type-icon.thawed {
-        background-image: url(/img/thawed.svg); }
+        background-image: url(../img/thawed.svg); }
       #offer .product-images .type-icon-wrapper .type-icon.arthesian {
-        background-image: url(/img/arthesian.svg); }
+        background-image: url(../img/arthesian.svg); }
   #offer .product-images .swiper img {
     display: block;
     width: 100%;

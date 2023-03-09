@@ -22637,7 +22637,7 @@ header {
     header .container .burger-wrapper {
       font-size: 1.6rem;
       margin-right: 20px; }
-      @media (min-width: 1350px) {
+      @media (min-width: 1390px) {
         header .container .burger-wrapper {
           display: none; } }
     header .container .logo-wrapper {
@@ -22706,8 +22706,9 @@ header {
             header .container nav .top .phones {
               display: none; } }
           header .container nav .top .phones a {
-            padding: 0 10px; }
-            @media (max-width: 1350px) {
+            padding: 0 10px;
+            position: relative; }
+            @media (max-width: 1390px) {
               header .container nav .top .phones a span {
                 display: none; } }
       header .container nav .bottom .catalog {
@@ -22732,7 +22733,7 @@ header {
           padding: 0 10px;
           display: block;
           line-height: 1.6em; }
-        @media (max-width: 1350px) {
+        @media (max-width: 1390px) {
           header .container nav .bottom .main-nav {
             display: none; } }
       header .container nav .bottom .my {
@@ -22740,13 +22741,31 @@ header {
         header .container nav .bottom .my > li {
           position: relative; }
           header .container nav .bottom .my > li > a {
-            padding: 0 10px; }
+            padding: 0 10px;
+            position: relative; }
             @media (max-width: 1000px) {
               header .container nav .bottom .my > li > a .mdi {
                 font-size: 1.4em; } }
-            @media (max-width: 1350px) {
-              header .container nav .bottom .my > li > a .mdi + span {
-                display: none; } }
+            @media (min-width: 1390px) {
+              header .container nav .bottom .my > li > a .mdi + span.count:after {
+                content: '/'; } }
+            @media (max-width: 1390px) {
+              header .container nav .bottom .my > li > a .mdi + span:not(.count) {
+                display: none; }
+              header .container nav .bottom .my > li > a .mdi + span.count {
+                position: absolute;
+                z-index: 2;
+                background: #EB5757;
+                color: #fff;
+                font-size: 12px;
+                font-weight: 500;
+                line-height: 1em;
+                border-radius: 12px;
+                padding: 2px;
+                left: 23px;
+                top: -8px; }
+                header .container nav .bottom .my > li > a .mdi + span.count + .price {
+                  padding-left: 6px; } }
             header .container nav .bottom .my > li > a + .dropdown-menu {
               left: unset;
               right: 0; }
@@ -23443,7 +23462,9 @@ body {
     box-sizing: border-box;
     transform: translateZ(0); }
   body .no-margin {
-    margin: 0; }
+    margin: 0 !important; }
+  body .no-padding {
+    padding: 0 !important; }
   body section#news .news-entry-small img {
     border-radius: 8px;
     box-shadow: none;

@@ -31,6 +31,7 @@ let parallax = M.Parallax.init(document.querySelectorAll('.parallax'));
 if($('.fasad-swiper1').length && $('.fasad-swiper2').length){
 	let fasadSwiper1 = new Swiper('.fasad-swiper1', {
 		loop: true, 
+		initialSlide: 1,
 		pagination: {
 			el: ".swiper1-pagination",
 			type: 'bullets'
@@ -42,6 +43,7 @@ if($('.fasad-swiper1').length && $('.fasad-swiper2').length){
 	
 	let fasadSwiper2 = new Swiper('.fasad-swiper2', {
 		loop: true,
+		initialSlide: 1,
 		pagination: {
 			el: ".swiper2-pagination",
 			type: 'bullets'

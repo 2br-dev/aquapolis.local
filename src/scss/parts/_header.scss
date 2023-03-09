@@ -34,7 +34,7 @@ header{
 			font-size: 1.6rem;
 			margin-right: 20px;
 
-			@media(min-width: 1350px){
+			@media(min-width: 1390px){
 				display: none;
 			}
 		}
@@ -151,10 +151,11 @@ header{
 
 					& a{
 						padding: 0 10px;
+						position: relative;
 
 						& span{
 
-							@media(max-width: 1350px){
+							@media(max-width: 1390px){
 								display: none;
 							}
 						}
@@ -198,7 +199,6 @@ header{
 
 					& li{
 
-
 						& a{
 							padding: 0 10px;
 							display: block;
@@ -206,7 +206,7 @@ header{
 						}
 					}
 
-					@media(max-width: 1350px){
+					@media(max-width: 1390px){
 						display: none;
 					}
 				}
@@ -221,6 +221,7 @@ header{
 
 						& > a{
 							padding: 0 10px;
+							position: relative;
 
 							& .mdi{
 
@@ -230,8 +231,38 @@ header{
 
 								& + span{
 
-									@media(max-width: 1350px){
-										display: none;
+									&.count{
+
+										@media(min-width: 1390px){
+											&:after{
+												content: '/';
+											}
+										}
+									}
+
+									@media(max-width: 1390px){
+
+										&:not(.count){
+											display: none;
+										}
+
+										&.count{
+											position: absolute;
+											z-index: 2;
+											background: #EB5757;
+											color: #fff;
+											font-size: 12px;
+											font-weight: 500;
+											line-height: 1em;
+											border-radius: 12px;
+											padding: 2px;
+											left: 23px;
+											top: -8px;
+
+											& + .price{
+												padding-left: 6px;
+											}
+										}
 									}
 								}
 

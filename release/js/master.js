@@ -36394,6 +36394,7 @@ var parallax = materialize_css__WEBPACK_IMPORTED_MODULE_2__.Parallax.init(docume
 if (jquery__WEBPACK_IMPORTED_MODULE_1__('.fasad-swiper1').length && jquery__WEBPACK_IMPORTED_MODULE_1__('.fasad-swiper2').length) {
   var fasadSwiper1 = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"]('.fasad-swiper1', {
     loop: true,
+    initialSlide: 1,
     pagination: {
       el: ".swiper1-pagination",
       type: 'bullets'
@@ -36406,6 +36407,7 @@ if (jquery__WEBPACK_IMPORTED_MODULE_1__('.fasad-swiper1').length && jquery__WEBP
   fasadInfoSwiper1.controller.control = fasadSwiper1;
   var fasadSwiper2 = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"]('.fasad-swiper2', {
     loop: true,
+    initialSlide: 1,
     pagination: {
       el: ".swiper2-pagination",
       type: 'bullets'

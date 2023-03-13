@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru">	
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Главная</title>
+<title>Продукт</title>
 <link rel="stylesheet" href="/css/master.css">
 
-<link rel="stylesheet" href="/css/pages/main.css">
+<link rel="stylesheet" href="/css/pages/product.css">
 
 </head>
 <body>
@@ -137,86 +137,245 @@
 	<li><a href="/service.html">Сервис</a></li>
 	<li><a href="/contacts.html">Контакты</a></li>
 </ul>
-	<main id="main">
-		<section id="hero">
-			<div class="lazy" data-bg="/img/heroes/office2.jpg"></div>
-			<div class="communication">
-				<h1>Успех компании — это ваша команда</h1>
-				<p>Вода это топливо для мозга, ведь мозг на 80% состоит из воды! И от качества этого топлива во многом зависит работоспособность, позитивный настрой и общая активность человека в течение дня. Мы гарантируем доставку качественной питьевой воды к вам в офис, чтобы обеспечить успех Вашей команды</p>
-			</div>
-		</section>
-		<section id="categories">
-			<div class="container">
-				<div class="row">
-					<div class="col s12">
-						<h2>Каталог</h2>
-					</div>
-					<div class="col xl3 l4 m6">
-						<a class="category" href="/catalog_water.html">
-							<img class="lazy" data-src="/img/water.png">
-							<div class="category-info">
-								<div class="category-name">Питьевая вода</div>
-								<div class="desc">от 160 <span class="rur-sign">₽</span></div>
-							</div>
-						</a>
-					</div>
-					<div class="col xl3 l4 m6">
-						<a class="category" href="/catalog_water.html">
-							<img class="lazy" data-src="/img/cooler+pump.png">
-							<div class="category-info">
-								<div class="category-name">Кулеры и помпы</div>
-								<div class="desc">от 500 <span class="rur-sign">₽</span></div>
-							</div>
-						</a>
-					</div>
-					<div class="col xl3 l4 m6">
-						<a class="category" href="/catalog_water.html">
-							<img class="lazy" data-src="/img/accessories.png">
-							<div class="category-info">
-								<div class="category-name">Аксессуары</div>
-								<div class="desc">от 500 <span class="rur-sign">₽</span></div>
-							</div>
-						</a>
-					</div>
-					<div class="col xl3 l4 m6">
-						<a class="category" href="/catalog_water.html">
-							<img class="lazy" data-src="/img/misc.png">
-							<div class="category-info">
-								<div class="category-name">Разное</div>
-								<div class="desc">от 300 <span class="rur-sign">₽</span></div>
-							</div>
-						</a>
-					</div>
-				</div>
-			</div>
-		</section>
+	<main id="product">
 		<section>
 			<div class="container">
-				<div class="row">
-					<div class="col s12">
-						<h2>Специальные предложения</h2>
-						<div class="swiper offers-swiper">
-							<div class="swiper-wrapper">
-								<div class="swiper-slide">
-									<a href="/offer.html"><img src="/img/actions/action1.jpg"></a>
+				<div class="row flex vcenter">
+					<div class="col xl5 offset-xl1 l6 m8 offset-m2 s12">
+						<div class="product-images">
+							<div class="swiper entry-slider">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide"><img src="" alt="" class="lazy" data-src="/img/coolers/07LD.png"></div>
+									<div class="swiper-slide"><img src="" alt="" class="lazy" data-src="/img/bottles/chistogornaya.png"></div>
+									<div class="swiper-slide"><img src="" alt="" class="lazy" data-src="/img/bottles/dombay.png"></div>
+									<div class="swiper-slide"><img src="" alt="" class="lazy" data-src="/img/bottles/elbrusinka.png"></div>
 								</div>
-								<div class="swiper-slide">
-									<a href="/offer.html"><img src="/img/actions/action2.jpg"></a>
-								</div>
-								<div class="swiper-slide">
-									<a href="/offer.html"><img src="/img/actions/action3.jpg"></a>
-								</div>
-								<div class="swiper-slide">
-									<a href="/offer.html"><img src="/img/actions/action4.jpg"></a>
-								</div>
-								<div class="swiper-slide">
-									<a href="/offer.html"><img src="/img/actions/action5.jpg"></a>
-								</div>
+								<div class="entry-pagination"></div>
 							</div>
 						</div>
-						<div class="offers-pagination swiper-pagination"></div>
 					</div>
-					<div class="col s12 right-align"><a href="/offers.html" class="bttn-outline waves-effect">Смотреть все</a></div>
+					<div class="col xl offset-xl1 l5 offset-l1 m12 product-details">
+						<ul class="labels">
+							<li class="label new">Новинка</li>
+							<li class="label bestseller">Хит продаж</li>
+						</ul>
+						<h1>SMixx 07LD</h1>
+						<p>SMixx 07LD белый с черным (компактный)</p>
+						<div class="settings-header">Доступные цветовые решения</div>
+						<ul class="settings">
+							<li class="setting image-tooltip">
+								<input type="radio" name="offer" id="setting1" checked>
+								<label for="setting1" class="lazy tooltipped" data-tooltip="Белый" data-position="top" data-bg="/img/settings/white.svg"></label>
+							</li>
+							<li class="setting image-tooltip">
+								<input type="radio" name="offer" id="setting2">
+								<label for="setting2" class="lazy tooltipped" data-tooltip="Серебро" data-position="top" data-bg="/img/settings/silver.svg"></label>
+							</li>
+							<li class="setting image-tooltip">
+								<input type="radio" name="offer" id="setting3">
+								<label for="setting3" class="lazy tooltipped" data-tooltip="Белый/синий" data-position="top" data-bg="/img/settings/white-blue.svg"></label>
+							</li>
+							<li class="setting image-tooltip">
+								<input type="radio" name="offer" id="setting4">
+								<label for="setting4" class="lazy tooltipped" data-tooltip="Белый/розовый" data-position="top" data-bg="/img/settings/white-pink.svg"></label>
+							</li>
+							<li class="setting image-tooltip">
+								<input type="radio" name="offer" id="setting5">
+								<label for="setting5" class="lazy tooltipped" data-tooltip="Чёрный" data-position="top" data-bg="/img/settings/black.svg"></label>
+							</li>
+							<li class="setting image-tooltip">
+								<input type="radio" name="offer" id="setting6">
+								<label for="setting6" class="lazy tooltipped" data-tooltip="Серебро/розовый" data-position="top" data-bg="/img/settings/silver-pink.svg"></label>
+							</li>
+						</ul>
+						<div class="prices">
+							<div class="price">
+								<div class="price-title">цена</span></div>
+								<div class="price-value">5 704<span class="rur-sign">₽</span></div>
+							</div>
+						</div>
+						<div class="smart-bttn">
+	<div class="avers">
+		<a href="" class="bttn">В корзину</a>
+	</div>
+	<div class="revers">
+		<a href="" class="counter-bttn" id="minus"><i class="mdi mdi-minus"></i></a>
+		<input type="number" value="0">
+		<a href="" class="counter-bttn" id="plus"><i class="mdi mdi-plus"></i></a>
+	</div>
+</div>
+						<p><strong>Самовывоз доступен по адресам:</strong></p>
+						<div class="address-popup-wrapper">
+							<ul class="browser-default">
+								<li>
+									<a href="javascript:void(0);">пер. Спасский д. 16, пом 8</a>
+									<div class="address-popup z-depth-1">
+										<div class="name">пер. Спасский д. 16, пом 8</div>
+										<div class="kv-pair">
+											<div class="key">Время работы: </div>
+											<div class="value">8:00 – 18:00</div>
+										</div>
+										<div class="kv-pair">
+											<div class="key">Приём заявок: </div>
+											<div class="value">8:00 — 20:00</div>
+										</div>
+										<div class="kv-pair">
+											<div class="key">Телефон:</div>
+											<div class="value">+7 (918) 66-22-880</div>
+										</div>
+										<a href="https://maps.yandex.ru">Показать на карте »</a>
+									</div>
+								</li>
+								<li>
+									<a href="javascript:void(0);">с. Супсех, ул.Советская д. 19</a>
+									<div class="address-popup z-depth-1">
+										<div class="name">с. Супсех, ул.Советская д. 19</div>
+										<div class="kv-pair">
+											<div class="key">Время работы: </div>
+											<div class="value">8:00 – 18:00</div>
+										</div>
+										<div class="kv-pair">
+											<div class="key">Приём заявок: </div>
+											<div class="value">8:00 — 20:00</div>
+										</div>
+										<div class="kv-pair">
+											<div class="key">Телефон:</div>
+											<div class="value">+7 (918) 66-22-880</div>
+										</div>
+										<a href="https://maps.yandex.ru">Показать на карте »</a>
+									</div>
+								</li>
+								<li>
+									<a href="javascript:void(0);">ул. 160 лет Витязево, 72</a>
+									<div class="address-popup z-depth-1">
+										<div class="name">ул. 160 лет Витязево, 72</div>
+										<div class="kv-pair">
+											<div class="key">Время работы: </div>
+											<div class="value">8:00 – 18:00</div>
+										</div>
+										<div class="kv-pair">
+											<div class="key">Приём заявок: </div>
+											<div class="value">8:00 — 20:00</div>
+										</div>
+										<div class="kv-pair">
+											<div class="key">Телефон:</div>
+											<div class="value">+7 (918) 66-22-880</div>
+										</div>
+										<a href="https://maps.yandex.ru">Показать на карте »</a>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col xl8 offset-xl2 l10 offset-l1 s12">
+						<ul class="product-tabs">
+							<li class="product-tab active"><a href="#desc">
+								<span class="mdi mdi-comment-text-outline hide-m-down"> Описание</span>
+								<span class="mdi mdi-comment-text-outline hide-m-up"></span>
+							</a></li>
+							<li class="product-tab"><a href="#char">
+								<span class="mdi mdi-view-list hide-m-down"> Характеристики</span>
+								<span class="mdi mdi-view-list hide-m-up"></span>
+							</a></li>
+							<li class="product-tab"><a href="#docs">
+								<span class="mdi mdi-file-document-outline hide-m-down"> Документы</span>
+								<span class="mdi mdi-file-document-outline hide-m-up"></span>
+							</a></li>
+							<li class="indicator"></li>
+						</ul>
+						<div class="tabs-content">
+							<div class="tab-content hidden" id="desc">
+								Напольный кулер SMIXX 07LK серебристый/черный только нагрев . Кулер для воды напольный SMixx 07 L выполнен в серебристо-черном цвете. Мощность нагрева 550Ватт, мощность охлаждения 90 Ватт.
+							</div>
+							<div class="tab-content hidden" id="char">
+								<div class="chars">
+									<div class="kv-pair">
+										<div class="key">Производитель</div>
+										<div class="value">SMixx</div>
+									</div>
+									<div class="kv-pair">
+										<div class="key">Тип установки</div>
+										<div class="value">Напольный</div>
+									</div>
+									<div class="kv-pair">
+										<div class="key">Загрузка бутыли</div>
+										<div class="value">Верхняя загрузка</div>
+									</div>
+									<div class="kv-pair">
+										<div class="key">Нагрев</div>
+										<div class="value">C нагревом</div>
+									</div>
+									<div class="kv-pair">
+										<div class="key">Тип охлаждения</div>
+										<div class="value">Электронный</div>
+									</div>
+									<div class="kv-pair">
+										<div class="key">Вода комнатной температуры</div>
+										<div class="value">Без воды комнатной температуры</div>
+									</div>
+									<div class="kv-pair">
+										<div class="key">Тип шкафчика</div>
+										<div class="value">Без шкафчика</div>
+									</div>
+									<div class="kv-pair">
+										<div class="key">Тип краников</div>
+										<div class="value">Рычаг нажим кружкой</div>
+									</div>
+									<div class="kv-pair">
+										<div class="key">Количество краников</div>
+										<div class="value">Два</div>
+									</div>
+									<div class="kv-pair">
+										<div class="key">Защита от детей</div>
+										<div class="value">C защитой от детей</div>
+									</div>
+									<div class="kv-pair">
+										<div class="key">Монитор</div>
+										<div class="value">Без монитора</div>
+									</div>
+									<div class="kv-pair">
+										<div class="key">Производительность горячей воды</div>
+										<div class="value">≥ 90°С; 5 л/ч</div>
+									</div>
+									<div class="kv-pair">
+										<div class="key">Производительность холодной воды</div>
+										<div class="value">≤ 15°С; 1 л/ч</div>
+									</div>
+									<div class="kv-pair">
+										<div class="key">Мощность нагрева</div>
+										<div class="value">550 Вт</div>
+									</div>
+									<div class="kv-pair">
+										<div class="key">Мощность охлаждения</div>
+										<div class="value">70 Вт</div>
+									</div>
+									<div class="kv-pair">
+										<div class="key">Цвет</div>
+										<div class="value">Серебристый</div>
+									</div>
+									<div class="kv-pair">
+										<div class="key">Цвет декора</div>
+										<div class="value">Черный</div>
+									</div>
+									<div class="kv-pair">
+										<div class="key">Габариты в*ш*г(мм)</div>
+										<div class="value">850x300x270</div>
+									</div>
+									<div class="kv-pair">
+										<div class="key">Страна производства</div>
+										<div class="value">Китай</div>
+									</div>
+									<div class="kv-pair">
+										<div class="key">Срок гарантии</div>
+										<div class="value">12 месяцев</div>
+									</div>
+								</div>
+							</div>
+							<div class="tab-content hidden" id="docs">Документы</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</section>
@@ -224,7 +383,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col s12">
-				<h2>Питьевая бутилированная вода</h2>
+				<h2>Вы ещё не пробовали</h2>
 			</div>
 			<div class="col s12">
 				<div class="swiper water-swiper">
@@ -1586,90 +1745,6 @@
 			<div class="col s12">
 				<div class="swiper-pagination main-water-pagination"></div>
 			</div>
-		</div>
-	</div>
-</section>
-		<section id="easy">
-			<div class="container">
-				<div class="row">
-					<div class="col s12">
-						<h2>С нами всё просто</h2>
-					</div>
-					<div class="col l3 m6 s12">
-						<img src="" alt="" class="lazy easy-image" data-src="/img/easy1.svg">
-						<div class="easy-header">2 минуты</div>
-						<div class="easy-text">Вы оформляете заказ на сайте, или по телефону +++</div>
-					</div>
-					<div class="col l3 m6 s12">
-						<img src="" alt="" class="lazy easy-image" data-src="/img/easy2.svg">
-						<div class="easy-header">15 минут</div>
-						<div class="easy-text">Мы внимательно формируем ваш заказ на складе, готовим его к отправке</div>
-					</div>
-					<div class="col l3 m6 s12">
-						<img src="" alt="" class="lazy easy-image" data-src="/img/easy3.svg">
-						<div class="easy-header">1-3 часа</div>
-						<div class="easy-text">(а может и быстрее) бережно доставляем заказ по Вашему адресу, поднимаем на этаж и устанавливаем на место</div>
-					</div>
-					<div class="col l3 m6 s12">
-						<img src="" alt="" class="lazy easy-image" data-src="/img/easy4.svg">
-						<div class="easy-header">5-14 дней</div>
-						<div class="easy-text">Вы пьёте полезную и вкусную воду, а мы с нетерпением ждём от вас очередной заказ</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<section id="news">
-	<div class="container">
-		<div class="row">
-			<div class="col s12">
-				<h2>Новости компании</h2>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col l3 m6 s12">
-	<div class="news-entry-small">
-		<a href="/news-entry.html">
-			<img src="" alt="" class="nes_image lazy responsive-img" data-src="/img/news.jpg">
-		</a>
-		<div class="nes_title">
-			<a href="/news-entry.html">Приведите друга и получите подарок!</a>
-		</div>
-		<div class="nes_intro">Если вы рекомендуете нас своим друзьям, то мы доставим вам подарок с вашим заказом! Как участвовать в акции? Ваш друг, при оформлении заказа воды, должен сказать «Бонус другу»* …</div>
-	</div>
-</div><div class="col l3 m6 s12">
-	<div class="news-entry-small">
-		<a href="/news-entry.html">
-			<img src="" alt="" class="nes_image lazy responsive-img" data-src="/img/news.jpg">
-		</a>
-		<div class="nes_title">
-			<a href="/news-entry.html">Приведите друга и получите подарок!</a>
-		</div>
-		<div class="nes_intro">Если вы рекомендуете нас своим друзьям, то мы доставим вам подарок с вашим заказом! Как участвовать в акции? Ваш друг, при оформлении заказа воды, должен сказать «Бонус другу»* …</div>
-	</div>
-</div><div class="col l3 m6 s12">
-	<div class="news-entry-small">
-		<a href="/news-entry.html">
-			<img src="" alt="" class="nes_image lazy responsive-img" data-src="/img/news.jpg">
-		</a>
-		<div class="nes_title">
-			<a href="/news-entry.html">Приведите друга и получите подарок!</a>
-		</div>
-		<div class="nes_intro">Если вы рекомендуете нас своим друзьям, то мы доставим вам подарок с вашим заказом! Как участвовать в акции? Ваш друг, при оформлении заказа воды, должен сказать «Бонус другу»* …</div>
-	</div>
-</div><div class="col l3 m6 s12">
-	<div class="news-entry-small">
-		<a href="/news-entry.html">
-			<img src="" alt="" class="nes_image lazy responsive-img" data-src="/img/news.jpg">
-		</a>
-		<div class="nes_title">
-			<a href="/news-entry.html">Приведите друга и получите подарок!</a>
-		</div>
-		<div class="nes_intro">Если вы рекомендуете нас своим друзьям, то мы доставим вам подарок с вашим заказом! Как участвовать в акции? Ваш друг, при оформлении заказа воды, должен сказать «Бонус другу»* …</div>
-	</div>
-</div>
-		</div>
-		<div class="row">
-			<div class="col s12 center-align"><a href="/news.html" class="bttn">Все новости</a></div>
 		</div>
 	</div>
 </section>

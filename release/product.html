@@ -126,9 +126,9 @@
 		<a href="#!" class="folder">Каталог</a>
 		<ul>
 			<li><a href="/catalog_water.html">Питьевая вода</a></li>
-			<li><a href="/catalog_coolers.html">Кулеры и помпы</a></li>
-			<li><a href="/catalog_coolers.html">Аксессуары</a></li>
-			<li><a href="/catalog_coolers.html">Разное</a></li>
+			<li><a href="/catalog_cooler.html">Кулеры и помпы</a></li>
+			<li><a href="/catalog_cooler.html">Аксессуары</a></li>
+			<li><a href="/catalog_cooler.html">Разное</a></li>
 		</ul>
 	</li>
 	<li><a href="/actions.html">Акции</a></li>
@@ -140,18 +140,18 @@
 	<main id="product">
 		<section>
 			<div class="container">
-				<div class="row flex">
+				<div class="row flex vcenter">
 					<div class="col xl5 offset-xl1 l6 m8 offset-m2 s12">
 						<div class="product-images">
 							<div class="type-icon-wrapper">
 								<div class="type-icon arthesian"></div>
-								<div class="type-label">Артезианская</div>
+								<div class="type-label hide-s-down">Артезианская</div>
 							</div>
 							<div class="swiper entry-slider">
 								<div class="swiper-wrapper">
 									<div class="swiper-slide"><img src="" alt="" class="lazy" data-src="/img/bottles/arhyz.png"></div>
 									<div class="swiper-slide"><img src="" alt="" class="lazy" data-src="/img/bottles/chistogornaya.png"></div>
-									<div class="swiper-slide"><img src="" alt="" class="lazy" data-src="/img/bottles/dombai.png"></div>
+									<div class="swiper-slide"><img src="" alt="" class="lazy" data-src="/img/bottles/dombay.png"></div>
 									<div class="swiper-slide"><img src="" alt="" class="lazy" data-src="/img/bottles/elbrusinka.png"></div>
 								</div>
 								<div class="entry-pagination"></div>
@@ -159,21 +159,35 @@
 						</div>
 					</div>
 					<div class="col xl offset-xl1 l5 offset-l1 m12 product-details">
+						<ul class="labels">
+							<li class="label new">Новинка</li>
+							<li class="label bestseller">Хит продаж</li>
+						</ul>
 						<h1>Горный ключ</h1>
 						<div class="prices">
 							<div class="price">
-								<div class="price-title">1 бутыль</div>
+								<div class="price-title">1 бут<span class="hide-m-down">ыль</span></div>
 								<div class="price-value">240<span class="rur-sign">₽</span></div>
 							</div>
 							<div class="price">
-								<div class="price-title">от 2х бутылей</div>
+								<div class="price-title">от 2х бут<span class="hide-m-down">ылей</span></div>
 								<div class="price-value">240<span class="rur-sign">₽</span></div>
 							</div>
 							<div class="price">
-								<div class="price-title">от 4х бутылей</div>
+								<div class="price-title">от 4х бут<span class="hide-m-down">ылей</span></div>
 								<div class="price-value">240<span class="rur-sign">₽</span></div>
 							</div>
 						</div>
+						<div class="smart-bttn">
+	<div class="avers">
+		<a href="" class="bttn">В корзину</a>
+	</div>
+	<div class="revers">
+		<a href="" class="counter-bttn" id="minus"><i class="mdi mdi-minus"></i></a>
+		<input type="number" value="0">
+		<a href="" class="counter-bttn" id="plus"><i class="mdi mdi-plus"></i></a>
+	</div>
+</div>
 						<div class="note">* цена указана при условии наличия оборотной тары</div>
 						<div class="divider"></div>
 						<input type="checkbox" class="styled" id="include_empty"><label for="include_empty">Включить в заказ пустую тару</label>
@@ -1646,7 +1660,7 @@
 		<div class="col xl3 l4 m6 no-padding">
 			<div class="city-wrapper">
 				<div class="cities">
-					<div class="city" data-city="0" data-lon="44.941" data-lat="37.33" data-zoom="12">
+					<div class="city" data-city="0" data-lon="@@lon" data-lat="@@lat" data-zoom="12">
 	<a class="city-trigger waves-effect" href="#!">
 		<span class="name">Анапа</span>
 		<i class="arrow mdi mdi-chevron-right"></i>
@@ -1732,7 +1746,7 @@
 			</div>
 		</div>
 	</div>
-</div><div class="city" data-city="1" data-lon="44.928114" data-lat="37.979836" data-zoom="16">
+</div><div class="city" data-city="1" data-lon="@@lon" data-lat="@@lat" data-zoom="16">
 	<a class="city-trigger waves-effect" href="#!">
 		<span class="name">Крымск</span>
 		<i class="arrow mdi mdi-chevron-right"></i>
@@ -1776,7 +1790,7 @@
 			</div>
 		</div>
 	</div>
-</div><div class="city" data-city="2" data-lon="44.757288" data-lat="37.725065" data-zoom="16">
+</div><div class="city" data-city="2" data-lon="@@lon" data-lat="@@lat" data-zoom="16">
 	<a class="city-trigger waves-effect" href="#!">
 		<span class="name">Новороссийск</span>
 		<i class="arrow mdi mdi-chevron-right"></i>
@@ -1825,7 +1839,7 @@
 			</div>
 		</div>
 	</div>
-</div><div class="city" data-city="3" data-lon="44.86" data-lat="38.16" data-zoom="15">
+</div><div class="city" data-city="3" data-lon="@@lon" data-lat="@@lat" data-zoom="15">
 	<a class="city-trigger waves-effect" href="#!">
 		<span class="name">Абинск</span>
 		<i class="arrow mdi mdi-chevron-right"></i>
@@ -1890,7 +1904,7 @@
 			</div>
 		</div>
 	</div>
-</div><div class="city" data-city="4" data-lon="45.260433" data-lat="38.125147" data-zoom="16">
+</div><div class="city" data-city="4" data-lon="@@lon" data-lat="@@lat" data-zoom="16">
 	<a class="city-trigger waves-effect" href="#!">
 		<span class="name">Славянск-на-Кубани</span>
 		<i class="arrow mdi mdi-chevron-right"></i>
@@ -1947,6 +1961,7 @@
 	data-lon="44.941"
 	data-lat="37.33"
 	data-zoom="12"
+	data-points="44.891134,37.336481:44.865106,37.355264:45.002448,37.295230"
 	class="map-navi quick-navi-entry">
 	Анапа
 </a><a href="" 
@@ -1954,6 +1969,7 @@
 	data-lon="44.928114"
 	data-lat="37.979836"
 	data-zoom="16"
+	data-points="44.928114,37.979836"
 	class="map-navi quick-navi-entry">
 	Крымск
 </a><a href="" 
@@ -1961,6 +1977,7 @@
 	data-lon="44.757288"
 	data-lat="37.725065"
 	data-zoom="16"
+	data-points="44.757288,37.725065"
 	class="map-navi quick-navi-entry">
 	Новороссийск
 </a><a href="" 
@@ -1968,6 +1985,7 @@
 	data-lon="44.86"
 	data-lat="38.16"
 	data-zoom="15"
+	data-points="44.861701,38.173468:44.862040,38.143446"
 	class="map-navi quick-navi-entry">
 	Абинск
 </a><a href="" 
@@ -1975,6 +1993,7 @@
 	data-lon="45.260433"
 	data-lat="38.125147"
 	data-zoom="16"
+	data-points="45.260433,38.125147"
 	class="map-navi quick-navi-entry">
 	Славянск-на-Кубани
 </a>

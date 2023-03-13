@@ -559,7 +559,7 @@ body{
 						}
 	
 						&.bestseller{
-							background-color: #F2994A;
+							background-color: $orange;
 						}
 	
 						&.new{
@@ -653,6 +653,12 @@ body{
 						white-space: nowrap;
 						text-overflow: ellipsis;
 						overflow: hidden;
+					}
+
+					& .longname{
+						white-space: nowrap;
+						overflow: hidden;
+						text-overflow: ellipsis;
 					}
 					
 					& .type{

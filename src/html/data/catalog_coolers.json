@@ -1,11 +1,12 @@
 [
 	{
 		"className": "product",
-		"link": "/product.html",
+		"link": "/product_cooler.html",
 		"images":[
 			"/img/coolers/07LD.png"
 		],
-		"name":"SMixx 07LD белый с черным (компактный)",
+		"name":"SMixx 07LD",
+		"longName":"белый с черным (компактный)",
 		"type":{
 			"className":"floor",
 			"label":"Напольный"
@@ -24,11 +25,12 @@
 	},
 	{
 		"className": "product",
-		"link": "/product.html",
+		"link": "/product_cooler.html",
 		"images":[
 			"/img/coolers/08LD.png"
 		],
-		"name":"SMixx 08LD серебристый (шкаф)",
+		"name":"SMixx 08LD",
+		"longName":"серебристый (шкаф)",
 		"type":{
 			"className":"floor",
 			"label":"Напольный"
@@ -47,11 +49,12 @@
 	},
 	{
 		"className": "product",
-		"link": "/product.html",
+		"link": "/product_cooler.html",
 		"images":[
 			"/img/coolers/178L.png"
 		],
-		"name":"SMixx 178 L серый с серебром",
+		"name":"SMixx 178L",
+		"longName":"серый с серебром",
 		"type":{
 			"className":"floor",
 			"label":"Напольный"
@@ -70,11 +73,12 @@
 	},
 	{
 		"className": "product",
-		"link": "/product.html",
+		"link": "/product_cooler.html",
 		"images":[
 			"/img/coolers/26TD.png"
 		],
-		"name":"SMixx 26 TD белый(компактный)",
+		"name":"SMixx 26TD",
+		"longName":"белый (компактный)",
 		"type":{
 			"className":"table",
 			"label":"Настольный"
@@ -93,11 +97,12 @@
 	},
 	{
 		"className": "product",
-		"link": "/product.html",
+		"link": "/product_cooler.html",
 		"images":[
 			"/img/coolers/16LD.png"
 		],
-		"name":"Кулер SMixx 16LD/E серебристый",
+		"name":"SMixx 16LD/E",
+		"longName":"серебристый",
 		"type":{
 			"className":"floor",
 			"label":"Напольный"

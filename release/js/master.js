@@ -36365,57 +36365,34 @@ __webpack_require__.r(__webpack_exports__);
 swiper__WEBPACK_IMPORTED_MODULE_3__["default"].use([swiper__WEBPACK_IMPORTED_MODULE_3__.Pagination, swiper__WEBPACK_IMPORTED_MODULE_3__.Controller, swiper__WEBPACK_IMPORTED_MODULE_3__.Manipulation, swiper__WEBPACK_IMPORTED_MODULE_3__.Autoplay]);
 var currentCity;
 var map;
-var pointCoords = [[44.891134, 37.336481],
-//Анапа1
-[44.865106, 37.355264],
-//Анапа2
-[45.002448, 37.295230],
-//Анапа3
-[44.928114, 37.979836],
-//Крымск
-[44.757288, 37.725065],
-//Новороссийск
-[44.861701, 38.173468],
-//Абинск1
-[44.862040, 38.143446],
-//Абинск2
-[45.260433, 38.125147] //Славянск-на-Кубани
-];
 
-//#region Parallax
+//#region Materialize
 var lazy = new (vanilla_lazyload__WEBPACK_IMPORTED_MODULE_0___default())({}, document.querySelectorAll('.lazy'));
 var sidenav = materialize_css__WEBPACK_IMPORTED_MODULE_2__.Sidenav.init(document.querySelectorAll('.sidenav'), {});
 var modals = materialize_css__WEBPACK_IMPORTED_MODULE_2__.Modal.init(document.querySelectorAll('.modal'), {});
 var scrollSpy = materialize_css__WEBPACK_IMPORTED_MODULE_2__.ScrollSpy.init(document.querySelectorAll('.scrollspy'));
 var parallax = materialize_css__WEBPACK_IMPORTED_MODULE_2__.Parallax.init(document.querySelectorAll('.parallax'));
+var tooltip = materialize_css__WEBPACK_IMPORTED_MODULE_2__.Tooltip.init(document.querySelectorAll('.tooltipped'));
 //#endregion
 
 //#region Инициализация слайдеров
 if (jquery__WEBPACK_IMPORTED_MODULE_1__('.fasad-swiper1').length && jquery__WEBPACK_IMPORTED_MODULE_1__('.fasad-swiper2').length) {
   var fasadSwiper1 = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"]('.fasad-swiper1', {
-    loop: true,
-    initialSlide: 1,
     pagination: {
       el: ".swiper1-pagination",
       type: 'bullets'
     }
   });
-  var fasadInfoSwiper1 = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"]('.fasad-info-swiper1', {
-    loop: true
-  });
+  var fasadInfoSwiper1 = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"]('.fasad-info-swiper1', {});
   fasadSwiper1.controller.control = fasadInfoSwiper1;
   fasadInfoSwiper1.controller.control = fasadSwiper1;
   var fasadSwiper2 = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"]('.fasad-swiper2', {
-    loop: true,
-    initialSlide: 1,
     pagination: {
       el: ".swiper2-pagination",
       type: 'bullets'
     }
   });
-  var fasadInfoSwiper2 = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"]('.fasad-info-swiper2', {
-    loop: true
-  });
+  var fasadInfoSwiper2 = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"]('.fasad-info-swiper2', {});
   fasadSwiper2.controller.control = fasadInfoSwiper2;
   fasadInfoSwiper2.controller.control = fasadSwiper2;
 }
@@ -36492,6 +36469,15 @@ if (jquery__WEBPACK_IMPORTED_MODULE_1__('.partners-slider').length) {
     speed: 800,
     autoplay: {
       delay: 1000
+    }
+  });
+}
+if (jquery__WEBPACK_IMPORTED_MODULE_1__('.entry-slider').length) {
+  var entrySlider = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"]('.entry-slider', {
+    pagination: {
+      type: 'bullets',
+      el: '.entry-pagination',
+      clickable: true
     }
   });
 }
@@ -36680,6 +36666,37 @@ jquery__WEBPACK_IMPORTED_MODULE_1__('body').on('change', '.action-calculator inp
   var actionText = "Акция №" + num;
   jquery__WEBPACK_IMPORTED_MODULE_1__('#action-label').text(actionText);
 });
+jquery__WEBPACK_IMPORTED_MODULE_1__('body').on('click', '.smart-bttn .bttn', function (e) {
+  e.preventDefault();
+  var $el = jquery__WEBPACK_IMPORTED_MODULE_1__(e.currentTarget);
+  var $parent = $el.parents('.smart-bttn');
+  var $input = $parent.find('input');
+  var val = parseInt($input.val());
+  val++;
+  $input.val(val);
+  $parent.addClass('flip');
+});
+jquery__WEBPACK_IMPORTED_MODULE_1__('body').on('click', '.smart-bttn #plus', function (e) {
+  e.preventDefault();
+  var $el = jquery__WEBPACK_IMPORTED_MODULE_1__(e.currentTarget);
+  var $parent = $el.parents('.smart-bttn');
+  var $input = $parent.find('input');
+  var val = parseInt($input.val());
+  val++;
+  $input.val(val);
+});
+jquery__WEBPACK_IMPORTED_MODULE_1__('body').on('click', '.smart-bttn #minus', function (e) {
+  e.preventDefault();
+  var $el = jquery__WEBPACK_IMPORTED_MODULE_1__(e.currentTarget);
+  var $parent = $el.parents('.smart-bttn');
+  var $input = $parent.find('input');
+  var val = parseInt($input.val());
+  val--;
+  if (val == 0) {
+    $parent.removeClass('flip');
+  }
+  $input.val(val);
+});
 
 //#endregion
 
@@ -36718,38 +36735,20 @@ function initMap() {
     controls: ['smallMapDefaultSet']
   });
   map.behaviors.disable('scrollZoom');
-  var anapa1 = new ymaps.Placemark(pointCoords[0], {}, {
-    iconColor: 'red'
+  jquery__WEBPACK_IMPORTED_MODULE_1__("[data-lon]").each(function (index, el) {
+    var _el$dataset$points;
+    var points = (_el$dataset$points = el.dataset['points']) === null || _el$dataset$points === void 0 ? void 0 : _el$dataset$points.split(":");
+    for (var i = 0; i < (points === null || points === void 0 ? void 0 : points.length); i++) {
+      var pair = points[i].split(",");
+      var lon = parseFloat(pair[0]);
+      var lat = parseFloat(pair[1]);
+      var coords = [lon, lat];
+      var placemark = new ymaps.Placemark(coords, {}, {
+        iconColor: 'red'
+      });
+      map.geoObjects.add(placemark);
+    }
   });
-  var anapa2 = new ymaps.Placemark(pointCoords[1], {}, {
-    iconColor: 'red'
-  });
-  var anapa3 = new ymaps.Placemark(pointCoords[2], {}, {
-    iconColor: 'red'
-  });
-  var krymsk = new ymaps.Placemark(pointCoords[3], {}, {
-    iconColor: 'red'
-  });
-  var novoros = new ymaps.Placemark(pointCoords[4], {}, {
-    iconColor: 'red'
-  });
-  var abinsk1 = new ymaps.Placemark(pointCoords[5], {}, {
-    iconColor: 'red'
-  });
-  var abinsk2 = new ymaps.Placemark(pointCoords[6], {}, {
-    iconColor: 'red'
-  });
-  var slavyansk = new ymaps.Placemark(pointCoords[7], {}, {
-    iconColor: 'red'
-  });
-  map.geoObjects.add(anapa1);
-  map.geoObjects.add(anapa2);
-  map.geoObjects.add(anapa3);
-  map.geoObjects.add(krymsk);
-  map.geoObjects.add(novoros);
-  map.geoObjects.add(abinsk1);
-  map.geoObjects.add(abinsk2);
-  map.geoObjects.add(slavyansk);
 }
 
 // Инициализация вкладок на странице продукции

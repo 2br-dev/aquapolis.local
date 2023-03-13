@@ -8,18 +8,18 @@
 	<main id="product">
 		<section>
 			<div class="container">
-				<div class="row flex">
+				<div class="row flex vcenter">
 					<div class="col xl5 offset-xl1 l6 m8 offset-m2 s12">
 						<div class="product-images">
 							<div class="type-icon-wrapper">
 								<div class="type-icon arthesian"></div>
-								<div class="type-label">Артезианская</div>
+								<div class="type-label hide-s-down">Артезианская</div>
 							</div>
 							<div class="swiper entry-slider">
 								<div class="swiper-wrapper">
 									<div class="swiper-slide"><img src="" alt="" class="lazy" data-src="/img/bottles/arhyz.png"></div>
 									<div class="swiper-slide"><img src="" alt="" class="lazy" data-src="/img/bottles/chistogornaya.png"></div>
-									<div class="swiper-slide"><img src="" alt="" class="lazy" data-src="/img/bottles/dombai.png"></div>
+									<div class="swiper-slide"><img src="" alt="" class="lazy" data-src="/img/bottles/dombay.png"></div>
 									<div class="swiper-slide"><img src="" alt="" class="lazy" data-src="/img/bottles/elbrusinka.png"></div>
 								</div>
 								<div class="entry-pagination"></div>
@@ -27,21 +27,26 @@
 						</div>
 					</div>
 					<div class="col xl offset-xl1 l5 offset-l1 m12 product-details">
+						<ul class="labels">
+							<li class="label new">Новинка</li>
+							<li class="label bestseller">Хит продаж</li>
+						</ul>
 						<h1>Горный ключ</h1>
 						<div class="prices">
 							<div class="price">
-								<div class="price-title">1 бутыль</div>
+								<div class="price-title">1 бут<span class="hide-m-down">ыль</span></div>
 								<div class="price-value">240<span class="rur-sign">₽</span></div>
 							</div>
 							<div class="price">
-								<div class="price-title">от 2х бутылей</div>
+								<div class="price-title">от 2х бут<span class="hide-m-down">ылей</span></div>
 								<div class="price-value">240<span class="rur-sign">₽</span></div>
 							</div>
 							<div class="price">
-								<div class="price-title">от 4х бутылей</div>
+								<div class="price-title">от 4х бут<span class="hide-m-down">ылей</span></div>
 								<div class="price-value">240<span class="rur-sign">₽</span></div>
 							</div>
 						</div>
+						@@include('./parts/smart-bttn.html', {text: "В корзину"})
 						<div class="note">* цена указана при условии наличия оборотной тары</div>
 						<div class="divider"></div>
 						<input type="checkbox" class="styled" id="include_empty"><label for="include_empty">Включить в заказ пустую тару</label>

@@ -1,55 +1,42 @@
 import Lazy from 'vanilla-lazyload';
 import * as $ from 'jquery';
 import * as M from 'materialize-css';
-import Swiper, {Pagination, Controller, Autoplay, Manipulation, SwiperOptions} from 'swiper';
+import Swiper, {Pagination, Controller, Autoplay, Manipulation} from 'swiper';
 Swiper.use([Pagination, Controller, Manipulation, Autoplay]);
 
 let currentCity:string;
 
 declare var ymaps:any;
 let map:any;
-let pointCoords = [
-	[44.891134, 37.336481], //Анапа1
-	[44.865106, 37.355264], //Анапа2
-	[45.002448, 37.295230], //Анапа3
-	[44.928114, 37.979836], //Крымск
-	[44.757288, 37.725065], //Новороссийск
-	[44.861701, 38.173468], //Абинск1
-	[44.862040, 38.143446], //Абинск2
-	[45.260433, 38.125147], //Славянск-на-Кубани
-];
 
-//#region Parallax
+//#region Materialize
 let lazy = new Lazy({}, document.querySelectorAll('.lazy'));
 let sidenav = M.Sidenav.init(document.querySelectorAll('.sidenav'), {});
 let modals = M.Modal.init(document.querySelectorAll('.modal'), {});
 let scrollSpy = M.ScrollSpy.init(document.querySelectorAll('.scrollspy'));
 let parallax = M.Parallax.init(document.querySelectorAll('.parallax'));
+let tooltip = M.Tooltip.init(document.querySelectorAll('.tooltipped'));
 //#endregion
 
 //#region Инициализация слайдеров
 if($('.fasad-swiper1').length && $('.fasad-swiper2').length){
 	let fasadSwiper1 = new Swiper('.fasad-swiper1', {
-		loop: true, 
-		initialSlide: 1,
 		pagination: {
 			el: ".swiper1-pagination",
-			type: 'bullets'
+			type: 'bullets',
 		}
 	});
-	let fasadInfoSwiper1 = new Swiper('.fasad-info-swiper1', {loop: true});
+	let fasadInfoSwiper1 = new Swiper('.fasad-info-swiper1', {});
 	fasadSwiper1.controller.control = fasadInfoSwiper1;
 	fasadInfoSwiper1.controller.control = fasadSwiper1;
 	
 	let fasadSwiper2 = new Swiper('.fasad-swiper2', {
-		loop: true,
-		initialSlide: 1,
 		pagination: {
 			el: ".swiper2-pagination",
 			type: 'bullets'
 		}
 	});
-	let fasadInfoSwiper2 = new Swiper('.fasad-info-swiper2', {loop: true});
+	let fasadInfoSwiper2 = new Swiper('.fasad-info-swiper2', {});
 	fasadSwiper2.controller.control = fasadInfoSwiper2;
 	fasadInfoSwiper2.controller.control = fasadSwiper2;
 }
@@ -135,6 +122,16 @@ if($('.partners-slider').length){
 		speed: 800,
 		autoplay: {
 			delay: 1000
+		}
+	});
+}
+
+if($('.entry-slider').length){
+	let entrySlider = new Swiper('.entry-slider', {
+		pagination: {
+			type: 'bullets',
+			el: '.entry-pagination',
+			clickable: true
 		}
 	});
 }
@@ -359,6 +356,42 @@ $('body').on('change', '.action-calculator input', (e:JQuery.ChangeEvent) => {
 	
 });
 
+$('body').on('click', '.smart-bttn .bttn', (e:JQuery.ClickEvent) => {
+	e.preventDefault();
+	let $el = $(e.currentTarget);
+	let $parent = $el.parents('.smart-bttn');
+	let $input = $parent.find('input');
+	let val = parseInt($input.val() as any);
+	val++;
+	$input.val(val);
+	$parent.addClass('flip');
+});
+
+$('body').on('click', '.smart-bttn #plus', (e:JQuery.ClickEvent) => {
+	e.preventDefault();
+	let $el = $(e.currentTarget);
+	let $parent = $el.parents('.smart-bttn');
+	let $input = $parent.find('input');
+	let val = parseInt($input.val() as any);
+	val++;
+	$input.val(val);
+});
+
+$('body').on('click', '.smart-bttn #minus', (e:JQuery.ClickEvent) => {
+	e.preventDefault();
+	let $el = $(e.currentTarget);
+	let $parent = $el.parents('.smart-bttn');
+	let $input = $parent.find('input');
+	let val = parseInt($input.val() as any);
+	val--;
+
+	if(val == 0){
+		$parent.removeClass('flip');
+	}
+	
+	$input.val(val);
+});
+
 //#endregion
 
 //#region Функции
@@ -398,24 +431,17 @@ function initMap(e:Event = null, center:number[], zoom:number){
 
 	map.behaviors.disable('scrollZoom');
 
-	let anapa1 = new ymaps.Placemark(pointCoords[0], {}, {iconColor: 'red'});
-	let anapa2 = new ymaps.Placemark(pointCoords[1], {}, {iconColor: 'red'});
-	let anapa3 = new ymaps.Placemark(pointCoords[2], {}, {iconColor: 'red'});
-	let krymsk = new ymaps.Placemark(pointCoords[3], {}, {iconColor: 'red'});
-	let novoros = new ymaps.Placemark(pointCoords[4], {}, {iconColor: 'red'});
-	let abinsk1 = new ymaps.Placemark(pointCoords[5], {}, {iconColor: 'red'});
-	let abinsk2 = new ymaps.Placemark(pointCoords[6], {}, {iconColor: 'red'});
-	let slavyansk = new ymaps.Placemark(pointCoords[7], {}, {iconColor: 'red'});
-
-	map.geoObjects.add(anapa1);
-	map.geoObjects.add(anapa2);
-	map.geoObjects.add(anapa3);
-	map.geoObjects.add(krymsk);
-	map.geoObjects.add(novoros);
-	map.geoObjects.add(abinsk1);
-	map.geoObjects.add(abinsk2);
-	map.geoObjects.add(slavyansk);
-
+	$("[data-lon]").each((index, el) => {
+		let points = el.dataset['points']?.split(":");
+		for(let i=0; i<points?.length; i++){
+			let pair = points[i].split(",");
+			let lon = parseFloat(pair[0]);
+			let lat = parseFloat(pair[1]);
+			let coords = [lon, lat];
+			let placemark = new ymaps.Placemark(coords, {}, {iconColor: 'red'});
+			map.geoObjects.add(placemark);
+		}
+	});
 }
 
 // Инициализация вкладок на странице продукции

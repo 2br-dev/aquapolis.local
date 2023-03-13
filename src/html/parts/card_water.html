@@ -31,6 +31,9 @@
 				</div>
 				<div class="product-info">
 					<div class="name"><a href="@@link">@@name</a></div>
+					@@if(context.longName){
+						<div class="longname">@@longName</div>
+					}
 					<div class="prices">
 						@@if(context.price1){
 							<div class="price">

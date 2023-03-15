@@ -1,7 +1,18 @@
+@charset "UTF-8";
 body {
   font-weight: 400; }
+  body main {
+    background-color: #F9F9F9; }
   body .address-list {
     margin-bottom: 20px; }
+    @media (max-width: 1200px) {
+      body .address-list > div {
+        margin-bottom: 20px; } }
+    body .address-list > div label {
+      line-height: 1.4em !important;
+      display: flex !important; }
+      body .address-list > div label:before {
+        flex-shrink: 0; }
     body .address-list .address-block {
       display: flex; }
       body .address-list .address-block .address {
@@ -66,6 +77,30 @@ body {
     @media (max-width: 450px) {
       body .material-table thead {
         display: none; } }
+  @media (min-width: 800px) {
+    body .adaptive-table tr td:last-of-type {
+      text-align: right; } }
+  @media (max-width: 800px) {
+    body .adaptive-table .add-cart {
+      width: -moz-fit-content;
+      width: fit-content;
+      margin: auto; } }
+  @media (max-width: 800px) {
+    body .adaptive-table tbody tr {
+      flex-direction: row;
+      flex-wrap: wrap; }
+      body .adaptive-table tbody tr td {
+        flex-shrink: 0;
+        width: 23%;
+        flex-grow: 1; }
+        body .adaptive-table tbody tr td:nth-child(1) {
+          width: 100%;
+          padding-bottom: 2rem; }
+        body .adaptive-table tbody tr td:nth-child(2) {
+          order: 2; } }
+  @media (max-width: 600px) {
+    body .adaptive-table tbody tr td {
+      width: 45%; } }
   @media (max-width: 1200px) {
     body .order td {
       text-align: center; } }
@@ -111,3 +146,137 @@ body {
             text-align: left; } }
   body #set-password:not(.visible) {
     display: none; }
+  body .form-section-wrapper.basket-wrapper {
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 100px; }
+    body .form-section-wrapper.basket-wrapper .form-section {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column; }
+  body .form-section-wrapper .form-section-header {
+    margin-bottom: .5vmax;
+    font-size: 2rem;
+    color: #777; }
+  body .form-section-wrapper .form-section {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 1vmax;
+    border-radius: 8px;
+    background-color: #fff;
+    margin-bottom: 2vmax;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.1), 0 4px 12px rgba(0, 0, 0, 0.1); }
+    body .form-section-wrapper .form-section .datepicker {
+      background-image: url(../../img/calendar-month.svg);
+      background-size: 20px auto;
+      background-repeat: no-repeat;
+      background-position: right 10px center; }
+    body .form-section-wrapper .form-section li input + label {
+      white-space: nowrap;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis; }
+    body .form-section-wrapper .form-section #not-recall + label {
+      margin-top: 1em; }
+    body .form-section-wrapper .form-section .disclamer {
+      font-weight: 300;
+      color: #777;
+      font-size: 16px;
+      line-height: 1.4em; }
+    body .form-section-wrapper .form-section h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0; }
+    body .form-section-wrapper .form-section .cart-content {
+      flex-grow: 1; }
+      body .form-section-wrapper .form-section .cart-content .cart-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-bottom: 10px;
+        padding-bottom: 10px; }
+        body .form-section-wrapper .form-section .cart-content .cart-row:not(:last-of-type) {
+          border-bottom: 1px solid #D9D9D9; }
+        body .form-section-wrapper .form-section .cart-content .cart-row .cart-image {
+          width: 20%;
+          margin-right: 20px; }
+          body .form-section-wrapper .form-section .cart-content .cart-row .cart-image img {
+            width: 100%;
+            height: auto; }
+        body .form-section-wrapper .form-section .cart-content .cart-row .cart-info {
+          flex-grow: 1;
+          color: #777; }
+          body .form-section-wrapper .form-section .cart-content .cart-row .cart-info .name, body .form-section-wrapper .form-section .cart-content .cart-row .cart-info .price {
+            font-weight: 800;
+            color: #333; }
+        body .form-section-wrapper .form-section .cart-content .cart-row .cart-action {
+          width: 100%; }
+          body .form-section-wrapper .form-section .cart-content .cart-row .cart-action .bttn-outline {
+            display: block;
+            margin: auto;
+            width: -moz-fit-content;
+            width: fit-content; }
+          body .form-section-wrapper .form-section .cart-content .cart-row .cart-action .button-wrapper {
+            box-shadow: 0 0 0 1px #2962FF inset;
+            border-radius: 1rem;
+            display: flex;
+            width: -moz-fit-content;
+            width: fit-content;
+            margin: auto; }
+            body .form-section-wrapper .form-section .cart-content .cart-row .cart-action .button-wrapper a {
+              display: block;
+              aspect-ratio: 1 / 1;
+              flex-shrink: 0;
+              width: 30px;
+              height: 30px;
+              line-height: 30px;
+              text-align: center; }
+          @media (max-width: 600px) {
+            body .form-section-wrapper .form-section .cart-content .cart-row .cart-action {
+              width: 100%;
+              text-align: center; } }
+    body .form-section-wrapper .form-section .cart-summary {
+      border-top: 1px solid #D9D9D9;
+      margin-left: -1vmax;
+      width: calc(100% + 2vmax);
+      text-align: center;
+      font-weight: bold;
+      padding-top: 1vmax; }
+      body .form-section-wrapper .form-section .cart-summary .total {
+        font-size: 2rem; }
+  body .form-section-wrapper .payments {
+    display: flex;
+    flex-wrap: wrap; }
+    body .form-section-wrapper .payments .payment-input {
+      width: 20%;
+      min-width: 200px;
+      display: block;
+      min-height: 100%;
+      flex-grow: 1; }
+      body .form-section-wrapper .payments .payment-input input {
+        display: none; }
+        body .form-section-wrapper .payments .payment-input input ~ label {
+          border: 2px solid #D9D9D9;
+          display: block;
+          margin: 10px;
+          padding: 30px 15px;
+          border-radius: 8px;
+          transition: background-color .2s, box-shadow .2s;
+          height: calc(100% - 20px);
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          line-height: 1.2em; }
+          body .form-section-wrapper .payments .payment-input input ~ label a {
+            display: inline; }
+          body .form-section-wrapper .payments .payment-input input ~ label:before {
+            content: '󰝥';
+            font-family: 'Material Design Icons';
+            color: #B1B1B1;
+            margin-right: 12px; }
+        body .form-section-wrapper .payments .payment-input input:checked ~ label {
+          border-color: #2962FF;
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2) inset;
+          background-color: #fefefe; }
+          body .form-section-wrapper .payments .payment-input input:checked ~ label:before {
+            color: #2962FF; }

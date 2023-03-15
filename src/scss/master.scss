@@ -2,6 +2,7 @@
 
 // Fonts
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300..500&family=Sofia+Sans:wght@300..800&display=swap');
+@import './parts/vars';
 
 // :::::::::::::::::: MATERIALIZE CSS :::::::::::::::::::
 // Color
@@ -26,14 +27,22 @@
 // @import "../../node_modules/materialize-css/sass/components/toast";
 // @import "../../node_modules/materialize-css/sass/components/tabs";
 @import "../../node_modules/materialize-css/sass/components/tooltip";
-// @import "../../node_modules/materialize-css/sass/components/buttons";
-// @import "../../node_modules/materialize-css/sass/components/dropdown";
+@import "../../node_modules/materialize-css/sass/components/buttons";
+@import "../../node_modules/materialize-css/sass/components/dropdown";
 @import "../../node_modules/materialize-css/sass/components/waves";
 @import "../../node_modules/materialize-css/sass/components/modal";
 // @import "../../node_modules/materialize-css/sass/components/collapsible";
 // @import "../../node_modules/materialize-css/sass/components/chips";
 // @import "../../node_modules/materialize-css/sass/components/materialbox";
-// @import "../../node_modules/materialize-css/sass/components/forms/forms";
+
+// @import "../../node_modules/materialize-css/sass/components/forms/input-fields";
+// @import "../../node_modules/materialize-css/sass/components/forms/radio-buttons";
+// @import "../../node_modules/materialize-css/sass/components/forms/checkboxes";
+@import "../../node_modules/materialize-css/sass/components/forms/switches";
+@import "../../node_modules/materialize-css/sass/components/forms/select";
+// @import "../../node_modules/materialize-css/sass/components/forms/file-input";
+// @import "../../node_modules/materialize-css/sass/components/forms/range";
+
 @import "../../node_modules/materialize-css/sass/components/table_of_contents";
 @import "../../node_modules/materialize-css/sass/components/sidenav";
 // @import "../../node_modules/materialize-css/sass/components/preloader";
@@ -41,8 +50,10 @@
 // @import "../../node_modules/materialize-css/sass/components/carousel";
 // @import "../../node_modules/materialize-css/sass/components/tapTarget";
 // @import "../../node_modules/materialize-css/sass/components/pulse";
-// @import "../../node_modules/materialize-css/sass/components/datepicker";
+@import "../../node_modules/materialize-css/sass/components/datepicker";
 // @import "../../node_modules/materialize-css/sass/components/timepicker";
+ 
+  
 
 // SWIPERJS
 @import '../../node_modules/swiper/swiper.scss';
@@ -52,8 +63,6 @@
 // ::::::::::::::::::: MATERIAL DESIGN ICONS :::::::::::::::::::::::::::
 @import './frameworks/materialdesignicons';
 
-
-@import './parts/vars';
 @import './parts/custom_grid';
 @import './parts/typography';
 @import './parts/header';

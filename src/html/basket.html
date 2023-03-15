@@ -6,188 +6,180 @@
 	<main>
 		<div class="global-wrapper" id="checkout-wrapper">
 			<div class="container">
-				<form class="row">
+				<div class="row">
 					<div class="col s12">
-						<div class="underline-wrapper">
-							<h1>Корзина</h1>
-						</div>
+						<h1>Оформление заказа</h1>
 					</div>
-					<div class="col l3 m4 s12">
-						<div class="underline-wrapper" id="ballance">
-							<h2>
-								Лицевой счет
-							</h2>
-						</div>
-						<p>
-							<span>Балланс: 240₽</span>
-							<a class="bttn right waves-effect waves-dark">Пополнить</a>
-						</p>
-					</div>
-					<div class="col l9 m8 s12">
-						<div class="row">
-							<div class="col s12">
-
-								<div class="underline-wrapper">
-									<h2>Состав корзины</h2>
-								</div>
-								<table class="material-table responsive-table">
-									<thead>
-										<tr>
-											<th>Наименование</th>
-											<th>Количество</th>
-											<th>Цена за единицу</th>
-											<th>Сумма</th>
-											<th class="right-align">Действия</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr class="order">
-											<td><a class="underlined" href="product.html">Вода «Кубай»</a></td>
-											<td>
-												<div class="add-cart inline">
-													<div class="plus">
-														<a href="#!">–</a>
-													</div>
-													<div class="input" contenteditable="true">1</div>
-													<div class="minus">
-														<a href="#!">+</a>
-													</div>
-												</div>
-											</td>
-											<td>120₽</td>
-											<td>240₽</td>
-											<td>
-												<a href="#!">
-													<i class="mdi mdi-delete"></i>
-												</a>
-											</td>
-										</tr>
-										<tr class="order">
-											<td><a class="underlined" href="product.html">Вода «Кубай»</a></td>
-											<td>
-												<div class="add-cart inline">
-													<div class="plus">
-														<a href="#!">–</a>
-													</div>
-													<div class="input" contenteditable="true">1</div>
-													<div class="minus">
-														<a href="#!">+</a>
-													</div>
-												</div>
-											</td>
-											<td>120₽</td>
-											<td>240₽</td>
-											<td>
-												<a href="#!">
-													<i class="mdi mdi-delete"></i>
-												</a>
-											</td>
-										</tr>
-										<tr class="order">
-											<td><a class="underlined" href="product.html">Вода «Кубай»</a></td>
-											<td>
-												<div class="add-cart inline">
-													<div class="plus">
-														<a href="#!">–</a>
-													</div>
-													<div class="input" contenteditable="true">1</div>
-													<div class="minus">
-														<a href="#!">+</a>
-													</div>
-												</div>
-											</td>
-											<td>120₽</td>
-											<td>240₽</td>
-											<td>
-												<a href="#!">
-													<i class="mdi mdi-delete"></i>
-												</a>
-											</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col m8 s12">
-								<strong>Количество пусых бутылок на обмен должно соответствовать количеству бутылок в заказе</strong>
-							</div>
-							<div class="col m4 s12">
-								<a class="image-link right">
-									<div class="lazy image" data-bg="/img/bottles/empty-bottle.png"></div>
-									бутыль ПК 19 л
-								</a>
-								<input class="styled" type="checkbox" id="add-bottle">
-								<label class="right" for="add-bottle">Добавить в заказ&nbsp;</label>
-							</div>
-						</div>
-					</div>
-				</form>
-				<form class="row">
-					<div class="col s12 right-align">
-						<div>
-							К оплате: 240₽
-						</div>
-					</div>
-					<div class="col l3 m4 s12">
-						<div class="underline-wrapper">
-							<h2>Профиль</h2>
-						</div>
-						<div class="row">
-							<div class="col l12 s12">
-								<div class="input-field"><input type="text" class="styled" placeholder="Фамилия, Имя, Отчество"><label for="">Фамилия, Имя, Отчество</label></div>
-							</div>
-							<div class="col l6 m12 s12">
-								<div class="input-field"><input type="text" class="styled" placeholder="E-mail"><label for="">E-mail</label></div>
-							</div>
-							<div class="col l6 m12 s12">
-								<div class="input-field"><input type="phone" class="styled" placeholder="Телефон"><label for="">Телефон</label></div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col s12 right-align">
-								<a class="bttn-outline waves-effect waves-dark">Авторизоваться</a>
-							</div>
-						</div>
-					</div>
-					<div class="col l9 m8 s10">
-						<div class="underline-wrapper">
-							<h2>Доставка и оплата</h2>
-						</div>
-						<div class="row">
-							<div class="col l9 m7 s12">
-								<h3>Адрес</h3>
-								<div class="checkout_changeRegionButton rs-checkout_changeRegionButton">
-									<i class="mdi mdi-map-marker"></i>
-									<span>Анапа</span>
-									<a class="small underlined">изменить</a>
-								</div>
-								<div class="address-list">
-									<div><input type="radio" class="styled" value="address1" name="address" checked id="addr1"><label for="addr1">Россия, Краснодарский край, г. Краснодар, ул. Московская, 129/206</label></div>
-									<div><input type="radio" class="styled" value="address2" name="address" id="addr2"><label for="addr2">Россия, Краснодарский край, г. Краснодар, ул. Северная, д. 324, литер Г</label></div>
-									<div><input type="radio" class="styled" value="address3" name="address" id="addr3"><label for="addr3">Россия, Ставропольский край, г. Ессентуки, ул. Пушкина, 46/9</label></div>
-									<div><input type="radio" class="styled" value="user-address" name="address" id="addr4"><label for="addr4">Другое</label></div>
-									<div class="input-field hidden" id="user-address"><input type="text" class="styled" placeholder="Адрес"><label for="">Адрес</label></div>
+				</div>
+				<div class="row flex">
+					<form action="thanks.html" class="col l9 m7 s12" id="order-form">
+						<div class="form-section-wrapper">
+							<h2 class="form-section-header">Аккаунт</h2>
+							<div class="row form-section">
+								<div class="col l4 m6 s12 input-container"><label for="">Фамилия</label><input type="text"></div>
+								<div class="col l4 m6 s12 input-container"><label for="">Имя</label><input type="text"></div>
+								<div class="col l4 m6 s12 input-container"><label for="">Отчество</label><input type="text"></div>
+								<div class="col l4 m6 s12 input-container"><label for="">Телефон</label><input type="text"></div>
+								<div class="col l8 m6 s12 input-container"><label for="">E-mail</label><input type="text"></div>
+								<div class="col s12 disclamer">
+									Нажимая кнопку «Подтвердить заказ», я принимаю условия Пользовательского соглашения и даю своё согласие на обработку персональных данных Интернет-магазина "Акваполис" в соответствии с Федеральным законом от 27.07.2006 года №152-ФЗ «О персональных данных», на условиях и для целей, определенных <a href="/policy.html">Политикой конфиденциальности</a> и <a href="/agreement.html">Политикой в отношении обработки персональных данных</a>
 								</div>
 							</div>
-							<div class="col l3 m5 s12">
-								<h3>Оплата</h3>
-								<div><input checked type="radio" class="styled" name="payment-type" id="pay1"><label for="pay1">Наличными курьеру</label></div>
-								<div><input type="radio" class="styled" name="payment-type" id="pay2"><label for="pay2">Картой онлайн</label></div>
-								<div><input type="radio" class="styled" name="payment-type" id="pay3"><label for="pay3">Оплата по счету</label></div>
-								<div><input type="radio" class="styled" name="payment-type" id="pay4"><label for="pay4">Из балланса</label></div>
-							</div>
-							<div class="col s12">
-								<div class="input-field"><textarea placeholder="Комментарий к заказу" name="" id="" cols="30" rows="10" class="styled"></textarea><label for="">Комментарий к заказу</label></div>
+						</div>
+						<div class="form-section-wrapper">
+							<h2 class="form-section-header">Доставка</h2>
+							<div class="row form-section flex">
+								<div class="col l5 m12">
+									<h3 class="subheader">Адрес</h3>
+									<ul>
+										<li><input value="addr1" checked type="radio" name="address" id="address1" class="styled"><label for="address1">г. Краснодар, ул. Московская, 129/206</label></li>
+										<li><input value="addr2" type="radio" name="address" id="address2" class="styled"><label for="address2">г. Краснодар, ул. Северная, д. 324, литер Г</label></li>
+										<li><input value="addr3" type="radio" name="address" id="address3" class="styled"><label for="address3">г. Ессентуки, ул. Пушкина, 46/9</label></li>
+										<li><input value="other" type="radio" name="address" id="address4" class="styled"><label for="address4">Указать вручную</label></li>
+									</ul>
+								</div>
+								<div class="col l4 m6 s6 xs12 order-l1" id="period">
+									<h3 class="subheader">Период</h3>
+									<ul>
+										<li><input value="auto" checked type="radio" name="period" class="styled" id="period1"><label for="period1">Ближайшая (менеджер уточнит)</label></li>
+										<li><input value="manual" type="radio" name="period" class="styled" id="period2"><label for="period2">Выбрать дату</label></li>
+										<li class="hidden" id="date">
+											<div class="input-container">
+												<label for="">Выберите дату</label>
+												<input type="text" class="datepicker" id="manual-date">
+											</div>
+										</li>
+									</ul>
+								</div>
+								<div class="col l3 m6 s6 xs12 order-l1 hidden" id="interval">
+									<h3 class="subheader">Интервал</h3>
+									<ul>
+										<li><input checked type="radio" class="styled" name="interval" id="interval1"><label for="interval1">Не указан</label></li>
+										<li><input type="radio" class="styled" name="interval" id="interval2"><label for="interval2">10:00 – 14:00</label></li>
+										<li><input type="radio" class="styled" name="interval" id="interval3"><label for="interval3">13:00 – 17:00</label></li>
+										<li><input type="radio" class="styled" name="interval" id="interval4"><label for="interval4">16:00 – 20:00</label></li>
+										<li><input type="checkbox" name="not-recall" id="not-recall" class="styled"><label for="not-recall">Не перезванивать</label></li>
+									</ul>
+								</div>
+								<div class="col s12 hidden" id="address">
+									<div class="row">
+										<div class="col l4 m12">
+											<div class="input-container"><label for="">Город/населённый пункт</label><input type="text"></div>
+										</div>
+										<div class="col l4 m6 s12">
+											<div class="input-container"><label for="">Улица</label><input type="text"></div>
+										</div>
+										<div class="col l2 m3 s6 xs6">
+											<div class="input-container"><label for="">Дом</label><input type="text"></div>
+										</div>
+										<div class="col l2 m3 s6 xs6">
+											<div class="input-container"><label for="">Корпус/литер</label><input type="text"></div>
+										</div>
+										<div class="col l3 m3 s6 xs6">
+											<div class="input-container"><label for="">Квартира/офис</label><input type="text"></div>
+										</div>
+										<div class="col l3 m3 s6 xs6">
+											<div class="input-container"><label for="">Подъезд</label><input type="text"></div>
+										</div>
+										<div class="col l3 m3 s6 xs6">
+											<div class="input-container"><label for="">Этаж</label><input type="text"></div>
+										</div>
+										<div class="col l3 m3 s6 xs6">
+											<div class="input-container"><label for="">Домофон</label><input type="text"></div>
+										</div>
+									</div>
+								</div>
+								<div class="col s12">
+									<div class="input-container">
+										<label for="">Комментарий</label>
+										<textarea name="" id="" cols="30" rows="3"></textarea>
+									</div>
+								</div>
 							</div>
 						</div>
-						<div class="row">
-							<div class="col s12 right-align">
-								<a class="bttn">Офомить заказ</a>
+						<div class="form-section-wrapper">
+							<h2 class="form-section-header">Оплата</h2>
+							<div class="row form-section">
+								<div class="col s12">
+									<div class="payments">
+										<div class="payment-input"><input checked type="radio" name="payment" id="payment2"><label for="payment2">Картой онлайн</label></div>
+										<div class="payment-input"><input type="radio" name="payment" id="payment1"><label for="payment1">Наличными курьеру</label></div>
+										<div class="payment-input"><input type="radio" name="payment" id="payment3"><label for="payment3">Картой при получении</label></div>
+										<div class="payment-input"><input type="radio" name="payment" id="payment4"><label for="payment4">Оплата по счёту</label></div>
+										<div class="payment-input"><input type="radio" name="payment" id="payment5">
+											<label for="payment5">
+												<span>
+													С балланса. На счету: <a href="">240 <span class="rur-sign">₽</span></a>
+												</span>
+											</label>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
+						<input type="hidden" id="total-input-value" value="480">
+					</form>
+					<form action="" class="col l3 m5 s12">
+						<div class="form-section-wrapper basket-wrapper">
+							<h2 class="form-section-header">Состав корзины</h2>
+							<div class="form-section">
+								<div class="cart-content">
+									<div class="cart-row">
+										<div class="cart-image"><img src="" alt="" class="lazy" data-src="/img/bottles/kubai.png"></div>
+										<div class="cart-info">
+											<div class="name">Вода «Кубай</div>
+											<div class="description">Цена за единицу: 210<span class="rur-sign">₽</span></div>
+											<div class="price">240<span class="rur-sign">₽</span></div>
+										</div>
+										<div class="cart-action">
+											<div class="button-wrapper">
+												<a href=""><i class="mdi mdi-minus"></i></a>
+												<input type="number" value="1">
+												<a href=""><i class="mdi mdi-plus"></i></a>
+											</div>
+										</div>
+									</div>
+									<div class="cart-row">
+										<div class="cart-image"><img src="" alt="" class="lazy" data-src="/img/bottles/kubai.png"></div>
+										<div class="cart-info">
+											<div class="name">Вода «Кубай</div>
+											<div class="description">Цена за единицу: 210<span class="rur-sign">₽</span></div>
+											<div class="price">240<span class="rur-sign">₽</span></div>
+										</div>
+										<div class="cart-action">
+											<div class="button-wrapper">
+												<a href=""><i class="mdi mdi-minus"></i></a>
+												<input type="number" value="1">
+												<a href=""><i class="mdi mdi-plus"></i></a>
+											</div>
+										</div>
+									</div>
+									<div class="cart-row">
+										<div class="cart-image"><img src="" alt="" class="lazy" data-src="/img/bottles/empty-bottle.png"></div>
+										<div class="cart-info">
+											<div class="name">Пустая тара</div>
+											<div class="price">240<span class="rur-sign">₽</span></div>
+										</div>
+										<div class="cart-action">
+											<a href="" class="bttn-outline">Добавить</a>
+										</div>
+									</div>
+								</div>
+								<div class="cart-summary">
+									<div class="summary">Итого к оплате:</div>
+									<div class="total">
+										<span id="total-value"></span><span class="rur-sign">₽</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="row">
+					<div class="col center-align">
+						<a href="#!" class="bttn-large" id="submit" data-form="order-form">Оформить заказ</a>
 					</div>
-				</form>
+				</div>
 			</div>
 		</div>
 	</main>

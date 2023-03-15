@@ -1,0 +1,127 @@
+@import '../parts/vars';
+
+#thanks{
+	
+	.kv-wrapper{
+
+		display: table;
+		width: 100%;
+
+		& .kv-pair{
+
+			& .value{
+				font-weight: 700;
+			}
+
+			@media(min-width: $small){
+
+				display: table-row;
+
+				&:nth-child(odd){
+					background-color: rgba(black, .03);
+				}
+	
+				&:hover > *{
+					background-color: rgba(black, .05);
+				}
+
+				& .key, & .value{
+					display: table-cell;
+					padding: 12px;
+					transition: background-color .2s;
+				}
+			}
+
+			@media(max-width: $small){
+
+				display: block;
+				margin-bottom: .7rem;
+
+				& .key{
+					display: block;
+				}
+
+				& .value{
+					display: block;
+				}
+			}
+		}
+	}
+
+	& .basket{
+
+		display: table;
+		width: 100%;
+
+		& .basket-row{
+
+			display: table-row;
+			align-items: center;
+
+			@media(min-width: $small){
+				&:nth-child(odd){
+					background-color: rgba(black, .05);
+				}
+			}
+
+			& > div{
+				display: table-cell;
+				vertical-align: middle;
+				padding: 10px 20px;
+				box-sizing: border-box;
+				text-align: center;
+
+				&.name{
+					font-weight: 700;
+				}
+
+				&.price{
+					text-align: right;
+				}
+			}
+
+			& .basket-image{
+
+				display: table-cell;
+				text-align: left;
+				width: 120px;
+
+				& img{
+					height: 80px;
+					aspect-ratio: 1 / 1;
+					object-fit: contain;
+				}
+			}
+		}
+
+		@media(max-width: $small){
+			display: block;
+
+			& .basket-row{
+				display: block;
+				padding: 20px;
+				border-radius: $border-radius;
+				margin-bottom: 1rem;
+				box-shadow: 0 1px 2px rgba(black, .1), 0 2px 4px rgba(black, .1), 0 3px 6px rgba(black, .1);
+
+				& > div{
+
+					display: block !important;
+					width: 100%;
+					text-align: center !important;
+					padding: 0;
+
+					&.basket-image{
+						width: 100% !important;
+
+						& img{
+							margin: auto;
+							height: 200px;
+						}
+					}
+				}
+			}
+		}
+	}
+
+}

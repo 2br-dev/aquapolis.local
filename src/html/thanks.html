@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+	@@include('./parts/head.html', {title: "Корзина", style:"thanks"})
+<body>
+	@@include('./parts/header.html')
+	<main>
+		<div class="global-wrapper" id="thanks">
+			<div class="container">
+				<div class="row">
+					<div class="col m6 s12">
+						<h1>Спасибо!</h1>
+						<p><strong>Заказ №7</strong> успешно сформирован! Вы можете отслеживать историю изменения заказа на странице <a href="/history.html">история заказов</a>. Все уведомления в данном заказе будут отправлены на электронную почту покупателя.</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col m6 s12">
+						<h2>Детали заказа</h2>
+						<div class="kv-wrapper">
+							<div class="kv-pair">
+								<div class="key">Дата оформления</div>
+								<div class="value">15 марта 2023</div>
+							</div>
+							<div class="kv-pair">
+								<div class="key">Заказчик</div>
+								<div class="value">Иванов Пётр петрович</div>
+							</div>
+							<div class="kv-pair">
+								<div class="key">Телефон</div>
+								<div class="value">Не указан</div>
+							</div>
+							<div class="kv-pair">
+								<div class="key">E-mail</div>
+								<div class="value">name@domain.zone</div>
+							</div>
+							<div class="kv-pair">
+								<div class="key">Адрес</div>
+								<div class="value">Краснодар, ул. Восточно-Кругликовская, 14</div>
+							</div>
+							<div class="kv-pair">
+								<div class="key">Период</div>
+								<div class="value">17 марта 2023</div>
+							</div>
+							<div class="kv-pair">
+								<div class="key">Интервал</div>
+								<div class="value">с 13:00 до 17:00</div>
+							</div>
+						</div>
+					</div>
+					<div class="col m6 s12">
+						<h2>Состав корзины</h2>
+						<div class="basket">
+							<div class="basket-row">
+								<div class="basket-image"><img src="" alt="" class="lazy" data-src="/img/bottles/kubai.png"></div>
+								<div class="name">Вода «Кубай»</div>
+								<div class="count">1</div>
+								<div class="price">240<span class="rur-sign">₽</span></div>
+							</div>
+							<div class="basket-row">
+								<div class="basket-image"><img src="" alt="" class="lazy" data-src="/img/bottles/kubai.png"></div>
+								<div class="name">Вода «Кубай»</div>
+								<div class="count">1</div>
+								<div class="price">240<span class="rur-sign">₽</span></div>
+							</div>
+							<div class="basket-row">
+								<div class="basket-image"><img src="" alt="" class="lazy" data-src="/img/bottles/kubai.png"></div>
+								<div class="name">Пустая бутыль</div>
+								<div class="count">1</div>
+								<div class="price">240<span class="rur-sign">₽</span></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col center-align"><a href="" class="bttn-large">Оплатить</a></div>
+					<div class="col center-align"><a href="/">На главную</a></div>
+				</div>
+			</div>
+		</div>
+	</main>
+	@@include('./parts/footer.html')
+	@@include('./parts/scripts.html')
+</body>
+</html>

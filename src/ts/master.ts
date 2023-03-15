@@ -16,6 +16,19 @@ let modals = M.Modal.init(document.querySelectorAll('.modal'), {});
 let scrollSpy = M.ScrollSpy.init(document.querySelectorAll('.scrollspy'));
 let parallax = M.Parallax.init(document.querySelectorAll('.parallax'));
 let tooltip = M.Tooltip.init(document.querySelectorAll('.tooltipped'));
+let datePickers = M.Datepicker.init(document.querySelectorAll('.datepicker'), {
+	format: "dd mmmm yyyy",
+	i18n: {
+		done: "Ок",
+		clear: "Очистить",
+		cancel: "Отмена",
+		months: ["Янаварь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"],
+		monthsShort: ["Янв", "Февр", "Мрт", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек"],
+		weekdays: ["Понедельник","Вторник","Среда","Четверг","Пятница","Суббота","Воскресенье"],
+		weekdaysShort: ["Пн","Вт","Ср","Чт","Пт","Сб","Вс"],
+		weekdaysAbbrev: ["П","В","С","Ч","П","С","В"]
+	}
+});
 //#endregion
 
 //#region Инициализация слайдеров
@@ -390,6 +403,57 @@ $('body').on('click', '.smart-bttn #minus', (e:JQuery.ClickEvent) => {
 	}
 	
 	$input.val(val);
+});
+
+if($('#total-value').length){
+	let val = $('#total-input-value').val().toString();
+	$('#total-value').text(val);
+}
+
+$('body').on('change', '[name="address"]', (e:JQuery.ChangeEvent) => {
+	let el = e.currentTarget;
+	let val = el.value;
+
+	if(val === "other")
+	{
+		$('#address').removeClass("hidden");
+	}else{
+		$('#address').addClass("hidden");
+	}
+});
+
+
+$('body').on('change', '[name="period"]', (e:JQuery.ChangeEvent) => {
+	let el = e.currentTarget;
+	let val = el.value;
+
+	if(val === "manual")
+	{
+		$('#date').removeClass("hidden");
+		if($('#manual-date').val() != "")
+		{
+			$('#interval').removeClass('hidden');
+		}else{
+			$('#interval').addClass('hidden');
+		}
+	}else{
+		$('#date').addClass("hidden");
+		$('#interval').addClass('hidden');
+	}
+});
+
+$('body').on('change', '#manual-date', (e:JQuery.ChangeEvent) => {
+	if($('#manual-date').val() != "")
+	{
+		$('#interval').removeClass('hidden');
+	}else{
+		$('#interval').addClass('hidden');
+	}
+});
+
+$('body').on('click', '#submit', (e:JQuery.ClickEvent) => {
+	let form = e.currentTarget.dataset['form'];
+	$('#'+form).trigger('submit');
 });
 
 //#endregion

@@ -1,0 +1,72 @@
+#thanks .kv-wrapper {
+  display: table;
+  width: 100%; }
+  #thanks .kv-wrapper .kv-pair .value {
+    font-weight: 700; }
+  @media (min-width: 600px) {
+    #thanks .kv-wrapper .kv-pair {
+      display: table-row; }
+      #thanks .kv-wrapper .kv-pair:nth-child(odd) {
+        background-color: rgba(0, 0, 0, 0.03); }
+      #thanks .kv-wrapper .kv-pair:hover > * {
+        background-color: rgba(0, 0, 0, 0.05); }
+      #thanks .kv-wrapper .kv-pair .key, #thanks .kv-wrapper .kv-pair .value {
+        display: table-cell;
+        padding: 12px;
+        transition: background-color .2s; } }
+  @media (max-width: 600px) {
+    #thanks .kv-wrapper .kv-pair {
+      display: block;
+      margin-bottom: .7rem; }
+      #thanks .kv-wrapper .kv-pair .key {
+        display: block; }
+      #thanks .kv-wrapper .kv-pair .value {
+        display: block; } }
+
+#thanks .basket {
+  display: table;
+  width: 100%; }
+  #thanks .basket .basket-row {
+    display: table-row;
+    align-items: center; }
+    @media (min-width: 600px) {
+      #thanks .basket .basket-row:nth-child(odd) {
+        background-color: rgba(0, 0, 0, 0.05); } }
+    #thanks .basket .basket-row > div {
+      display: table-cell;
+      vertical-align: middle;
+      padding: 10px 20px;
+      box-sizing: border-box;
+      text-align: center; }
+      #thanks .basket .basket-row > div.name {
+        font-weight: 700; }
+      #thanks .basket .basket-row > div.price {
+        text-align: right; }
+    #thanks .basket .basket-row .basket-image {
+      display: table-cell;
+      text-align: left;
+      width: 120px; }
+      #thanks .basket .basket-row .basket-image img {
+        height: 80px;
+        aspect-ratio: 1 / 1;
+        -o-object-fit: contain;
+           object-fit: contain; }
+  @media (max-width: 600px) {
+    #thanks .basket {
+      display: block; }
+      #thanks .basket .basket-row {
+        display: block;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.1); }
+        #thanks .basket .basket-row > div {
+          display: block !important;
+          width: 100%;
+          text-align: center !important;
+          padding: 0; }
+          #thanks .basket .basket-row > div.basket-image {
+            width: 100% !important; }
+            #thanks .basket .basket-row > div.basket-image img {
+              margin: auto;
+              height: 200px; } }

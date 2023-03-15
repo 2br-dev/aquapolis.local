@@ -170,7 +170,7 @@ header{
 					position: relative;
 					margin-right: 20px;
 
-					@media(max-width: 550px){
+					@media(max-width: 650px){
 						display: none;
 					}
 
@@ -285,7 +285,7 @@ header{
 			}
 		}
 
-		@media(max-width: 550px){
+		@media(max-width: 650px){
 
 			& nav{
 				flex-grow: 0;

@@ -36373,6 +36373,19 @@ var modals = materialize_css__WEBPACK_IMPORTED_MODULE_2__.Modal.init(document.qu
 var scrollSpy = materialize_css__WEBPACK_IMPORTED_MODULE_2__.ScrollSpy.init(document.querySelectorAll('.scrollspy'));
 var parallax = materialize_css__WEBPACK_IMPORTED_MODULE_2__.Parallax.init(document.querySelectorAll('.parallax'));
 var tooltip = materialize_css__WEBPACK_IMPORTED_MODULE_2__.Tooltip.init(document.querySelectorAll('.tooltipped'));
+var datePickers = materialize_css__WEBPACK_IMPORTED_MODULE_2__.Datepicker.init(document.querySelectorAll('.datepicker'), {
+  format: "dd mmmm yyyy",
+  i18n: {
+    done: "Ок",
+    clear: "Очистить",
+    cancel: "Отмена",
+    months: ["Янаварь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"],
+    monthsShort: ["Янв", "Февр", "Мрт", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек"],
+    weekdays: ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"],
+    weekdaysShort: ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"],
+    weekdaysAbbrev: ["П", "В", "С", "Ч", "П", "С", "В"]
+  }
+});
 //#endregion
 
 //#region Инициализация слайдеров
@@ -36696,6 +36709,45 @@ jquery__WEBPACK_IMPORTED_MODULE_1__('body').on('click', '.smart-bttn #minus', fu
     $parent.removeClass('flip');
   }
   $input.val(val);
+});
+if (jquery__WEBPACK_IMPORTED_MODULE_1__('#total-value').length) {
+  var val = jquery__WEBPACK_IMPORTED_MODULE_1__('#total-input-value').val().toString();
+  jquery__WEBPACK_IMPORTED_MODULE_1__('#total-value').text(val);
+}
+jquery__WEBPACK_IMPORTED_MODULE_1__('body').on('change', '[name="address"]', function (e) {
+  var el = e.currentTarget;
+  var val = el.value;
+  if (val === "other") {
+    jquery__WEBPACK_IMPORTED_MODULE_1__('#address').removeClass("hidden");
+  } else {
+    jquery__WEBPACK_IMPORTED_MODULE_1__('#address').addClass("hidden");
+  }
+});
+jquery__WEBPACK_IMPORTED_MODULE_1__('body').on('change', '[name="period"]', function (e) {
+  var el = e.currentTarget;
+  var val = el.value;
+  if (val === "manual") {
+    jquery__WEBPACK_IMPORTED_MODULE_1__('#date').removeClass("hidden");
+    if (jquery__WEBPACK_IMPORTED_MODULE_1__('#manual-date').val() != "") {
+      jquery__WEBPACK_IMPORTED_MODULE_1__('#interval').removeClass('hidden');
+    } else {
+      jquery__WEBPACK_IMPORTED_MODULE_1__('#interval').addClass('hidden');
+    }
+  } else {
+    jquery__WEBPACK_IMPORTED_MODULE_1__('#date').addClass("hidden");
+    jquery__WEBPACK_IMPORTED_MODULE_1__('#interval').addClass('hidden');
+  }
+});
+jquery__WEBPACK_IMPORTED_MODULE_1__('body').on('change', '#manual-date', function (e) {
+  if (jquery__WEBPACK_IMPORTED_MODULE_1__('#manual-date').val() != "") {
+    jquery__WEBPACK_IMPORTED_MODULE_1__('#interval').removeClass('hidden');
+  } else {
+    jquery__WEBPACK_IMPORTED_MODULE_1__('#interval').addClass('hidden');
+  }
+});
+jquery__WEBPACK_IMPORTED_MODULE_1__('body').on('click', '#submit', function (e) {
+  var form = e.currentTarget.dataset['form'];
+  jquery__WEBPACK_IMPORTED_MODULE_1__('#' + form).trigger('submit');
 });
 
 //#endregion

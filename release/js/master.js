@@ -36786,12 +36786,12 @@ jquery__WEBPACK_IMPORTED_MODULE_1__('body').on('change', '[name="delivery-day"]'
     }
   } else {
     jquery__WEBPACK_IMPORTED_MODULE_1__('#date').addClass("hidden");
-    jquery__WEBPACK_IMPORTED_MODULE_1__('#idelivery-interval').addClass('hidden');
+    jquery__WEBPACK_IMPORTED_MODULE_1__('#delivery-interval').addClass('hidden');
   }
 });
 jquery__WEBPACK_IMPORTED_MODULE_1__('body').on('change', '#manual-date', function (e) {
   if (jquery__WEBPACK_IMPORTED_MODULE_1__('#manual-date').val() != "") {
-    jquery__WEBPACK_IMPORTED_MODULE_1__('#idelivery-interval').removeClass('hidden');
+    jquery__WEBPACK_IMPORTED_MODULE_1__('#delivery-interval').removeClass('hidden');
   } else {
     jquery__WEBPACK_IMPORTED_MODULE_1__('#delivery-interval').addClass('hidden');
   }

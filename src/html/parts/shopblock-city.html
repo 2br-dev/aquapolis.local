@@ -1,10 +1,10 @@
-<div class="city" data-city="@@zindex" data-lon="@@lon" data-lat="@@lat" data-zoom="@@zoom">
+<div class="city" data-city="@@zindex" data-lon="@@center.lon" data-lat="@@center.lat" data-zoom="@@zoom">
 	<a class="city-trigger waves-effect" href="#!">
 		<span class="name">@@city</span>
 		<i class="arrow mdi mdi-chevron-right"></i>
 	</a>
 	<div class="city-description hidden">
-		<div class="fasad-swiper@@swiperIndex swiper">
+		<div class="fasad-swiper swiper">
 			<div class="swiper-wrapper">
 				@@if(context.addresses){
 					@@for(let i=0; i<addresses.length; i++){
@@ -16,8 +16,8 @@
 			</div>
 		</div>
 		<div class="description-city">г. @@city</div>
-		<div class="swiper@@swiperIndex-pagination contacts-swiper-pagination"></div>
-		<div class="fasad-info-swiper@@swiperIndex swiper">
+		<div class="swiper-pagination contacts-swiper-pagination"></div>
+		<div class="fasad-info-swiper swiper">
 			<div class="swiper-wrapper">
 				@@if(context.addresses){
 					@@for(let i=0; i<addresses.length; i++){

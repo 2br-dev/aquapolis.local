@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru">	
 <head>
-	<meta charset="UTF-8">
+<meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Каталог продукции</title>
+<title>Акция</title>
 <link rel="stylesheet" href="/css/master.css">
+
+<link rel="stylesheet" href="/css/pages/offer.css">
 
 </head>
 <body>
@@ -135,23 +137,140 @@
 	<li><a href="/service.html">Сервис</a></li>
 	<li><a href="/contacts.html">Контакты</a></li>
 </ul>
-	<main>
-		<div class="container">
-			<div class="row flex">
-				<div class="col s12">
-					<h1>Каталог</h1>
+	<main id="offer">
+		<section>
+			<div class="container">
+				<div class="row flex vcenter">
+					<div class="col xl5 offset-xl1 l6 m8 offset-m2 s12">
+						<div class="product-images">
+							<img src="" alt="" class="lazy responsive-img" data-src="/img/actions/action1.jpg">
+						</div>
+					</div>
+					<div class="col xl offset-xl1 l5 offset-l1 m12 product-details">
+						<h1>Акция-1</h1>
+						<!-- <div class="action-label" id="action-label">Анапа</div> -->
+						<div class="prices">
+							<div class="price">
+								<div class="price-title">старая цена</div>
+								<div class="price-value old-price"><span id="old-price">1260</span><span class="rur-sign">₽</span></div>
+							</div>
+							<div class="price">
+								<div class="price-title">новая цена</div>
+								<div class="price-value new-price"><span id="new-price">1071</span><span class="rur-sign">₽</span></div>
+							</div>
+						</div>
+						<p><strong>Состав комплекта:</strong></p>
+						<ul class="browser-default">
+							<li><a href="/product.html">Горячий ключ</a> – 2 шт</li>
+							<li><a href="/product.html">Пустая тара</a> – 2 шт</li>
+							<li><a href="/product_cooler.html">Помпа механическая</a> – 1 шт</li>
+						</ul>
+						<p>
+							<a href="" class="bttn-large">В корзину</a>
+						</p>
+					</div>
 				</div>
-				<div class="col s12">
-					<div class="quick-navi">
-						<a class="quick-navi-entry active" href="/catalog_water.html">Питьевая вода (11)</a><a class="quick-navi-entry " href="/catalog_water.html">Акции (7)</a><a class="quick-navi-entry " href="/catalog_water.html">Кулеры и помпы (8)</a><a class="quick-navi-entry " href="/catalog_water.html">Аксессуары (3)</a><a class="quick-navi-entry " href="/catalog_water.html">Разное (15)</a><a class="quick-navi-entry " href="/catalog_water.html">Специальные предложения (4)</a>
+				<div class="row">
+					<div class="col xl8 offset-xl2 l10 offset-l1 s12">
+						<ul class="product-tabs">
+							<li class="product-tab active"><a href="#desc">
+								<span class="mdi mdi-card-text-outline hide-m-down"> Описание</span>
+								<span class="mdi mdi-card-text-outline hide-m-up"></span>
+							</a></li>
+							<li class="product-tab"><a href="#delivery">
+								<span class="mdi mdi-truck-fast hide-m-down"> Доставка</span>
+								<span class="mdi mdi-truck-fast hide-m-up"></span>
+							</a></li>
+							<li class="indicator"></li>
+						</ul>
+						<div class="tabs-content">
+							<div id="desc" class="tab-content hidden">
+								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, nam accusantium earum itaque dolore maxime saepe cum nihil optio quas ipsa nisi amet repudiandae cumque qui fugiat placeat veritatis repellendus.</p>
+								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, nam accusantium earum itaque dolore maxime saepe cum nihil optio quas ipsa nisi amet repudiandae cumque qui fugiat placeat veritatis repellendus.</p>
+							</div>
+							<div id="delivery" class="tab-content hidden">
+								<p><strong>Доставка осуществляется бесплатно</strong> в черте города при заказе от 2х бутылей. При доставке в отдалённые раёоны стоимость доставки может измениться.</p>
+								<p><strong>Самовывоз доступен по адресам:</strong></p>
+								<div class="address-popup-wrapper">
+									<ul class="browser-default">
+										<li>
+											<a href="javascript:void(0);">пер. Спасский д. 16, пом 8</a>
+											<div class="address-popup z-depth-1">
+												<div class="name">пер. Спасский д. 16, пом 8</div>
+												<div class="kv-pair">
+													<div class="key">Время работы: </div>
+													<div class="value">8:00 – 18:00</div>
+												</div>
+												<div class="kv-pair">
+													<div class="key">Приём заявок: </div>
+													<div class="value">8:00 — 20:00</div>
+												</div>
+												<div class="kv-pair">
+													<div class="key">Телефон:</div>
+													<div class="value">+7 (918) 66-22-880</div>
+												</div>
+												<a href="https://maps.yandex.ru">Показать на карте »</a>
+											</div>
+										</li>
+										<li>
+											<a href="javascript:void(0);">с. Супсех, ул.Советская д. 19</a>
+											<div class="address-popup z-depth-1">
+												<div class="name">с. Супсех, ул.Советская д. 19</div>
+												<div class="kv-pair">
+													<div class="key">Время работы: </div>
+													<div class="value">8:00 – 18:00</div>
+												</div>
+												<div class="kv-pair">
+													<div class="key">Приём заявок: </div>
+													<div class="value">8:00 — 20:00</div>
+												</div>
+												<div class="kv-pair">
+													<div class="key">Телефон:</div>
+													<div class="value">+7 (918) 66-22-880</div>
+												</div>
+												<a href="https://maps.yandex.ru">Показать на карте »</a>
+											</div>
+										</li>
+										<li>
+											<a href="javascript:void(0);">ул. 160 лет Витязево, 72</a>
+											<div class="address-popup z-depth-1">
+												<div class="name">ул. 160 лет Витязево, 72</div>
+												<div class="kv-pair">
+													<div class="key">Время работы: </div>
+													<div class="value">8:00 – 18:00</div>
+												</div>
+												<div class="kv-pair">
+													<div class="key">Приём заявок: </div>
+													<div class="value">8:00 — 20:00</div>
+												</div>
+												<div class="kv-pair">
+													<div class="key">Телефон:</div>
+													<div class="value">+7 (918) 66-22-880</div>
+												</div>
+												<a href="https://maps.yandex.ru">Показать на карте »</a>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-			<div class="row flex catalog-wrapper">
-				
+		</section>
+		<section>
+	<div class="container">
+		<div class="row">
+			<div class="col s12">
+				<h2>Вы ещё не пробовали</h2>
+			</div>
+			<div class="col s12">
+				<div class="swiper water-swiper">
+					<div class="swiper-wrapper">
+						
 
 	
-		<div class="col xl2 l3 m4 s6 xs6 t6">
+		<div class="swiper-slide">
 			<div class="card-water">
 				<div class="labels">
 					
@@ -189,7 +308,6 @@
 				</div>
 				<div class="product-info">
 					<div class="name"><a href="/product.html">Архыз</a></div>
-					
 					<div class="prices">
 						
 							<div class="price">
@@ -232,7 +350,7 @@
 
 
 	
-		<div class="col xl2 l3 m4 s6 xs6 t6">
+		<div class="swiper-slide">
 			<div class="card-water">
 				<div class="labels">
 					
@@ -270,7 +388,6 @@
 				</div>
 				<div class="product-info">
 					<div class="name"><a href="/product.html">Горгиппия</a></div>
-					
 					<div class="prices">
 						
 							<div class="price">
@@ -313,7 +430,7 @@
 
 
 	
-		<div class="col xl2 l3 m4 s6 xs6 t6">
+		<div class="swiper-slide">
 			<div class="card-water">
 				<div class="labels">
 					
@@ -351,7 +468,6 @@
 				</div>
 				<div class="product-info">
 					<div class="name"><a href="/product.html">Горная вершина</a></div>
-					
 					<div class="prices">
 						
 							<div class="price">
@@ -394,7 +510,7 @@
 
 
 	
-		<div class="col xl2 l3 m4 s6 xs6 t6">
+		<div class="swiper-slide">
 			<div class="card-water">
 				<div class="labels">
 					
@@ -432,7 +548,6 @@
 				</div>
 				<div class="product-info">
 					<div class="name"><a href="/product.html">Горный ключ</a></div>
-					
 					<div class="prices">
 						
 							<div class="price">
@@ -475,21 +590,7 @@
 
 
 	
-	
-	
-		<div class="col xl4 l6 m8">
-			<a href="./action.html">
-				<img class="card-action-wide lazy" data-src="/img/actions/action5.jpg">
-			</a>
-		</div>
-	
-	
-	
-
-
-
-	
-		<div class="col xl2 l3 m4 s6 xs6 t6">
+		<div class="swiper-slide">
 			<div class="card-water">
 				<div class="labels">
 					
@@ -527,7 +628,6 @@
 				</div>
 				<div class="product-info">
 					<div class="name"><a href="/product.html">Серебряная капля</a></div>
-					
 					<div class="prices">
 						
 							<div class="price">
@@ -570,7 +670,7 @@
 
 
 	
-		<div class="col xl2 l3 m4 s6 xs6 t6">
+		<div class="swiper-slide">
 			<div class="card-water">
 				<div class="labels">
 					
@@ -608,7 +708,6 @@
 				</div>
 				<div class="product-info">
 					<div class="name"><a href="/product.html">Софт-аква</a></div>
-					
 					<div class="prices">
 						
 							<div class="price">
@@ -651,7 +750,7 @@
 
 
 	
-		<div class="col xl2 l3 m4 s6 xs6 t6">
+		<div class="swiper-slide">
 			<div class="card-water">
 				<div class="labels">
 					
@@ -689,7 +788,6 @@
 				</div>
 				<div class="product-info">
 					<div class="name"><a href="/product.html">Троицкая</a></div>
-					
 					<div class="prices">
 						
 							<div class="price">
@@ -732,7 +830,7 @@
 
 
 	
-		<div class="col xl2 l3 m4 s6 xs6 t6">
+		<div class="swiper-slide">
 			<div class="card-water">
 				<div class="labels">
 					
@@ -770,7 +868,6 @@
 				</div>
 				<div class="product-info">
 					<div class="name"><a href="/product.html">#чистоГорная</a></div>
-					
 					<div class="prices">
 						
 							<div class="price">
@@ -813,7 +910,7 @@
 
 
 	
-		<div class="col xl2 l3 m4 s6 xs6 t6">
+		<div class="swiper-slide">
 			<div class="card-water">
 				<div class="labels">
 					
@@ -851,7 +948,6 @@
 				</div>
 				<div class="product-info">
 					<div class="name"><a href="/product.html">Эльбрусинка детская</a></div>
-					
 					<div class="prices">
 						
 							<div class="price">
@@ -894,7 +990,7 @@
 
 
 	
-		<div class="col xl2 l3 m4 s6 xs6 t6">
+		<div class="swiper-slide">
 			<div class="card-water">
 				<div class="labels">
 					
@@ -932,7 +1028,6 @@
 				</div>
 				<div class="product-info">
 					<div class="name"><a href="/product.html">Президиум</a></div>
-					
 					<div class="prices">
 						
 							<div class="price">
@@ -975,7 +1070,7 @@
 
 
 	
-		<div class="col xl2 l3 m4 s6 xs6 t6">
+		<div class="swiper-slide">
 			<div class="card-water">
 				<div class="labels">
 					
@@ -1013,7 +1108,6 @@
 				</div>
 				<div class="product-info">
 					<div class="name"><a href="/product.html">Природный источник</a></div>
-					
 					<div class="prices">
 						
 							<div class="price">
@@ -1056,7 +1150,7 @@
 
 
 	
-		<div class="col xl2 l3 m4 s6 xs6 t6">
+		<div class="swiper-slide">
 			<div class="card-water">
 				<div class="labels">
 					
@@ -1094,7 +1188,6 @@
 				</div>
 				<div class="product-info">
 					<div class="name"><a href="/product.html">Кубай</a></div>
-					
 					<div class="prices">
 						
 							<div class="price">
@@ -1137,7 +1230,7 @@
 
 
 	
-		<div class="col xl2 l3 m4 s6 xs6 t6">
+		<div class="swiper-slide">
 			<div class="card-water">
 				<div class="labels">
 					
@@ -1175,7 +1268,6 @@
 				</div>
 				<div class="product-info">
 					<div class="name"><a href="/product.html">Пилигрим</a></div>
-					
 					<div class="prices">
 						
 							<div class="price">
@@ -1218,7 +1310,7 @@
 
 
 	
-		<div class="col xl2 l3 m4 s6 xs6 t6">
+		<div class="swiper-slide">
 			<div class="card-water">
 				<div class="labels">
 					
@@ -1256,7 +1348,6 @@
 				</div>
 				<div class="product-info">
 					<div class="name"><a href="/product.html">Эривань</a></div>
-					
 					<div class="prices">
 						
 							<div class="price">
@@ -1299,7 +1390,7 @@
 
 
 	
-		<div class="col xl2 l3 m4 s6 xs6 t6">
+		<div class="swiper-slide">
 			<div class="card-water">
 				<div class="labels">
 					
@@ -1337,7 +1428,6 @@
 				</div>
 				<div class="product-info">
 					<div class="name"><a href="/product.html">Домбай</a></div>
-					
 					<div class="prices">
 						
 							<div class="price">
@@ -1380,7 +1470,7 @@
 
 
 	
-		<div class="col xl2 l3 m4 s6 xs6 t6">
+		<div class="swiper-slide">
 			<div class="card-water">
 				<div class="labels">
 					
@@ -1418,7 +1508,6 @@
 				</div>
 				<div class="product-info">
 					<div class="name"><a href="/product.html">Жемчужина Кавказа</a></div>
-					
 					<div class="prices">
 						
 							<div class="price">
@@ -1461,7 +1550,7 @@
 
 
 	
-		<div class="col xl2 l3 m4 s6 xs6 t6">
+		<div class="swiper-slide">
 			<div class="card-water">
 				<div class="labels">
 					
@@ -1499,7 +1588,6 @@
 				</div>
 				<div class="product-info">
 					<div class="name"><a href="/product.html">Пустая тара</a></div>
-					
 					<div class="prices">
 						
 							<div class="price">
@@ -1530,22 +1618,15 @@
 	
 
 
-
-	
-	
-	
-	
-	
-		<div class="col xl2 l3 m4 s6 t6">
-			<a href="./action.html">
-				<img class="card-action lazy" data-src="/img/actions/action4.jpg">
-			</a>
-		</div>
-	
-
-
+					</div>
+				</div>
+			</div>
+			<div class="col s12">
+				<div class="swiper-pagination main-water-pagination"></div>
 			</div>
 		</div>
+	</div>
+</section>
 		<section id="shops">
 	<div class="row flex">
 		<div class="col s12 center-align">

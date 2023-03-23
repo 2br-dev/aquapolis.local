@@ -36,7 +36,7 @@ let datePickers = M.Datepicker.init(document.querySelectorAll('.datepicker'), {
 	}
 });
 
-function loadIntervals(date){
+function loadIntervals(date:Date){
     var dom = `<div><input type="radio" name="delivery-interval" class="styled" id="interval-[+id+]" value="[+interval+]"><label for="interval-[+id+]">[+label+]</label></div>`;
     var dom_ready = "";
     $('input[name="delivery_date_timestamp"]').val(date.getTime()/1000);
@@ -51,7 +51,7 @@ function loadIntervals(date){
             $('input[name="delivery_date"]').val(res.formatted_date);
             for(var key in res.intervals){
                 var t = dom;
-                t = t.replaceAll('[+id+]', (+key+1)).replace('[+interval+]', res.intervals[key]).replace('[+label+]', res.intervals[key]);
+                t = (t as any).replaceAll('[+id+]', (+key+1)).replace('[+interval+]', res.intervals[key]).replace('[+label+]', res.intervals[key]);
                 dom_ready += t;
             }
             $('#interval-wrapper').html(dom_ready);
@@ -498,14 +498,14 @@ $('body').on('change', '[name="delivery-day"]', (e:JQuery.ChangeEvent) => {
 		}
 	}else{
 		$('#date').addClass("hidden");
-		$('#idelivery-interval').addClass('hidden');
+		$('#delivery-interval').addClass('hidden');
 	}
 });
 
 $('body').on('change', '#manual-date', (e:JQuery.ChangeEvent) => {
 	if($('#manual-date').val() != "")
 	{
-		$('#idelivery-interval').removeClass('hidden');
+		$('#delivery-interval').removeClass('hidden');
 	}else{
 		$('#delivery-interval').addClass('hidden');
 	}

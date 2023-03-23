@@ -59,9 +59,17 @@
         color: #00aa41; }
       #offer .product-details .prices .price .price-value.old-price {
         color: rgba(119, 119, 119, 0.5);
-        text-decoration: line-through;
-        text-decoration-thickness: 2px;
-        text-decoration-color: #ff004c; }
+        position: relative; }
+        #offer .product-details .prices .price .price-value.old-price:before {
+          content: '';
+          display: block;
+          width: 100%;
+          height: 2px;
+          background-color: #ff004c;
+          top: calc(50% - 1px);
+          left: 0;
+          position: absolute;
+          pointer-events: none; }
       #offer .product-details .prices .price .price-value .rur-sign {
         font-weight: 500; }
 

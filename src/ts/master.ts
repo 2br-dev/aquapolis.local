@@ -16,8 +16,14 @@ let modals = M.Modal.init(document.querySelectorAll('.modal'), {});
 let scrollSpy = M.ScrollSpy.init(document.querySelectorAll('.scrollspy'));
 let parallax = M.Parallax.init(document.querySelectorAll('.parallax'));
 let tooltip = M.Tooltip.init(document.querySelectorAll('.tooltipped'));
+
+//Получаем завтрашнюю дату
+var current_date = new Date();
+var tommorow = current_date.setDate(current_date.getDate() + 1);
 let datePickers = M.Datepicker.init(document.querySelectorAll('.datepicker'), {
 	format: "dd mmmm yyyy",
+    minDate: new Date(tommorow),
+    onSelect: loadIntervals,
 	i18n: {
 		done: "Ок",
 		clear: "Очистить",
@@ -29,40 +35,94 @@ let datePickers = M.Datepicker.init(document.querySelectorAll('.datepicker'), {
 		weekdaysAbbrev: ["П","В","С","Ч","П","С","В"]
 	}
 });
+
+function loadIntervals(date){
+    var dom = `<div><input type="radio" name="delivery-interval" class="styled" id="interval-[+id+]" value="[+interval+]"><label for="interval-[+id+]">[+label+]</label></div>`;
+    var dom_ready = "";
+    $('input[name="delivery_date_timestamp"]').val(date.getTime()/1000);
+    $.ajax({
+        url: $('#delivery-date').data('url'),
+        type: "POST",
+        dataType: "JSON",
+        data: {
+            delivery_date: date.getTime()/1000
+        },
+        success: (res) => {
+            $('input[name="delivery_date"]').val(res.formatted_date);
+            for(var key in res.intervals){
+                var t = dom;
+                t = t.replaceAll('[+id+]', (+key+1)).replace('[+interval+]', res.intervals[key]).replace('[+label+]', res.intervals[key]);
+                dom_ready += t;
+            }
+            $('#interval-wrapper').html(dom_ready);
+            $('#delivery-interval').removeClass('hidden');
+            $('#interval-0').prop('checked', 'checked');
+        },
+        error: (err) => {
+            console.error(err)
+        }
+    });
+}
 //#endregion
 
-//#region Инициализация слайдеров
-if($('.fasad-swiper1').length && $('.fasad-swiper2').length){
-	let fasadSwiper1 = new Swiper('.fasad-swiper1', {
-		pagination: {
-			el: ".swiper1-pagination",
-			type: 'bullets',
-		}
-	});
-	let fasadInfoSwiper1 = new Swiper('.fasad-info-swiper1', {});
-	fasadSwiper1.controller.control = fasadInfoSwiper1;
-	fasadInfoSwiper1.controller.control = fasadSwiper1;
-	
-	let fasadSwiper2 = new Swiper('.fasad-swiper2', {
-		pagination: {
-			el: ".swiper2-pagination",
-			type: 'bullets'
-		}
-	});
-	let fasadInfoSwiper2 = new Swiper('.fasad-info-swiper2', {});
-	fasadSwiper2.controller.control = fasadInfoSwiper2;
-	fasadInfoSwiper2.controller.control = fasadSwiper2;
-}
+$('.city').each((index, city) => {
+
+    let slidesCount = city.querySelectorAll('.fasad-swiper .swiper-slide').length;
+
+    let pagination = <HTMLElement>city.querySelector('.swiper-pagination');
+    let fasadSwiperEl = <HTMLElement>city.querySelector('.fasad-swiper');
+    let fasadInfoSwiperEl = <HTMLElement>city.querySelector('.fasad-info-swiper');
+
+    if(slidesCount > 1)
+    {
+        let fasadSwiper = new Swiper(fasadSwiperEl, {
+            pagination: {
+                el: pagination,
+                type: 'bullets',
+            }
+        });
+        let fasadInfoSwiper = new Swiper(fasadInfoSwiperEl, {});
+        fasadSwiper.controller.control = fasadInfoSwiper;
+        fasadInfoSwiper.controller.control = fasadSwiper;
+    }
+})
+
+$('.city-contacts').each((index, city) => {
+
+    let slidesCount = city.querySelectorAll('.fasad-swiper .swiper-slide').length;
+
+    let pagination = <HTMLElement>city.querySelector('.swiper-pagination');
+    let fasadSwiperEl = <HTMLElement>city.querySelector('.fasad-swiper');
+    let fasadInfoSwiperEl = <HTMLElement>city.querySelector('.fasad-info-swiper');
+
+    if(slidesCount > 1)
+    {
+        let fasadSwiper = new Swiper(fasadSwiperEl, {
+            pagination: {
+                el: pagination,
+                type: 'bullets',
+            }
+        });
+        let fasadInfoSwiper = new Swiper(fasadInfoSwiperEl, {});
+        fasadSwiper.controller.control = fasadInfoSwiper;
+        fasadInfoSwiper.controller.control = fasadSwiper;
+    }
+})
 
 if($('.product-swiper').length){
-	let productSwiper = new Swiper('.product-swiper', {
-		loop: true,
-		pagination: {
-			el: '.swiper-pagination',
-			type: 'bullets',
-			clickable: true
-		}
-	});
+    $('.product-swiper').each((index, el) => {
+        let slides = $(el).find('.swiper-slide').length;
+        if(slides > 1){
+            let productSwiper = new Swiper(el, {
+                loop: true,
+                pagination: {
+                    el: '.swiper-pagination',
+                    type: 'bullets',
+                    clickable: true
+                }
+            });
+        }
+    })
 }
 
 if($('.water-swiper').length){
@@ -410,44 +470,44 @@ if($('#total-value').length){
 	$('#total-value').text(val);
 }
 
-$('body').on('change', '[name="address"]', (e:JQuery.ChangeEvent) => {
+$('body').on('change', '[name="use_addr"]', (e:JQuery.ChangeEvent) => {
+	let el = e.currentTarget;
+	let val = el.value;
+
+	if(val === "0")
+	{
+		$('#user-address').removeClass("hidden");
+	}else{
+		$('#user-address').addClass("hidden");
+	}
+});
+
+
+$('body').on('change', '[name="delivery-day"]', (e:JQuery.ChangeEvent) => {
 	let el = e.currentTarget;
 	let val = el.value;
 
 	if(val === "other")
 	{
-		$('#address').removeClass("hidden");
-	}else{
-		$('#address').addClass("hidden");
-	}
-});
-
-
-$('body').on('change', '[name="period"]', (e:JQuery.ChangeEvent) => {
-	let el = e.currentTarget;
-	let val = el.value;
-
-	if(val === "manual")
-	{
 		$('#date').removeClass("hidden");
 		if($('#manual-date').val() != "")
 		{
-			$('#interval').removeClass('hidden');
+			$('#delivery-interval').removeClass('hidden');
 		}else{
-			$('#interval').addClass('hidden');
+			$('#delivery-interval').addClass('hidden');
 		}
 	}else{
 		$('#date').addClass("hidden");
-		$('#interval').addClass('hidden');
+		$('#idelivery-interval').addClass('hidden');
 	}
 });
 
 $('body').on('change', '#manual-date', (e:JQuery.ChangeEvent) => {
 	if($('#manual-date').val() != "")
 	{
-		$('#interval').removeClass('hidden');
+		$('#idelivery-interval').removeClass('hidden');
 	}else{
-		$('#interval').addClass('hidden');
+		$('#delivery-interval').addClass('hidden');
 	}
 });
 

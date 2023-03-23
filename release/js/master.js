@@ -36373,8 +36373,14 @@ var modals = materialize_css__WEBPACK_IMPORTED_MODULE_2__.Modal.init(document.qu
 var scrollSpy = materialize_css__WEBPACK_IMPORTED_MODULE_2__.ScrollSpy.init(document.querySelectorAll('.scrollspy'));
 var parallax = materialize_css__WEBPACK_IMPORTED_MODULE_2__.Parallax.init(document.querySelectorAll('.parallax'));
 var tooltip = materialize_css__WEBPACK_IMPORTED_MODULE_2__.Tooltip.init(document.querySelectorAll('.tooltipped'));
+
+//Получаем завтрашнюю дату
+var current_date = new Date();
+var tommorow = current_date.setDate(current_date.getDate() + 1);
 var datePickers = materialize_css__WEBPACK_IMPORTED_MODULE_2__.Datepicker.init(document.querySelectorAll('.datepicker'), {
   format: "dd mmmm yyyy",
+  minDate: new Date(tommorow),
+  onSelect: loadIntervals,
   i18n: {
     done: "Ок",
     clear: "Очистить",
@@ -36386,36 +36392,81 @@ var datePickers = materialize_css__WEBPACK_IMPORTED_MODULE_2__.Datepicker.init(d
     weekdaysAbbrev: ["П", "В", "С", "Ч", "П", "С", "В"]
   }
 });
+function loadIntervals(date) {
+  var dom = "<div><input type=\"radio\" name=\"delivery-interval\" class=\"styled\" id=\"interval-[+id+]\" value=\"[+interval+]\"><label for=\"interval-[+id+]\">[+label+]</label></div>";
+  var dom_ready = "";
+  jquery__WEBPACK_IMPORTED_MODULE_1__('input[name="delivery_date_timestamp"]').val(date.getTime() / 1000);
+  jquery__WEBPACK_IMPORTED_MODULE_1__.ajax({
+    url: jquery__WEBPACK_IMPORTED_MODULE_1__('#delivery-date').data('url'),
+    type: "POST",
+    dataType: "JSON",
+    data: {
+      delivery_date: date.getTime() / 1000
+    },
+    success: function success(res) {
+      jquery__WEBPACK_IMPORTED_MODULE_1__('input[name="delivery_date"]').val(res.formatted_date);
+      for (var key in res.intervals) {
+        var t = dom;
+        t = t.replaceAll('[+id+]', +key + 1).replace('[+interval+]', res.intervals[key]).replace('[+label+]', res.intervals[key]);
+        dom_ready += t;
+      }
+      jquery__WEBPACK_IMPORTED_MODULE_1__('#interval-wrapper').html(dom_ready);
+      jquery__WEBPACK_IMPORTED_MODULE_1__('#delivery-interval').removeClass('hidden');
+      jquery__WEBPACK_IMPORTED_MODULE_1__('#interval-0').prop('checked', 'checked');
+    },
+    error: function error(err) {
+      console.error(err);
+    }
+  });
+}
 //#endregion
 
-//#region Инициализация слайдеров
-if (jquery__WEBPACK_IMPORTED_MODULE_1__('.fasad-swiper1').length && jquery__WEBPACK_IMPORTED_MODULE_1__('.fasad-swiper2').length) {
-  var fasadSwiper1 = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"]('.fasad-swiper1', {
-    pagination: {
-      el: ".swiper1-pagination",
-      type: 'bullets'
-    }
-  });
-  var fasadInfoSwiper1 = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"]('.fasad-info-swiper1', {});
-  fasadSwiper1.controller.control = fasadInfoSwiper1;
-  fasadInfoSwiper1.controller.control = fasadSwiper1;
-  var fasadSwiper2 = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"]('.fasad-swiper2', {
-    pagination: {
-      el: ".swiper2-pagination",
-      type: 'bullets'
-    }
-  });
-  var fasadInfoSwiper2 = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"]('.fasad-info-swiper2', {});
-  fasadSwiper2.controller.control = fasadInfoSwiper2;
-  fasadInfoSwiper2.controller.control = fasadSwiper2;
-}
+jquery__WEBPACK_IMPORTED_MODULE_1__('.city').each(function (index, city) {
+  var slidesCount = city.querySelectorAll('.fasad-swiper .swiper-slide').length;
+  var pagination = city.querySelector('.swiper-pagination');
+  var fasadSwiperEl = city.querySelector('.fasad-swiper');
+  var fasadInfoSwiperEl = city.querySelector('.fasad-info-swiper');
+  if (slidesCount > 1) {
+    var fasadSwiper = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"](fasadSwiperEl, {
+      pagination: {
+        el: pagination,
+        type: 'bullets'
+      }
+    });
+    var fasadInfoSwiper = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"](fasadInfoSwiperEl, {});
+    fasadSwiper.controller.control = fasadInfoSwiper;
+    fasadInfoSwiper.controller.control = fasadSwiper;
+  }
+});
+jquery__WEBPACK_IMPORTED_MODULE_1__('.city-contacts').each(function (index, city) {
+  var slidesCount = city.querySelectorAll('.fasad-swiper .swiper-slide').length;
+  var pagination = city.querySelector('.swiper-pagination');
+  var fasadSwiperEl = city.querySelector('.fasad-swiper');
+  var fasadInfoSwiperEl = city.querySelector('.fasad-info-swiper');
+  if (slidesCount > 1) {
+    var fasadSwiper = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"](fasadSwiperEl, {
+      pagination: {
+        el: pagination,
+        type: 'bullets'
+      }
+    });
+    var fasadInfoSwiper = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"](fasadInfoSwiperEl, {});
+    fasadSwiper.controller.control = fasadInfoSwiper;
+    fasadInfoSwiper.controller.control = fasadSwiper;
+  }
+});
 if (jquery__WEBPACK_IMPORTED_MODULE_1__('.product-swiper').length) {
-  var productSwiper = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"]('.product-swiper', {
-    loop: true,
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
+  jquery__WEBPACK_IMPORTED_MODULE_1__('.product-swiper').each(function (index, el) {
+    var slides = jquery__WEBPACK_IMPORTED_MODULE_1__(el).find('.swiper-slide').length;
+    if (slides > 1) {
+      var productSwiper = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"](el, {
+        loop: true,
+        pagination: {
+          el: '.swiper-pagination',
+          type: 'bullets',
+          clickable: true
+        }
+      });
     }
   });
 }
@@ -36714,35 +36765,35 @@ if (jquery__WEBPACK_IMPORTED_MODULE_1__('#total-value').length) {
   var val = jquery__WEBPACK_IMPORTED_MODULE_1__('#total-input-value').val().toString();
   jquery__WEBPACK_IMPORTED_MODULE_1__('#total-value').text(val);
 }
-jquery__WEBPACK_IMPORTED_MODULE_1__('body').on('change', '[name="address"]', function (e) {
+jquery__WEBPACK_IMPORTED_MODULE_1__('body').on('change', '[name="use_addr"]', function (e) {
+  var el = e.currentTarget;
+  var val = el.value;
+  if (val === "0") {
+    jquery__WEBPACK_IMPORTED_MODULE_1__('#user-address').removeClass("hidden");
+  } else {
+    jquery__WEBPACK_IMPORTED_MODULE_1__('#user-address').addClass("hidden");
+  }
+});
+jquery__WEBPACK_IMPORTED_MODULE_1__('body').on('change', '[name="delivery-day"]', function (e) {
   var el = e.currentTarget;
   var val = el.value;
   if (val === "other") {
-    jquery__WEBPACK_IMPORTED_MODULE_1__('#address').removeClass("hidden");
-  } else {
-    jquery__WEBPACK_IMPORTED_MODULE_1__('#address').addClass("hidden");
-  }
-});
-jquery__WEBPACK_IMPORTED_MODULE_1__('body').on('change', '[name="period"]', function (e) {
-  var el = e.currentTarget;
-  var val = el.value;
-  if (val === "manual") {
     jquery__WEBPACK_IMPORTED_MODULE_1__('#date').removeClass("hidden");
     if (jquery__WEBPACK_IMPORTED_MODULE_1__('#manual-date').val() != "") {
-      jquery__WEBPACK_IMPORTED_MODULE_1__('#interval').removeClass('hidden');
+      jquery__WEBPACK_IMPORTED_MODULE_1__('#delivery-interval').removeClass('hidden');
     } else {
-      jquery__WEBPACK_IMPORTED_MODULE_1__('#interval').addClass('hidden');
+      jquery__WEBPACK_IMPORTED_MODULE_1__('#delivery-interval').addClass('hidden');
     }
   } else {
     jquery__WEBPACK_IMPORTED_MODULE_1__('#date').addClass("hidden");
-    jquery__WEBPACK_IMPORTED_MODULE_1__('#interval').addClass('hidden');
+    jquery__WEBPACK_IMPORTED_MODULE_1__('#idelivery-interval').addClass('hidden');
   }
 });
 jquery__WEBPACK_IMPORTED_MODULE_1__('body').on('change', '#manual-date', function (e) {
   if (jquery__WEBPACK_IMPORTED_MODULE_1__('#manual-date').val() != "") {
-    jquery__WEBPACK_IMPORTED_MODULE_1__('#interval').removeClass('hidden');
+    jquery__WEBPACK_IMPORTED_MODULE_1__('#idelivery-interval').removeClass('hidden');
   } else {
-    jquery__WEBPACK_IMPORTED_MODULE_1__('#interval').addClass('hidden');
+    jquery__WEBPACK_IMPORTED_MODULE_1__('#delivery-interval').addClass('hidden');
   }
 });
 jquery__WEBPACK_IMPORTED_MODULE_1__('body').on('click', '#submit', function (e) {

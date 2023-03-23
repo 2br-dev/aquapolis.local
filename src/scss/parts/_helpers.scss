@@ -332,6 +332,9 @@ body{
 			color: $fogged;
 			font-weight: 300;
 			font-size: calc(14px + .2vmax);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
 
 			& ~ input, & ~ textarea{
 				display: block;

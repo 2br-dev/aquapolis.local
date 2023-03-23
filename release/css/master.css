@@ -23863,7 +23863,10 @@ body {
     display: block;
     color: #777;
     font-weight: 300;
-    font-size: calc(14px + .2vmax); }
+    font-size: calc(14px + .2vmax);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; }
     body .input-container label ~ input, body .input-container label ~ textarea {
       display: block;
       border: 1px solid #D9D9D9;

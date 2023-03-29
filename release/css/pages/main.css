@@ -121,6 +121,46 @@ body {
       font-size: 1.6rem; }
     #main section#categories .category .category-info .category-desc {
       color: #777; }
+  @media (max-width: 1500px) and (min-width: 1200px) {
+    #main section#categories .category {
+      flex-direction: column;
+      text-align: center;
+      align-items: flex-start; }
+      #main section#categories .category .lazy {
+        aspect-ratio: unset;
+        width: 100%;
+        height: unset;
+        aspect-ratio: 4 / 2.5;
+        -o-object-fit: contain;
+           object-fit: contain;
+        -o-object-position: top left;
+           object-position: top left; }
+      #main section#categories .category .category-info {
+        border-top: 1px solid #ccc;
+        width: 100%;
+        padding: 10px 0; }
+      #main section#categories .category:hover {
+        background-position: 0 130px; } }
+  @media (max-width: 700px) and (min-width: 600px) {
+    #main section#categories .category {
+      flex-direction: column;
+      text-align: center;
+      align-items: flex-start; }
+      #main section#categories .category .lazy {
+        aspect-ratio: unset;
+        width: 100%;
+        height: unset;
+        aspect-ratio: 4 / 2.5;
+        -o-object-fit: contain;
+           object-fit: contain;
+        -o-object-position: top left;
+           object-position: top left; }
+      #main section#categories .category .category-info {
+        border-top: 1px solid #ccc;
+        width: 100%;
+        padding: 10px 0; }
+      #main section#categories .category:hover {
+        background-position: 0 130px; } }
 
 #main section .main-water-pagination {
   bottom: -20px; }

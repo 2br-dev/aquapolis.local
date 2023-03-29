@@ -125,6 +125,39 @@
 						color: $fogged;
 					}
 				}
+
+				@mixin compactCategories{
+					flex-direction: column;
+					text-align: center;
+					align-items: flex-start;
+
+					& .lazy{
+						aspect-ratio: unset;
+						width: 100%;
+						height: unset;
+						aspect-ratio: 4 / 2.5;
+						object-fit: contain;
+						object-position: top left;
+					}
+
+					& .category-info{
+						border-top: 1px solid #ccc;
+						width: 100%;
+						padding: 10px 0;
+					}
+
+					&:hover{
+						background-position: 0 130px;
+					}
+				}
+
+				@media (max-width: 1500px) and (min-width: 1200px){
+					@include compactCategories();
+				}
+
+				@media (max-width: 700px) and (min-width: 600px){
+					@include compactCategories();
+				}
 			}
 		}
 

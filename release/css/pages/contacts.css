@@ -61,23 +61,26 @@ body #contacts .address {
   font-weight: bold;
   color: #777; }
 
-body #contacts .kv-pair {
-  display: table-row; }
-  body #contacts .kv-pair .key {
-    display: table-cell;
-    font-size: 16px;
-    color: #777;
-    font-weight: 300;
-    padding-right: 20px; }
-  body #contacts .kv-pair .value {
-    display: table-cell;
-    font-weight: bold;
-    color: #333; }
-  @media (max-width: 600px) {
-    body #contacts .kv-pair {
-      display: block; }
-      body #contacts .kv-pair .key, body #contacts .kv-pair .value {
-        display: block; } }
+body #contacts .kv-wrapper {
+  display: table;
+  width: 100%; }
+  body #contacts .kv-wrapper .kv-pair {
+    display: table-row; }
+    body #contacts .kv-wrapper .kv-pair .key {
+      display: table-cell;
+      font-size: 16px;
+      color: #777;
+      font-weight: 300;
+      padding-right: 20px; }
+    body #contacts .kv-wrapper .kv-pair .value {
+      display: table-cell;
+      font-weight: bold;
+      color: #333; }
+    @media (max-width: 600px) {
+      body #contacts .kv-wrapper .kv-pair {
+        display: block; }
+        body #contacts .kv-wrapper .kv-pair .key, body #contacts .kv-wrapper .kv-pair .value {
+          display: block; } }
 
 body #contacts .contacts-swiper-pagination {
   display: flex;

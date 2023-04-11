@@ -36364,6 +36364,8 @@ __webpack_require__.r(__webpack_exports__);
 
 swiper__WEBPACK_IMPORTED_MODULE_3__["default"].use([swiper__WEBPACK_IMPORTED_MODULE_3__.Pagination, swiper__WEBPACK_IMPORTED_MODULE_3__.Controller, swiper__WEBPACK_IMPORTED_MODULE_3__.Manipulation, swiper__WEBPACK_IMPORTED_MODULE_3__.Autoplay]);
 var currentCity;
+var placemarks = [];
+window.placemarks = placemarks;
 var map;
 
 //#region Materialize
@@ -36436,6 +36438,20 @@ jquery__WEBPACK_IMPORTED_MODULE_1__('.city').each(function (index, city) {
     var fasadInfoSwiper = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"](fasadInfoSwiperEl, {});
     fasadSwiper.controller.control = fasadInfoSwiper;
     fasadInfoSwiper.controller.control = fasadSwiper;
+    fasadSwiper.on('slideChange', function (sw) {
+      var slideIndex = sw.activeIndex;
+      var el = sw.el;
+      var city = jquery__WEBPACK_IMPORTED_MODULE_1__(el).parents('[data-city]');
+      var cityIndex = city.data('city');
+      var placemark = placemarks.filter(function (pl) {
+        return pl.sliderIndex == cityIndex && pl.slideIndex == slideIndex;
+      });
+      var pm = placemark[0];
+      placemarks.forEach(function (pm) {
+        pm.options.set('iconColor', 'red');
+      });
+      pm.options.set('iconColor', 'blue');
+    });
   }
 });
 jquery__WEBPACK_IMPORTED_MODULE_1__('.city-contacts').each(function (index, city) {
@@ -36456,71 +36472,104 @@ jquery__WEBPACK_IMPORTED_MODULE_1__('.city-contacts').each(function (index, city
   }
 });
 if (jquery__WEBPACK_IMPORTED_MODULE_1__('.product-swiper').length) {
-  jquery__WEBPACK_IMPORTED_MODULE_1__('.product-swiper').each(function (index, el) {
-    var slides = jquery__WEBPACK_IMPORTED_MODULE_1__(el).find('.swiper-slide').length;
-    if (slides > 1) {
-      var productSwiper = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"](el, {
-        loop: true,
-        pagination: {
-          el: '.swiper-pagination',
-          type: 'bullets',
-          clickable: true
-        }
-      });
-    }
-  });
+  var slidesCount = document.querySelectorAll('.product-swiper .swiper-slide').length;
+  if (slidesCount > 1) {
+    jquery__WEBPACK_IMPORTED_MODULE_1__('.product-swiper').each(function (index, el) {
+      var slides = jquery__WEBPACK_IMPORTED_MODULE_1__(el).find('.swiper-slide').length;
+      if (slides > 1) {
+        var productSwiper = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"](el, {
+          loop: true,
+          pagination: {
+            el: '.swiper-pagination',
+            type: 'bullets',
+            clickable: true
+          }
+        });
+        productSwiper.on('slideChange', function () {
+          var lazy = new (vanilla_lazyload__WEBPACK_IMPORTED_MODULE_0___default())({}, document.querySelectorAll('.lazy'));
+        });
+      }
+    });
+  }
 }
 if (jquery__WEBPACK_IMPORTED_MODULE_1__('.water-swiper').length) {
-  var waterSlider = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"]('.water-swiper', {
-    spaceBetween: 10,
-    pagination: {
-      el: '.main-water-pagination',
-      type: 'bullets',
-      dynamicBullets: true,
-      dynamicMainBullets: 5
-    },
-    breakpoints: {
-      300: {
-        slidesPerView: 2
+  var _slidesCount = document.querySelectorAll('.water-swiper .swiper-slide').length;
+  if (_slidesCount > 1) {
+    var waterSlider = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"]('.water-swiper', {
+      spaceBetween: 10,
+      pagination: {
+        el: '.main-water-pagination',
+        type: 'bullets',
+        dynamicBullets: true,
+        dynamicMainBullets: 5
       },
-      800: {
-        slidesPerView: 3
-      },
-      1200: {
-        slidesPerView: 4
-      },
-      1700: {
-        slidesPerView: 5
+      breakpoints: {
+        300: {
+          slidesPerView: 2
+        },
+        800: {
+          slidesPerView: 3
+        },
+        1200: {
+          slidesPerView: 4
+        },
+        1700: {
+          slidesPerView: 5
+        }
       }
-    }
-  });
+    });
+  }
 }
-if (jquery__WEBPACK_IMPORTED_MODULE_1__('.offers-swiper').length) {
-  var offersSlider = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"]('.offers-swiper', {
-    slidesPerView: 'auto',
-    spaceBetween: 20,
-    pagination: {
-      el: '.offers-pagination',
-      type: 'bullets'
-    }
-  });
+if (jquery__WEBPACK_IMPORTED_MODULE_1__('#desktop-offers').length) {
+  var _slidesCount2 = document.querySelectorAll('#desktop-offers .swiper-slide').length;
+  if (_slidesCount2 > 1) {
+    var offersSlider = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"]('#desktop-offers', {
+      slidesPerView: 'auto',
+      spaceBetween: 20,
+      loop: true,
+      pagination: {
+        el: '.desktop-offers-pagination',
+        type: 'bullets',
+        clickable: true
+      }
+    });
+  }
+}
+if (jquery__WEBPACK_IMPORTED_MODULE_1__('#mobile-offers').length) {
+  var _slidesCount3 = document.querySelectorAll('#mobile-offers .swiper-slide').length;
+  if (_slidesCount3 > 1) {
+    var _offersSlider = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"]('#mobile-offers', {
+      slidesPerView: 'auto',
+      spaceBetween: 20,
+      loop: true,
+      pagination: {
+        el: '.mobile-offers-pagination',
+        type: 'bullets',
+        clickable: true
+      }
+    });
+  }
 }
 if (jquery__WEBPACK_IMPORTED_MODULE_1__('.actions-swiper').length) {
   jquery__WEBPACK_IMPORTED_MODULE_1__('.actions-swiper').each(function (index, el) {
     var id = el.id;
     var swiperClass = '.' + id + "-swiper";
     var paginationClass = "." + id + "-pagination";
-    new swiper__WEBPACK_IMPORTED_MODULE_3__["default"](swiperClass, {
-      slidesPerView: 'auto',
-      spaceBetween: 20,
-      pagination: {
-        el: paginationClass,
-        type: 'bullets',
-        bulletClass: 'actions-bullet',
-        bulletActiveClass: 'actions-active',
-        modifierClass: 'actions-pagination-'
-      }
-    });
+    var selector = swiperClass + ' .swiper-slide';
+    var slidesCount = document.querySelectorAll(selector).length;
+    if (slidesCount > 1) {
+      new swiper__WEBPACK_IMPORTED_MODULE_3__["default"](swiperClass, {
+        slidesPerView: 'auto',
+        spaceBetween: 20,
+        pagination: {
+          el: paginationClass,
+          type: 'bullets',
+          bulletClass: 'actions-bullet',
+          bulletActiveClass: 'actions-active',
+          modifierClass: 'actions-pagination-'
+        }
+      });
+    }
   });
 }
 if (jquery__WEBPACK_IMPORTED_MODULE_1__('.partners-slider').length) {
@@ -36537,13 +36586,16 @@ if (jquery__WEBPACK_IMPORTED_MODULE_1__('.partners-slider').length) {
   });
 }
 if (jquery__WEBPACK_IMPORTED_MODULE_1__('.entry-slider').length) {
-  var entrySlider = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"]('.entry-slider', {
-    pagination: {
-      type: 'bullets',
-      el: '.entry-pagination',
-      clickable: true
-    }
-  });
+  var _slidesCount4 = document.querySelectorAll('.entry-slider .swiper-slide').length;
+  if (_slidesCount4 > 1) {
+    var entrySlider = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"]('.entry-slider', {
+      pagination: {
+        type: 'bullets',
+        el: '.entry-pagination',
+        clickable: true
+      }
+    });
+  }
 }
 //#endregion
 
@@ -36730,37 +36782,43 @@ jquery__WEBPACK_IMPORTED_MODULE_1__('body').on('change', '.action-calculator inp
   var actionText = "Акция №" + num;
   jquery__WEBPACK_IMPORTED_MODULE_1__('#action-label').text(actionText);
 });
-jquery__WEBPACK_IMPORTED_MODULE_1__('body').on('click', '.smart-bttn .bttn', function (e) {
-  e.preventDefault();
-  var $el = jquery__WEBPACK_IMPORTED_MODULE_1__(e.currentTarget);
-  var $parent = $el.parents('.smart-bttn');
-  var $input = $parent.find('input');
-  var val = parseInt($input.val());
-  val++;
-  $input.val(val);
-  $parent.addClass('flip');
-});
-jquery__WEBPACK_IMPORTED_MODULE_1__('body').on('click', '.smart-bttn #plus', function (e) {
-  e.preventDefault();
-  var $el = jquery__WEBPACK_IMPORTED_MODULE_1__(e.currentTarget);
-  var $parent = $el.parents('.smart-bttn');
-  var $input = $parent.find('input');
-  var val = parseInt($input.val());
-  val++;
-  $input.val(val);
-});
-jquery__WEBPACK_IMPORTED_MODULE_1__('body').on('click', '.smart-bttn #minus', function (e) {
-  e.preventDefault();
-  var $el = jquery__WEBPACK_IMPORTED_MODULE_1__(e.currentTarget);
-  var $parent = $el.parents('.smart-bttn');
-  var $input = $parent.find('input');
-  var val = parseInt($input.val());
-  val--;
-  if (val == 0) {
-    $parent.removeClass('flip');
-  }
-  $input.val(val);
-});
+
+// $('body').on('click', '.smart-bttn .bttn', (e:JQuery.ClickEvent) => {
+// 	e.preventDefault();
+// 	let $el = $(e.currentTarget);
+// 	let $parent = $el.parents('.smart-bttn');
+// 	let $input = $parent.find('input');
+// 	let val = parseInt($input.val() as any);
+// 	val++;
+// 	$input.val(val);
+// 	$parent.addClass('flip');
+// });
+
+// $('body').on('click', '.smart-bttn #plus', (e:JQuery.ClickEvent) => {
+// 	e.preventDefault();
+// 	let $el = $(e.currentTarget);
+// 	let $parent = $el.parents('.smart-bttn');
+// 	let $input = $parent.find('input');
+// 	let val = parseInt($input.val() as any);
+// 	val++;
+// 	$input.val(val);
+// });
+
+// $('body').on('click', '.smart-bttn #minus', (e:JQuery.ClickEvent) => {
+// 	e.preventDefault();
+// 	let $el = $(e.currentTarget);
+// 	let $parent = $el.parents('.smart-bttn');
+// 	let $input = $parent.find('input');
+// 	let val = parseInt($input.val() as any);
+// 	val--;
+
+// 	if(val == 0){
+// 		$parent.removeClass('flip');
+// 	}
+
+// 	$input.val(val);
+// });
+
 if (jquery__WEBPACK_IMPORTED_MODULE_1__('#total-value').length) {
   var val = jquery__WEBPACK_IMPORTED_MODULE_1__('#total-input-value').val().toString();
   jquery__WEBPACK_IMPORTED_MODULE_1__('#total-value').text(val);
@@ -36838,9 +36896,12 @@ function initMap() {
     controls: ['smallMapDefaultSet']
   });
   map.behaviors.disable('scrollZoom');
+  var inx = 0;
+  placemarks = [];
   jquery__WEBPACK_IMPORTED_MODULE_1__("[data-lon]").each(function (index, el) {
     var _el$dataset$points;
     var points = (_el$dataset$points = el.dataset['points']) === null || _el$dataset$points === void 0 ? void 0 : _el$dataset$points.split(":");
+    if (!points) return;
     for (var i = 0; i < (points === null || points === void 0 ? void 0 : points.length); i++) {
       var pair = points[i].split(",");
       var lon = parseFloat(pair[0]);
@@ -36849,8 +36910,37 @@ function initMap() {
       var placemark = new ymaps.Placemark(coords, {}, {
         iconColor: 'red'
       });
+      placemark.slideIndex = i;
+      placemark.sliderIndex = inx;
+      placemarks.push(placemark);
+      placemark.events.add(['click'], function (e) {
+        var placemark = e.originalEvent.target;
+        var slideIndex = placemark.slideIndex;
+        var cityIndex = placemark.sliderIndex;
+
+        // Открываем слайдер, относящийся к городу
+        jquery__WEBPACK_IMPORTED_MODULE_1__('[data-city] .city-description').hide();
+        jquery__WEBPACK_IMPORTED_MODULE_1__("[data-city=" + cityIndex + "] .city-description").show();
+        jquery__WEBPACK_IMPORTED_MODULE_1__(".map-navi[data-index]").removeClass('active');
+        jquery__WEBPACK_IMPORTED_MODULE_1__(".map-navi[data-index='" + cityIndex + "']").addClass('active');
+        placemarks.forEach(function (pm) {
+          pm.options.set('iconColor', 'red');
+        });
+        setTimeout(function () {
+          placemark.options.set('iconColor', 'blue');
+        }, 80);
+        var wrapper = document.querySelector("[data-city='" + cityIndex + "']");
+        var sliders = wrapper === null || wrapper === void 0 ? void 0 : wrapper.querySelectorAll('.swiper');
+        sliders === null || sliders === void 0 ? void 0 : sliders.forEach(function (slider) {
+          var swSlider = slider.swiper;
+          if (swSlider) {
+            swSlider.slideTo(slideIndex);
+          }
+        });
+      });
       map.geoObjects.add(placemark);
     }
+    inx++;
   });
 }
 

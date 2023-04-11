@@ -38,29 +38,35 @@ body{
 			color: $fogged;
 		}
 
-		& .kv-pair{
+		& .kv-wrapper{
 
-			display: table-row;
+			display: table;
+			width: 100%;
 
-			& .key{
-				display: table-cell;
-				font-size: 16px;
-				color: $fogged;
-				font-weight: 300;
-				padding-right: 20px;
-			}
-
-			& .value{
-				display: table-cell;
-				font-weight: bold;
-				color: $text;
-			}
-
-			@media(max-width: $small){
-				display: block;
-
-				& .key, & .value{
+			& .kv-pair{
+	
+				display: table-row;
+	
+				& .key{
+					display: table-cell;
+					font-size: 16px;
+					color: $fogged;
+					font-weight: 300;
+					padding-right: 20px;
+				}
+				
+				& .value{
+					display: table-cell;
+					font-weight: bold;
+					color: $text;
+				}
+	
+				@media(max-width: $small){
 					display: block;
+	
+					& .key, & .value{
+						display: block;
+					}
 				}
 			}
 		}

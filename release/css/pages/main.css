@@ -71,7 +71,7 @@ body {
   #main section#hero .communication {
     position: absolute;
     z-index: 2;
-    width: 700px;
+    width: 40vw;
     left: 10vmax;
     top: 20%; }
     @media (max-width: 1200px) {
@@ -174,8 +174,21 @@ body {
     height: 400px;
     width: auto;
     border-radius: 8px; }
-  #main section .offers-swiper .offers-pagination {
-    bottom: -30px; }
+  #main section .offers-swiper ~ .swiper-pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0; }
+    #main section .offers-swiper ~ .swiper-pagination .swiper-pagination-bullet {
+      display: block;
+      width: 16px;
+      border-radius: 50%;
+      aspect-ratio: 1 / 1;
+      margin: 0 3px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2) inset;
+      transition: background-color .2s, box-shadow .2s; }
+      #main section .offers-swiper ~ .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
+        box-shadow: 0;
+        background-color: #2962FF; }
   #main section .offers-swiper:before, #main section .offers-swiper:after {
     content: '';
     display: block;
@@ -186,11 +199,13 @@ body {
     left: 0;
     z-index: 20;
     background: linear-gradient(to right, white, transparent);
-    pointer-events: none; }
+    pointer-events: none;
+    opacity: 0; }
   #main section .offers-swiper:after {
     background: linear-gradient(to left, white, transparent);
     left: unset;
-    right: 0; }
+    right: 0;
+    opacity: 1; }
 
 #main section#easy .easy-image {
   width: 100%;

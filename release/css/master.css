@@ -24067,6 +24067,7 @@ body {
         width: 100%; }
         body .row .col .card-water .swiper .swiper-slide {
           width: 100%;
+          min-width: 100%;
           aspect-ratio: 1 / 1.4;
           background-position: center center;
           background-size: contain;
@@ -24144,11 +24145,16 @@ body {
               display: flex;
               padding: 2px; }
               body .row .col .card-water .product-info .action .revers form .card-button {
-                display: block;
+                display: inline-flex;
                 width: 30px;
                 height: 30px;
                 border-radius: 50%;
-                line-height: 30px; }
+                line-height: 30px;
+                border: 0;
+                background-color: transparent;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer; }
                 body .row .col .card-water .product-info .action .revers form .card-button.plus {
                   background: #2962FF;
                   color: #fff; }
@@ -24201,7 +24207,8 @@ body {
       -o-object-position: top center;
          object-position: top center;
       border-radius: 8px;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.2); }
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.2);
+      aspect-ratio: 1 / 1.6; }
   body .pin {
     position: sticky;
     top: 120px; }

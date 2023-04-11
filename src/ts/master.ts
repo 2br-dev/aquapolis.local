@@ -5,6 +5,8 @@ import Swiper, {Pagination, Controller, Autoplay, Manipulation} from 'swiper';
 Swiper.use([Pagination, Controller, Manipulation, Autoplay]);
 
 let currentCity:string;
+let placemarks = [];
+(window as any).placemarks = placemarks;
 
 declare var ymaps:any;
 let map:any;
@@ -68,7 +70,6 @@ function loadIntervals(date:Date){
 $('.city').each((index, city) => {
 
     let slidesCount = city.querySelectorAll('.fasad-swiper .swiper-slide').length;
-
     let pagination = <HTMLElement>city.querySelector('.swiper-pagination');
     let fasadSwiperEl = <HTMLElement>city.querySelector('.fasad-swiper');
     let fasadInfoSwiperEl = <HTMLElement>city.querySelector('.fasad-info-swiper');
@@ -84,6 +85,24 @@ $('.city').each((index, city) => {
         let fasadInfoSwiper = new Swiper(fasadInfoSwiperEl, {});
         fasadSwiper.controller.control = fasadInfoSwiper;
         fasadInfoSwiper.controller.control = fasadSwiper;
+		fasadSwiper.on('slideChange', (sw) => {
+			let slideIndex = sw.activeIndex;
+			let el = sw.el;
+			let city = $(el).parents('[data-city]');
+			let cityIndex = city.data('city');
+
+			let placemark = placemarks.filter(pl => {
+				return pl.sliderIndex == cityIndex && pl.slideIndex == slideIndex
+			});
+
+			let pm  = placemark[0];
+
+			placemarks.forEach(pm => {
+				pm.options.set('iconColor', 'red');
+			})
+
+			pm.options.set('iconColor', 'blue');
+		})
     }
 })
 
@@ -110,56 +129,90 @@ $('.city-contacts').each((index, city) => {
 })
 
 if($('.product-swiper').length){
-    $('.product-swiper').each((index, el) => {
-        let slides = $(el).find('.swiper-slide').length;
-        if(slides > 1){
-            let productSwiper = new Swiper(el, {
-                loop: true,
-                pagination: {
-                    el: '.swiper-pagination',
-                    type: 'bullets',
-                    clickable: true
-                }
-            });
-        }
-    })
+
+	let slidesCount = document.querySelectorAll('.product-swiper .swiper-slide').length;
+	if(slidesCount > 1) {
+		
+		$('.product-swiper').each((index, el) => {
+			let slides = $(el).find('.swiper-slide').length;
+			if(slides > 1){
+				let productSwiper = new Swiper(el, {
+					loop: true,
+					pagination: {
+						el: '.swiper-pagination',
+						type: 'bullets',
+						clickable: true
+					}
+				});
+				productSwiper.on('slideChange', () => {
+					let lazy = new Lazy({}, document.querySelectorAll('.lazy'));
+				})
+			}
+		})
+	}
 }
 
 if($('.water-swiper').length){
-	let waterSlider = new Swiper('.water-swiper', {
-		spaceBetween: 10,
-		pagination:{
-			el: '.main-water-pagination',
-			type: 'bullets',
-			dynamicBullets: true,
-			dynamicMainBullets: 5
-		},
-		breakpoints: {
-			300:{
-				slidesPerView: 2
+
+	let slidesCount = document.querySelectorAll('.water-swiper .swiper-slide').length;
+	if(slidesCount > 1) {
+		let waterSlider = new Swiper('.water-swiper', {
+			spaceBetween: 10,
+			pagination:{
+				el: '.main-water-pagination',
+				type: 'bullets',
+				dynamicBullets: true,
+				dynamicMainBullets: 5
 			},
-			800:{
-				slidesPerView: 3
-			},
-			1200:{
-				slidesPerView: 4
-			},
-			1700:{
-				slidesPerView: 5
+			breakpoints: {
+				300:{
+					slidesPerView: 2
+				},
+				800:{
+					slidesPerView: 3
+				},
+				1200:{
+					slidesPerView: 4
+				},
+				1700:{
+					slidesPerView: 5
+				}
 			}
-		}
-	});
+		});
+	}
 }
 
-if($('.offers-swiper').length){
-	let offersSlider = new Swiper('.offers-swiper', {
-		slidesPerView: 'auto',
-		spaceBetween: 20,
-		pagination: {
-			el: '.offers-pagination',
-			type: 'bullets'
-		}
-	});
+if($('#desktop-offers').length){
+
+	let slidesCount = document.querySelectorAll('#desktop-offers .swiper-slide').length;
+	if(slidesCount > 1) {
+		let offersSlider = new Swiper('#desktop-offers', {
+			slidesPerView: 'auto',
+			spaceBetween: 20,
+			loop: true,
+			pagination: {
+				el: '.desktop-offers-pagination',
+				type: 'bullets',
+				clickable: true
+			}
+		});
+	}
+}
+
+if($('#mobile-offers').length){
+	let slidesCount = document.querySelectorAll('#mobile-offers .swiper-slide').length;
+	if(slidesCount > 1) {
+		let offersSlider = new Swiper('#mobile-offers', {
+			slidesPerView: 'auto',
+			spaceBetween: 20,
+			loop: true,
+			pagination: {
+				el: '.mobile-offers-pagination',
+				type: 'bullets',
+				clickable: true
+			}
+		});
+	}
 }
 
 if($('.actions-swiper').length){
@@ -169,18 +222,22 @@ if($('.actions-swiper').length){
 		let id = el.id;
 		let swiperClass = '.' + id + "-swiper";
 		let paginationClass = "." + id + "-pagination";
-		
-		new Swiper(swiperClass, {
-			slidesPerView: 'auto',
-			spaceBetween: 20,
-			pagination: {
-				el: paginationClass,
-				type: 'bullets',
-				bulletClass: 'actions-bullet',
-				bulletActiveClass: 'actions-active',
-				modifierClass: 'actions-pagination-'
-			}
-		});
+		let selector = swiperClass +' .swiper-slide';
+		let slidesCount = document.querySelectorAll(selector).length;
+
+		if(slidesCount > 1) {
+			new Swiper(swiperClass, {
+				slidesPerView: 'auto',
+				spaceBetween: 20,
+				pagination: {
+					el: paginationClass,
+					type: 'bullets',
+					bulletClass: 'actions-bullet',
+					bulletActiveClass: 'actions-active',
+					modifierClass: 'actions-pagination-'
+				}
+			});
+		}
 	});
 }
 
@@ -200,13 +257,17 @@ if($('.partners-slider').length){
 }
 
 if($('.entry-slider').length){
-	let entrySlider = new Swiper('.entry-slider', {
-		pagination: {
-			type: 'bullets',
-			el: '.entry-pagination',
-			clickable: true
-		}
-	});
+
+	let slidesCount = document.querySelectorAll('.entry-slider .swiper-slide').length;
+	if(slidesCount > 1) {
+		let entrySlider = new Swiper('.entry-slider', {
+			pagination: {
+				type: 'bullets',
+				el: '.entry-pagination',
+				clickable: true
+			}
+		});
+	}
 }
 //#endregion
 
@@ -429,41 +490,41 @@ $('body').on('change', '.action-calculator input', (e:JQuery.ChangeEvent) => {
 	
 });
 
-$('body').on('click', '.smart-bttn .bttn', (e:JQuery.ClickEvent) => {
-	e.preventDefault();
-	let $el = $(e.currentTarget);
-	let $parent = $el.parents('.smart-bttn');
-	let $input = $parent.find('input');
-	let val = parseInt($input.val() as any);
-	val++;
-	$input.val(val);
-	$parent.addClass('flip');
-});
+// $('body').on('click', '.smart-bttn .bttn', (e:JQuery.ClickEvent) => {
+// 	e.preventDefault();
+// 	let $el = $(e.currentTarget);
+// 	let $parent = $el.parents('.smart-bttn');
+// 	let $input = $parent.find('input');
+// 	let val = parseInt($input.val() as any);
+// 	val++;
+// 	$input.val(val);
+// 	$parent.addClass('flip');
+// });
 
-$('body').on('click', '.smart-bttn #plus', (e:JQuery.ClickEvent) => {
-	e.preventDefault();
-	let $el = $(e.currentTarget);
-	let $parent = $el.parents('.smart-bttn');
-	let $input = $parent.find('input');
-	let val = parseInt($input.val() as any);
-	val++;
-	$input.val(val);
-});
+// $('body').on('click', '.smart-bttn #plus', (e:JQuery.ClickEvent) => {
+// 	e.preventDefault();
+// 	let $el = $(e.currentTarget);
+// 	let $parent = $el.parents('.smart-bttn');
+// 	let $input = $parent.find('input');
+// 	let val = parseInt($input.val() as any);
+// 	val++;
+// 	$input.val(val);
+// });
 
-$('body').on('click', '.smart-bttn #minus', (e:JQuery.ClickEvent) => {
-	e.preventDefault();
-	let $el = $(e.currentTarget);
-	let $parent = $el.parents('.smart-bttn');
-	let $input = $parent.find('input');
-	let val = parseInt($input.val() as any);
-	val--;
+// $('body').on('click', '.smart-bttn #minus', (e:JQuery.ClickEvent) => {
+// 	e.preventDefault();
+// 	let $el = $(e.currentTarget);
+// 	let $parent = $el.parents('.smart-bttn');
+// 	let $input = $parent.find('input');
+// 	let val = parseInt($input.val() as any);
+// 	val--;
 
-	if(val == 0){
-		$parent.removeClass('flip');
-	}
+// 	if(val == 0){
+// 		$parent.removeClass('flip');
+// 	}
 	
-	$input.val(val);
-});
+// 	$input.val(val);
+// });
 
 if($('#total-value').length){
 	let val = $('#total-input-value').val().toString();
@@ -481,7 +542,6 @@ $('body').on('change', '[name="use_addr"]', (e:JQuery.ChangeEvent) => {
 		$('#user-address').addClass("hidden");
 	}
 });
-
 
 $('body').on('change', '[name="delivery-day"]', (e:JQuery.ChangeEvent) => {
 	let el = e.currentTarget;
@@ -555,16 +615,62 @@ function initMap(e:Event = null, center:number[], zoom:number){
 
 	map.behaviors.disable('scrollZoom');
 
+	let inx = 0;
+	placemarks = [];
+
 	$("[data-lon]").each((index, el) => {
+		
 		let points = el.dataset['points']?.split(":");
+		if(!points) return;
+
 		for(let i=0; i<points?.length; i++){
+
 			let pair = points[i].split(",");
 			let lon = parseFloat(pair[0]);
 			let lat = parseFloat(pair[1]);
 			let coords = [lon, lat];
 			let placemark = new ymaps.Placemark(coords, {}, {iconColor: 'red'});
+			placemark.slideIndex = i;
+			placemark.sliderIndex = inx;
+			placemarks.push(placemark);
+			
+			placemark.events.add(['click'], function(e){
+				
+				let placemark = e.originalEvent.target;
+				let slideIndex = placemark.slideIndex;
+				let cityIndex = placemark.sliderIndex;
+
+				// Открываем слайдер, относящийся к городу
+				$('[data-city] .city-description').hide();
+				$("[data-city=" + cityIndex + "] .city-description").show();
+
+				$(".map-navi[data-index]").removeClass('active');
+				$(".map-navi[data-index='" + cityIndex + "']").addClass('active');
+
+				placemarks.forEach(pm => {
+					pm.options.set('iconColor', 'red');
+				});
+
+				setTimeout(() => {
+					placemark.options.set('iconColor', 'blue');
+				}, 80);
+
+				let wrapper = document.querySelector("[data-city='" + cityIndex + "']");
+				let sliders = wrapper?.querySelectorAll('.swiper');
+
+				sliders?.forEach(slider => {
+					let swSlider:Swiper = (slider as any).swiper;
+					if(swSlider){
+						swSlider.slideTo(slideIndex);
+					}
+				});
+				
+			});
+
 			map.geoObjects.add(placemark);
 		}
+
+		inx++;
 	});
 }
 

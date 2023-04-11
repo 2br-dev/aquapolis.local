@@ -36,7 +36,7 @@ gulp.task('scss', () => {
 
 //= HTML =============================================
 gulp.task('html', () => {
-	return gulp.src('./src/html/**/*.html')
+	return gulp.src('./src/html/*.html')
 		.pipe(include())
 		.pipe(gulp.dest('./release/'))
 		.pipe(sync.stream())

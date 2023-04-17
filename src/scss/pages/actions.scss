@@ -76,7 +76,17 @@
 	}
 
 	& .action-text{
-		font-size: 1.5rem;
+		// font-size: 1.5rem;
 		line-height: 1.4em;
+		font-weight: 300 !important;
+
+		& span{
+			font-weight: 300 !important;
+		}
+	}
+
+	& .call-to-action{
+		display: block;
+		margin: 3rem 0;
 	}
 }

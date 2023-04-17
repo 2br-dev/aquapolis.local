@@ -51,5 +51,11 @@
   border-radius: 8px; }
 
 #action .action-text {
-  font-size: 1.5rem;
-  line-height: 1.4em; }
+  line-height: 1.4em;
+  font-weight: 300 !important; }
+  #action .action-text span {
+    font-weight: 300 !important; }
+
+#action .call-to-action {
+  display: block;
+  margin: 3rem 0; }

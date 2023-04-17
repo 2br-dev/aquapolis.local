@@ -338,6 +338,11 @@
 			}
 		}
 	}
+	
+	& .thumb{
+		max-width: 100px;
+		height: auto;
+	}
 
 	& ul.product-tabs{
 		border: 1px solid #ccc;

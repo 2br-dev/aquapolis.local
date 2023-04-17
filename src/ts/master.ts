@@ -3,6 +3,7 @@ import * as $ from 'jquery';
 import * as M from 'materialize-css';
 import Swiper, {Pagination, Controller, Autoplay, Manipulation} from 'swiper';
 Swiper.use([Pagination, Controller, Manipulation, Autoplay]);
+import Zoomer from './lib/zoomer';
 
 let currentCity:string;
 let placemarks = [];
@@ -10,6 +11,8 @@ let placemarks = [];
 
 declare var ymaps:any;
 let map:any;
+
+let zoomer = new Zoomer('.zoomer', 'src', true);
 
 //#region Materialize
 let lazy = new Lazy({}, document.querySelectorAll('.lazy'));
@@ -293,16 +296,16 @@ $('body').on('mouseenter', '.image-trigger', (e:JQuery.MouseOverEvent) => {
 	$(el).addClass('active');
 });
 
-$('body').on('click', '.buy', (e:JQuery.ClickEvent) => {
-	e.preventDefault();
-	let el = e.currentTarget;
-	let $parent = $(el).parents('.action');
-	let input = $parent.find('input')[0];
+// $('body').on('click', '.buy', (e:JQuery.ClickEvent) => {
+// 	e.preventDefault();
+// 	let el = e.currentTarget;
+// 	let $parent = $(el).parents('.action');
+// 	let input = $parent.find('input')[0];
 
-	input.value = (parseInt(input.value) + 1).toString();
-	$parent.addClass('flip');
+// 	input.value = (parseInt(input.value) + 1).toString();
+// 	$parent.addClass('flip');
 
-});
+// });
 
 $('body').on('click', '.card-button.minus', (e:JQuery.ClickEvent) => {
 	e.preventDefault();
@@ -337,7 +340,6 @@ $('body').on('click', '.popup-trigger', (e:JQuery.ClickEvent) => {
 })
 
 $('body').on('click', (e:JQuery.ClickEvent) => {
-	
 	
 	if(e.originalEvent){
 		
@@ -408,31 +410,30 @@ $('body').on('click', '.map-navi', (e:JQuery.ClickEvent) => {
 	initMap(null, [lon, lat], zoom);
 });
 
-$('body').on('click', '[data-city]', (e:JQuery.ClickEvent) => {
-	e.preventDefault();
+// $('body').on('click', '[data-city]', (e:JQuery.ClickEvent) => {
+// 	e.preventDefault();
 
-	let city = e.currentTarget.dataset['city'];
-	let lon = e.currentTarget.dataset['lon'];
-	let lat = e.currentTarget.dataset['lat'];
-	let zoom = e.currentTarget.dataset['zoom'];
+// 	let city = e.currentTarget.dataset['city'];
+// 	let lon = e.currentTarget.dataset['lon'];
+// 	let lat = e.currentTarget.dataset['lat'];
+// 	let zoom = e.currentTarget.dataset['zoom'];
 
-	if(city == currentCity) return;
+// 	if(city == currentCity) return;
 
-	$('[data-city] .city-description').hide();
-	$('[data-index]').removeClass('active');
-	$('[data-index='+city+']').addClass('active');
-	$(e.currentTarget).find('.city-description').show();
+// 	$('[data-city] .city-description').hide();
+// 	$('[data-index]').removeClass('active');
+// 	$('[data-index='+city+']').addClass('active');
+// 	$(e.currentTarget).find('.city-description').show();
 
-	if(map != null || map != undefined){
-		map.destroy();
-	}
+// 	if(map != null || map != undefined){
+// 		map.destroy();
+// 	}
 
-	currentCity = city;
+// 	currentCity = city;
 
-	initMap(null, [lon, lat], zoom);
+// 	initMap(null, [lon, lat], zoom);
 
-	
-});
+// });
 
 $('body').on('change', '[name="account-type"]', (e:JQuery.ChangeEvent) => {
     let newVal = $(e.currentTarget).val();

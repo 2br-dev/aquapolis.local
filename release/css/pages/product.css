@@ -207,6 +207,10 @@
       #product .product-details .settings .setting input:checked ~ label {
         box-shadow: 0 0 0 4px #2962FF inset, 0 4px 10px rgba(0, 0, 0, 0.8) inset; }
 
+#product .thumb {
+  max-width: 100px;
+  height: auto; }
+
 #product ul.product-tabs {
   border: 1px solid #ccc;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) inset;

@@ -1,6 +1,301 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/ts/lib/zoomer.ts":
+/*!******************************!*\
+  !*** ./src/ts/lib/zoomer.ts ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+var Zoomer = /*#__PURE__*/function () {
+  function Zoomer(selector, srcAttribute, isDataSet) {
+    var _this = this;
+    _classCallCheck(this, Zoomer);
+    _defineProperty(this, "slides", []);
+    document.querySelectorAll(selector).forEach(function (element) {
+      if (!isDataSet && srcAttribute != 'src') {
+        _this.slides.push(element.src);
+      } else {
+        _this.slides.push(element.dataset[srcAttribute]);
+      }
+      element.addEventListener('click', _this.open.bind(_this));
+    });
+  }
+  _createClass(Zoomer, [{
+    key: "open",
+    value: function open(e) {
+      // Формирование индексов
+      var el = e.currentTarget;
+      var image = el.src;
+      if (!image) {
+        image = el.style.backgroundImage.replace("url(\"", '').replace('\")', '');
+      }
+      var index = this.slides.indexOf(image) - 1;
+      var prev = index - 1;
+      var next = index + 2;
+      if (prev < 0) {
+        prev = this.slides.length - 1;
+      }
+      if (next >= this.slides.length) {
+        next = 0;
+      }
+      var prevImg = this.slides[prev];
+      var nextImg = this.slides[next];
+
+      // Формирование изображений
+      var currentImgEl = document.createElement('img');
+      var nextImgEl = document.createElement('img');
+      var prevImgEl = document.createElement('img');
+      currentImgEl.src = image;
+      nextImgEl.src = nextImg;
+      prevImgEl.src = prevImg;
+
+      // Формирование DOM::::::::::::::::::::::::::::::::::::::::::::::::::::
+      // Формируем оболочку
+      var slideboxWrapper = document.createElement('div');
+      slideboxWrapper.className = 'zoomer-wrapper';
+      var slidebox = document.createElement('div');
+      slidebox.classList.add('zoomer-viewer');
+      var closer = document.createElement('i');
+      closer.className = "closer mdi mdi-close";
+      var prevArrow = document.createElement('a');
+      prevArrow.className = "zoomer-arrow prev mdi mdi-chevron-left";
+      prevArrow.addEventListener('click', this.prev.bind(this));
+      var nextArrow = document.createElement('a');
+      nextArrow.className = "zoomer-arrow next mdi mdi-chevron-right";
+      nextArrow.addEventListener('click', this.next.bind(this));
+
+      // Формируем оболочку для текущего, предыдущего и следующего слайдера
+      var prevSlide = document.createElement('div');
+      var nextSlide = document.createElement('div');
+      var currentSlide = document.createElement('div');
+      prevSlide.className = 'zoomer-slide zoomer-prev';
+      currentSlide.className = 'zoomer-slide zoomer-current';
+      nextSlide.className = 'zoomer-slide zoomer-next';
+      prevSlide.appendChild(prevImgEl);
+      nextSlide.appendChild(nextImgEl);
+      currentSlide.appendChild(currentImgEl);
+      slideboxWrapper.appendChild(closer);
+      slideboxWrapper.appendChild(prevArrow);
+      slideboxWrapper.appendChild(nextArrow);
+      slidebox.append.apply(slidebox, [prevSlide, currentSlide, nextSlide]);
+      slideboxWrapper.appendChild(slidebox);
+      document.body.appendChild(slideboxWrapper);
+      setTimeout(function () {
+        slideboxWrapper.classList.add('open');
+      }, 80);
+      slidebox.scrollLeft = currentImgEl.clientWidth;
+
+      // Задаём события
+      slidebox.addEventListener('mousedown', this.startDrag.bind(this));
+      slidebox.addEventListener('mousemove', this.moveDrag.bind(this));
+      slidebox.addEventListener('mouseup', this.endDrag.bind(this));
+      slidebox.addEventListener('touchstart', this.touchStart.bind(this), true);
+      slidebox.addEventListener('touchmove', this.touchMove.bind(this), true);
+      slidebox.addEventListener('touchend', this.touchEnd.bind(this), true);
+      slidebox.addEventListener('mouseleave', this.abortDrag.bind(this));
+      closer.addEventListener('click', this.close.bind(this));
+      document.body.addEventListener('keyup', this.keyboardReact.bind(this), true);
+      window.addEventListener('resize', this.updateWidth.bind(this));
+      $(window).on('scroll', this.close.bind(this));
+    }
+  }, {
+    key: "startDrag",
+    value: function startDrag(e) {
+      this.startX = e.clientX;
+      this.startY = e.clientY;
+      this.isDragging = true;
+    }
+  }, {
+    key: "abortDrag",
+    value: function abortDrag(e) {
+      if (this.isDragging) {
+        var el = e.currentTarget;
+        this.isDragging = false;
+        this.startX = null;
+        this.startY = null;
+        $('.zoomer-viewer').animate({
+          scrollLeft: el.clientWidth
+        }, 400, null);
+      }
+    }
+  }, {
+    key: "moveDrag",
+    value: function moveDrag(e) {
+      var el = e.currentTarget;
+      var width = el.clientWidth;
+      if (this.isDragging) {
+        var currentX = this.startX - e.clientX + width;
+        el.scrollLeft = currentX;
+      }
+    }
+  }, {
+    key: "endDrag",
+    value: function endDrag(e) {
+      this.isDragging = false;
+      var diff = Math.abs(e.clientX - this.startX);
+      if (diff == 0) return;
+      var el = e.currentTarget;
+      if (e.clientX < this.startX) {
+        $('.zoomer-viewer').animate({
+          scrollLeft: el.clientWidth * 2
+        }, 400, null, this.afterMatch.bind(this));
+      } else {
+        $('.zoomer-viewer').animate({
+          scrollLeft: 0
+        }, 400, null, this.afterMatch.bind(this));
+      }
+      this.startX = null;
+      this.startY = null;
+    }
+  }, {
+    key: "touchStart",
+    value: function touchStart(e) {
+      var touch = e.touches[0];
+      this.startX = touch.clientX;
+      this.startY = touch.clientY;
+      this.isDragging = true;
+    }
+  }, {
+    key: "touchMove",
+    value: function touchMove(e) {
+      var touch = e.touches[0];
+      var el = e.currentTarget;
+      var width = el.clientWidth;
+      if (this.isDragging) {
+        var currentX = this.startX - touch.clientX + width;
+        el.scrollLeft = currentX;
+      }
+    }
+  }, {
+    key: "touchEnd",
+    value: function touchEnd(e) {
+      this.isDragging = false;
+      var touch = e.changedTouches[0];
+      var diff = Math.abs(touch.clientX - this.startX);
+      if (diff == 0) return;
+      var el = e.currentTarget;
+      if (touch.clientX < this.startX) {
+        $('.zoomer-viewer').animate({
+          scrollLeft: el.clientWidth * 2
+        }, 400, null, this.afterMatch.bind(this));
+      } else {
+        $('.zoomer-viewer').animate({
+          scrollLeft: 0
+        }, 400, null, this.afterMatch.bind(this));
+      }
+      this.startX = null;
+      this.startY = null;
+    }
+  }, {
+    key: "afterMatch",
+    value: function afterMatch() {
+      var zoomer = document.querySelector('.zoomer-viewer');
+      if (!zoomer) {
+        return;
+      }
+      var direction = document.querySelector('.zoomer-viewer').scrollLeft == 0 ? 'prev' : 'next';
+      var newCurrentEl = document.querySelector('.zoomer-' + direction + ' img');
+      var location = window.location.origin;
+      var img = newCurrentEl.src.replace(location, '');
+      var newCurrentIndex = this.slides.indexOf(img);
+      var nextIndex = newCurrentIndex + 1;
+      var prevIndex = newCurrentIndex - 1;
+      if (nextIndex >= this.slides.length) {
+        nextIndex = 0;
+      }
+      if (prevIndex < 0) {
+        prevIndex = this.slides.length - 1;
+      }
+      var newCurrentSrc = img;
+      var nextSrc = this.slides[nextIndex];
+      var prevSrc = this.slides[prevIndex];
+      document.querySelector('.zoomer-prev img').src = prevSrc;
+      document.querySelector('.zoomer-next img').src = nextSrc;
+      document.querySelector('.zoomer-current img').src = img;
+      zoomer.scrollLeft = zoomer.clientWidth;
+    }
+  }, {
+    key: "keyboardReact",
+    value: function keyboardReact(e) {
+      switch (e.key) {
+        case 'Escape':
+          this.close();
+          break;
+        case 'ArrowLeft':
+          this.prev();
+          break;
+        case 'ArrowRight':
+          this.next();
+          break;
+      }
+      e.stopImmediatePropagation();
+    }
+  }, {
+    key: "next",
+    value: function next() {
+      var zoomer = document.querySelector('.zoomer-viewer');
+      var width = zoomer === null || zoomer === void 0 ? void 0 : zoomer.clientWidth;
+      $(zoomer).animate({
+        scrollLeft: width * 2
+      }, 400, null, this.afterMatch.bind(this));
+    }
+  }, {
+    key: "prev",
+    value: function prev() {
+      var zoomer = document.querySelector('.zoomer-viewer');
+      var width = zoomer === null || zoomer === void 0 ? void 0 : zoomer.clientWidth;
+      $(zoomer).animate({
+        scrollLeft: 0
+      }, 400, null, this.afterMatch.bind(this));
+    }
+  }, {
+    key: "close",
+    value: function close() {
+      var globalWrapper = document.querySelector('.zoomer-wrapper');
+      if (!globalWrapper) return;
+      var zoomer = globalWrapper.querySelector('.zoomer-viewer');
+      zoomer === null || zoomer === void 0 ? void 0 : zoomer.removeEventListener('mousedown', this.startDrag);
+      zoomer === null || zoomer === void 0 ? void 0 : zoomer.removeEventListener('mousemove', this.moveDrag);
+      zoomer === null || zoomer === void 0 ? void 0 : zoomer.removeEventListener('mouseup', this.endDrag);
+      zoomer.addEventListener('touchstart', this.touchStart.bind(this));
+      zoomer.addEventListener('touchmove', this.touchMove.bind(this));
+      zoomer.addEventListener('touchend', this.touchEnd.bind(this));
+      zoomer === null || zoomer === void 0 ? void 0 : zoomer.removeEventListener('mouseleave', this.abortDrag);
+      globalWrapper === null || globalWrapper === void 0 ? void 0 : globalWrapper.removeEventListener('click', this.close);
+      document.body.onkeyup = null;
+      globalWrapper.classList.remove('open');
+      setTimeout(function () {
+        globalWrapper === null || globalWrapper === void 0 ? void 0 : globalWrapper.remove();
+      }, 400);
+    }
+  }, {
+    key: "updateWidth",
+    value: function updateWidth() {
+      var el = document.querySelector('.zoomer-viewer');
+      var width = el.clientWidth;
+      el.scrollLeft = width;
+    }
+  }]);
+  return Zoomer;
+}();
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Zoomer);
+
+/***/ }),
+
 /***/ "./node_modules/jquery/dist/jquery.js":
 /*!********************************************!*\
   !*** ./node_modules/jquery/dist/jquery.js ***!
@@ -36358,15 +36653,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var materialize_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! materialize-css */ "./node_modules/materialize-css/dist/js/materialize.js");
 /* harmony import */ var materialize_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(materialize_css__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var swiper__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! swiper */ "./node_modules/swiper/swiper.esm.js");
+/* harmony import */ var _lib_zoomer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./lib/zoomer */ "./src/ts/lib/zoomer.ts");
 
 
 
 
 swiper__WEBPACK_IMPORTED_MODULE_3__["default"].use([swiper__WEBPACK_IMPORTED_MODULE_3__.Pagination, swiper__WEBPACK_IMPORTED_MODULE_3__.Controller, swiper__WEBPACK_IMPORTED_MODULE_3__.Manipulation, swiper__WEBPACK_IMPORTED_MODULE_3__.Autoplay]);
+
 var currentCity;
 var placemarks = [];
 window.placemarks = placemarks;
 var map;
+var zoomer = new _lib_zoomer__WEBPACK_IMPORTED_MODULE_4__["default"]('.zoomer', 'src', true);
 
 //#region Materialize
 var lazy = new (vanilla_lazyload__WEBPACK_IMPORTED_MODULE_0___default())({}, document.querySelectorAll('.lazy'));
@@ -36615,14 +36913,18 @@ jquery__WEBPACK_IMPORTED_MODULE_1__('body').on('mouseenter', '.image-trigger', f
   $triggers.removeClass('active');
   jquery__WEBPACK_IMPORTED_MODULE_1__(el).addClass('active');
 });
-jquery__WEBPACK_IMPORTED_MODULE_1__('body').on('click', '.buy', function (e) {
-  e.preventDefault();
-  var el = e.currentTarget;
-  var $parent = jquery__WEBPACK_IMPORTED_MODULE_1__(el).parents('.action');
-  var input = $parent.find('input')[0];
-  input.value = (parseInt(input.value) + 1).toString();
-  $parent.addClass('flip');
-});
+
+// $('body').on('click', '.buy', (e:JQuery.ClickEvent) => {
+// 	e.preventDefault();
+// 	let el = e.currentTarget;
+// 	let $parent = $(el).parents('.action');
+// 	let input = $parent.find('input')[0];
+
+// 	input.value = (parseInt(input.value) + 1).toString();
+// 	$parent.addClass('flip');
+
+// });
+
 jquery__WEBPACK_IMPORTED_MODULE_1__('body').on('click', '.card-button.minus', function (e) {
   e.preventDefault();
   var el = e.currentTarget;
@@ -36698,23 +37000,32 @@ jquery__WEBPACK_IMPORTED_MODULE_1__('body').on('click', '.map-navi', function (e
   currentCity = index;
   initMap(null, [lon, lat], zoom);
 });
-jquery__WEBPACK_IMPORTED_MODULE_1__('body').on('click', '[data-city]', function (e) {
-  e.preventDefault();
-  var city = e.currentTarget.dataset['city'];
-  var lon = e.currentTarget.dataset['lon'];
-  var lat = e.currentTarget.dataset['lat'];
-  var zoom = e.currentTarget.dataset['zoom'];
-  if (city == currentCity) return;
-  jquery__WEBPACK_IMPORTED_MODULE_1__('[data-city] .city-description').hide();
-  jquery__WEBPACK_IMPORTED_MODULE_1__('[data-index]').removeClass('active');
-  jquery__WEBPACK_IMPORTED_MODULE_1__('[data-index=' + city + ']').addClass('active');
-  jquery__WEBPACK_IMPORTED_MODULE_1__(e.currentTarget).find('.city-description').show();
-  if (map != null || map != undefined) {
-    map.destroy();
-  }
-  currentCity = city;
-  initMap(null, [lon, lat], zoom);
-});
+
+// $('body').on('click', '[data-city]', (e:JQuery.ClickEvent) => {
+// 	e.preventDefault();
+
+// 	let city = e.currentTarget.dataset['city'];
+// 	let lon = e.currentTarget.dataset['lon'];
+// 	let lat = e.currentTarget.dataset['lat'];
+// 	let zoom = e.currentTarget.dataset['zoom'];
+
+// 	if(city == currentCity) return;
+
+// 	$('[data-city] .city-description').hide();
+// 	$('[data-index]').removeClass('active');
+// 	$('[data-index='+city+']').addClass('active');
+// 	$(e.currentTarget).find('.city-description').show();
+
+// 	if(map != null || map != undefined){
+// 		map.destroy();
+// 	}
+
+// 	currentCity = city;
+
+// 	initMap(null, [lon, lat], zoom);
+
+// });
+
 jquery__WEBPACK_IMPORTED_MODULE_1__('body').on('change', '[name="account-type"]', function (e) {
   var newVal = jquery__WEBPACK_IMPORTED_MODULE_1__(e.currentTarget).val();
   jquery__WEBPACK_IMPORTED_MODULE_1__('#fieldset').attr('data-mode', newVal.toString());

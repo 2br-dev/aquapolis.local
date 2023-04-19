@@ -935,6 +935,57 @@ body{
 		padding: 5px;
 		box-sizing: border-box;
 		transform: translateZ(0);
+
+		& ~ .swiper-pagination{
+
+			margin: 20px auto;
+			white-space: nowrap;
+
+			& .swiper-pagination-bullet{
+				display: inline-block;
+				width: 16px;
+				border-radius: 50%;
+				aspect-ratio: 1 / 1;
+				margin: 0 3px;
+				box-shadow: 0 2px 6px rgba(black, .2) inset;
+				transition: background-color .2s, box-shadow .2s;
+
+				&.swiper-pagination-bullet-active{
+					box-shadow: 0;
+					background-color: $primary;
+				}
+			}
+
+			&.swiper-pagination-bullets-dynamic {
+				left: 50%;
+				transform: translateX(-50%);
+				white-space: nowrap;
+				overflow: hidden;
+				font-size: 0;
+
+				.swiper-pagination-bullet {
+					transition: 200ms transform, 200ms left, box-shadow .2s, background-color .2s;
+					position: relative;
+					transform: scale(.3);
+
+					&-active{
+						transform: scale(1);
+
+						&-main{
+							transform: scale(1);
+						}
+
+						&-prev, &-next{
+							transform: scale(.66);
+							
+							&-prev, &-next{
+								transform: scale(.33);
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 
 	& .no-margin{

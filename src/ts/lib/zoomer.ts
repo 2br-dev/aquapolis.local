@@ -1,11 +1,19 @@
 class Zoomer{
 
 	slides = [];
+	slideElements = [];
 	isDragging:boolean;
 	startX:number;
 	startY:number;
+	selectedIndex:number;
+	isAnimating:boolean;
+	transitionMs:number;
+	transitionS: number;
 
-	constructor(selector:string, srcAttribute:string, isDataSet:boolean){
+	constructor(selector:string, srcAttribute:string, isDataSet:boolean, transition:number = 400){
+
+		this.transitionMs = transition;
+		this.transitionS = transition / 1000;
 
 		document.querySelectorAll(selector).forEach((element:HTMLImageElement) => {
 			if(!isDataSet && srcAttribute != 'src'){
@@ -13,6 +21,7 @@ class Zoomer{
 			}else{
 				this.slides.push(element.dataset[srcAttribute]);
 			}
+			this.slideElements.push(element);
 			element.addEventListener('click', this.open.bind(this));
 		})
 	}
@@ -27,11 +36,15 @@ class Zoomer{
 			image = el.style.backgroundImage.replace("url(\"", '').replace('\")', '');
 		}
 
-		let index = this.slides.indexOf(image) - 1;
+		image = image.replace(location.origin, '');
+		let index = this.slideElements.indexOf(el);
+
 		let prev = index - 1;
 		let next = index + 2;
 		if(prev < 0){ prev = this.slides.length - 1 }
 		if(next >= this.slides.length){ next = 0 }
+
+		this.selectedIndex = index;
 
 		let prevImg = this.slides[prev];
 		let nextImg = this.slides[next];
@@ -62,6 +75,32 @@ class Zoomer{
 		nextArrow.className = "zoomer-arrow next mdi mdi-chevron-right";
 		nextArrow.addEventListener('click', this.next.bind(this));
 
+		// Создание тени
+		let srcTop:number, srcLeft:number, srcWidth:number, srcHeight:number;
+		let rect = el.getBoundingClientRect();
+		srcTop = rect.top;
+		srcLeft = rect.left;
+		srcWidth = rect.width;
+		srcHeight = rect.height;
+
+		let transitionMs = <string>(this.transitionS + 's');
+
+		let shadowImg = document.createElement('div');
+		$(shadowImg).css({
+			backgroundImage: 'url('+image+')',
+			backgroundSize: 'contain',
+			backgroundRepeat: 'no-repeat',
+			backgroundPosition: 'center center',
+			position: 'fixed',
+			top: srcTop,
+			left: srcLeft,
+			width: srcWidth,
+			height: srcHeight,
+			zIndex: 1000,
+			opacity: 0,
+			transition: `top ${transitionMs}, left ${transitionMs}, width ${transitionMs}, height ${transitionMs}, opacity ${transitionMs}`
+		});
+
 		// Формируем оболочку для текущего, предыдущего и следующего слайдера
 		let prevSlide = document.createElement('div');
 		let nextSlide = document.createElement('div');
@@ -84,6 +123,29 @@ class Zoomer{
 
 		setTimeout(() => {
 			slideboxWrapper.classList.add('open');
+			let targetWidth:number, targetHeight:number, targetLeft:number, targetTop:number;
+			let destRect = slidebox.getBoundingClientRect();
+			targetWidth = destRect.width;
+			targetHeight = destRect.height;
+			targetLeft = destRect.left;
+			targetTop = destRect.top;
+			
+			document.body.appendChild(shadowImg);
+
+			setTimeout(() => {
+				$(shadowImg).css({
+					top:targetTop,
+					left:targetLeft,
+					width:targetWidth,
+					height:targetHeight,
+					opacity: 1
+				});
+
+				setTimeout(() => {
+					slidebox.style.opacity = '1';
+					shadowImg.remove();
+				}, this.transitionMs)
+			}, 80);
 		}, 80);
 		slidebox.scrollLeft = currentImgEl.clientWidth;
 
@@ -122,7 +184,7 @@ class Zoomer{
 	
 			$('.zoomer-viewer').animate({
 				scrollLeft: el.clientWidth
-			}, 400, null);
+			}, this.transitionMs, null);
 		}
 	}
 
@@ -149,11 +211,11 @@ class Zoomer{
 		if(e.clientX < this.startX){
 			$('.zoomer-viewer').animate({
 				scrollLeft: el.clientWidth * 2
-			}, 400, null, this.afterMatch.bind(this));
+			}, this.transitionMs, null, this.afterMatch.bind(this));
 		}else{
 			$('.zoomer-viewer').animate({
 				scrollLeft: 0
-			}, 400, null, this.afterMatch.bind(this));
+			}, this.transitionMs, null, this.afterMatch.bind(this));
 		}
 
 		this.startX = null;
@@ -193,11 +255,11 @@ class Zoomer{
 		if(touch.clientX < this.startX){
 			$('.zoomer-viewer').animate({
 				scrollLeft: el.clientWidth * 2
-			}, 400, null, this.afterMatch.bind(this));
+			}, this.transitionMs, null, this.afterMatch.bind(this));
 		}else{
 			$('.zoomer-viewer').animate({
 				scrollLeft: 0
-			}, 400, null, this.afterMatch.bind(this));
+			}, this.transitionMs, null, this.afterMatch.bind(this));
 		}
 
 		this.startX = null;
@@ -215,7 +277,17 @@ class Zoomer{
 		let newCurrentEl = <HTMLImageElement>document.querySelector('.zoomer-' + direction+ ' img');
 		let location = window.location.origin;
 		let img = newCurrentEl.src.replace(location, '');
-		let newCurrentIndex = this.slides.indexOf(img);
+		let newCurrentIndex:number;
+		if(direction == 'next'){
+			newCurrentIndex = this.selectedIndex + 1;
+			if( newCurrentIndex >= this.slides.length) newCurrentIndex = 0;
+		}
+		if(direction == 'prev'){
+			newCurrentIndex = this.selectedIndex - 1;
+			if (newCurrentIndex < 0) newCurrentIndex = this.slides.length - 1
+		}
+		
+		this.selectedIndex = newCurrentIndex;
 
 		let nextIndex = newCurrentIndex + 1;
 		let prevIndex = newCurrentIndex - 1;
@@ -226,6 +298,8 @@ class Zoomer{
 		let newCurrentSrc = img;
 		let nextSrc = this.slides[nextIndex];
 		let prevSrc = this.slides[prevIndex];
+
+		this.selectedIndex = newCurrentIndex;
 
 		(<HTMLImageElement>document.querySelector('.zoomer-prev img')).src = prevSrc;
 		(<HTMLImageElement>document.querySelector('.zoomer-next img')).src = nextSrc;
@@ -251,7 +325,7 @@ class Zoomer{
 
 		$(zoomer).animate({
 			scrollLeft: width * 2
-		}, 400, null, this.afterMatch.bind(this))
+		}, this.transitionMs, null, this.afterMatch.bind(this))
 	}
 
 	prev()
@@ -261,7 +335,7 @@ class Zoomer{
 
 		$(zoomer).animate({
 			scrollLeft: 0
-		}, 400, null, this.afterMatch.bind(this))
+		}, this.transitionMs, null, this.afterMatch.bind(this))
 	}
 
 	close()
@@ -269,7 +343,7 @@ class Zoomer{
 		let globalWrapper = document.querySelector('.zoomer-wrapper');
 		if(!globalWrapper) return;
 
-		let zoomer = globalWrapper.querySelector('.zoomer-viewer');
+		let zoomer = <HTMLDivElement>globalWrapper.querySelector('.zoomer-viewer');
 		zoomer?.removeEventListener('mousedown', this.startDrag);
 		zoomer?.removeEventListener('mousemove', this.moveDrag);
 		zoomer?.removeEventListener('mouseup', this.endDrag);
@@ -283,9 +357,65 @@ class Zoomer{
 		document.body.onkeyup = null;
 
 		globalWrapper.classList.remove('open');
-		setTimeout(() => {
-			globalWrapper?.remove();
-		}, 400)
+
+		let shadowImg = document.createElement('div');
+		let srcTop:number, srcLeft:number, srcWidth:number, srcHeight:number
+
+		let rect = zoomer?.getBoundingClientRect();
+		srcTop = rect?.top;
+		srcLeft = rect?.left;
+		srcWidth = rect?.width;
+		srcHeight = rect?.height;
+
+		let img = this.slides[this.selectedIndex];
+
+		let transitionMs = <string>(this.transitionS + 's');
+		
+		$(shadowImg).css({
+			backgroundImage: 'url('+img+')',
+			top: srcTop,
+			left: srcLeft,
+			width: srcWidth,
+			height: srcHeight,
+			position: 'fixed',
+			backgroundSize:'contain',
+			backgroundPosition: 'center center',
+			backgroundRepeat: 'no-repeat',
+			transition: `top ${transitionMs}, left ${transitionMs}, width ${transitionMs}, height ${transitionMs}, opacity ${transitionMs}`,
+			zIndex:1000
+		});
+
+		if(!this.isAnimating){
+
+			document.body.append(shadowImg);
+			zoomer.style.opacity = '0';
+			this.isAnimating = true;
+	
+			let dest = this.slideElements[this.selectedIndex];
+			let targetTop:number, targetLeft:number, targetWidth:number, targetHeight:number;
+			let destRect = dest.getBoundingClientRect();
+			targetTop = destRect.top;
+			targetLeft = destRect.left;
+			targetWidth = destRect.width;
+			targetHeight = destRect.height;
+
+			setTimeout(() => {
+				$(shadowImg).css({
+					top: targetTop,
+					left:targetLeft,
+					width:targetWidth,
+					height:targetHeight,
+					opacity: 0
+				});
+
+				setTimeout(() => {
+					shadowImg.remove();
+					globalWrapper?.remove();
+					this.isAnimating = false;
+				}, this.transitionMs);
+			}, 80);
+		}
+
 	}
 
 	updateWidth()

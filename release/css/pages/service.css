@@ -80,7 +80,8 @@
   #service .parallax-container .parallax {
     display: flex;
     align-items: center;
-    justify-content: center; }
+    justify-content: center;
+    z-index: 2; }
     #service .parallax-container .parallax:before {
       content: '';
       display: block;
@@ -102,3 +103,31 @@
 
 #service #sanitarium {
   margin: 4vmax 0; }
+
+#service #feedback_form {
+  padding: 4vmax 0;
+  background-color: #004585;
+  background-image: url(../../img/form_dots.svg);
+  background-repeat: no-repeat;
+  background-position: left center;
+  color: #fff; }
+  #service #feedback_form h2 {
+    margin: 0;
+    line-height: 1em; }
+  #service #feedback_form a:not(.bttn) {
+    color: #fff;
+    text-decoration: underline; }
+  #service #feedback_form label {
+    display: block; }
+    #service #feedback_form label + input, #service #feedback_form label + textarea {
+      display: block;
+      width: 100%;
+      padding: 8px 10px;
+      border-radius: 8px;
+      border: 0; }
+      #service #feedback_form label + input::-moz-placeholder, #service #feedback_form label + textarea::-moz-placeholder {
+        color: #ccc; }
+      #service #feedback_form label + input::placeholder, #service #feedback_form label + textarea::placeholder {
+        color: #ccc; }
+      #service #feedback_form label + input:focus, #service #feedback_form label + textarea:focus {
+        outline: none; }

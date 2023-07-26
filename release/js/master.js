@@ -23,27 +23,34 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
 var Zoomer = /*#__PURE__*/function () {
   function Zoomer(selector, srcAttribute, isDataSet) {
     var _this = this;
+    var transition = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 400;
     _classCallCheck(this, Zoomer);
     _defineProperty(this, "slides", []);
+    _defineProperty(this, "slideElements", []);
+    this.transitionMs = transition;
+    this.transitionS = transition / 1000;
     document.querySelectorAll(selector).forEach(function (element) {
       if (!isDataSet && srcAttribute != 'src') {
         _this.slides.push(element.src);
       } else {
         _this.slides.push(element.dataset[srcAttribute]);
       }
+      _this.slideElements.push(element);
       element.addEventListener('click', _this.open.bind(_this));
     });
   }
   _createClass(Zoomer, [{
     key: "open",
     value: function open(e) {
+      var _this2 = this;
       // Формирование индексов
       var el = e.currentTarget;
       var image = el.src;
       if (!image) {
         image = el.style.backgroundImage.replace("url(\"", '').replace('\")', '');
       }
-      var index = this.slides.indexOf(image) - 1;
+      image = image.replace(location.origin, '');
+      var index = this.slideElements.indexOf(el);
       var prev = index - 1;
       var next = index + 2;
       if (prev < 0) {
@@ -52,6 +59,7 @@ var Zoomer = /*#__PURE__*/function () {
       if (next >= this.slides.length) {
         next = 0;
       }
+      this.selectedIndex = index;
       var prevImg = this.slides[prev];
       var nextImg = this.slides[next];
 
@@ -78,6 +86,30 @@ var Zoomer = /*#__PURE__*/function () {
       nextArrow.className = "zoomer-arrow next mdi mdi-chevron-right";
       nextArrow.addEventListener('click', this.next.bind(this));
 
+      // Создание тени
+      var srcTop, srcLeft, srcWidth, srcHeight;
+      var rect = el.getBoundingClientRect();
+      srcTop = rect.top;
+      srcLeft = rect.left;
+      srcWidth = rect.width;
+      srcHeight = rect.height;
+      var transitionMs = this.transitionS + 's';
+      var shadowImg = document.createElement('div');
+      $(shadowImg).css({
+        backgroundImage: 'url(' + image + ')',
+        backgroundSize: 'contain',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center center',
+        position: 'fixed',
+        top: srcTop,
+        left: srcLeft,
+        width: srcWidth,
+        height: srcHeight,
+        zIndex: 1000,
+        opacity: 0,
+        transition: "top ".concat(transitionMs, ", left ").concat(transitionMs, ", width ").concat(transitionMs, ", height ").concat(transitionMs, ", opacity ").concat(transitionMs)
+      });
+
       // Формируем оболочку для текущего, предыдущего и следующего слайдера
       var prevSlide = document.createElement('div');
       var nextSlide = document.createElement('div');
@@ -96,6 +128,26 @@ var Zoomer = /*#__PURE__*/function () {
       document.body.appendChild(slideboxWrapper);
       setTimeout(function () {
         slideboxWrapper.classList.add('open');
+        var targetWidth, targetHeight, targetLeft, targetTop;
+        var destRect = slidebox.getBoundingClientRect();
+        targetWidth = destRect.width;
+        targetHeight = destRect.height;
+        targetLeft = destRect.left;
+        targetTop = destRect.top;
+        document.body.appendChild(shadowImg);
+        setTimeout(function () {
+          $(shadowImg).css({
+            top: targetTop,
+            left: targetLeft,
+            width: targetWidth,
+            height: targetHeight,
+            opacity: 1
+          });
+          setTimeout(function () {
+            slidebox.style.opacity = '1';
+            shadowImg.remove();
+          }, _this2.transitionMs);
+        }, 80);
       }, 80);
       slidebox.scrollLeft = currentImgEl.clientWidth;
 
@@ -129,7 +181,7 @@ var Zoomer = /*#__PURE__*/function () {
         this.startY = null;
         $('.zoomer-viewer').animate({
           scrollLeft: el.clientWidth
-        }, 400, null);
+        }, this.transitionMs, null);
       }
     }
   }, {
@@ -152,11 +204,11 @@ var Zoomer = /*#__PURE__*/function () {
       if (e.clientX < this.startX) {
         $('.zoomer-viewer').animate({
           scrollLeft: el.clientWidth * 2
-        }, 400, null, this.afterMatch.bind(this));
+        }, this.transitionMs, null, this.afterMatch.bind(this));
       } else {
         $('.zoomer-viewer').animate({
           scrollLeft: 0
-        }, 400, null, this.afterMatch.bind(this));
+        }, this.transitionMs, null, this.afterMatch.bind(this));
       }
       this.startX = null;
       this.startY = null;
@@ -191,11 +243,11 @@ var Zoomer = /*#__PURE__*/function () {
       if (touch.clientX < this.startX) {
         $('.zoomer-viewer').animate({
           scrollLeft: el.clientWidth * 2
-        }, 400, null, this.afterMatch.bind(this));
+        }, this.transitionMs, null, this.afterMatch.bind(this));
       } else {
         $('.zoomer-viewer').animate({
           scrollLeft: 0
-        }, 400, null, this.afterMatch.bind(this));
+        }, this.transitionMs, null, this.afterMatch.bind(this));
       }
       this.startX = null;
       this.startY = null;
@@ -211,7 +263,16 @@ var Zoomer = /*#__PURE__*/function () {
       var newCurrentEl = document.querySelector('.zoomer-' + direction + ' img');
       var location = window.location.origin;
       var img = newCurrentEl.src.replace(location, '');
-      var newCurrentIndex = this.slides.indexOf(img);
+      var newCurrentIndex;
+      if (direction == 'next') {
+        newCurrentIndex = this.selectedIndex + 1;
+        if (newCurrentIndex >= this.slides.length) newCurrentIndex = 0;
+      }
+      if (direction == 'prev') {
+        newCurrentIndex = this.selectedIndex - 1;
+        if (newCurrentIndex < 0) newCurrentIndex = this.slides.length - 1;
+      }
+      this.selectedIndex = newCurrentIndex;
       var nextIndex = newCurrentIndex + 1;
       var prevIndex = newCurrentIndex - 1;
       if (nextIndex >= this.slides.length) {
@@ -223,6 +284,7 @@ var Zoomer = /*#__PURE__*/function () {
       var newCurrentSrc = img;
       var nextSrc = this.slides[nextIndex];
       var prevSrc = this.slides[prevIndex];
+      this.selectedIndex = newCurrentIndex;
       document.querySelector('.zoomer-prev img').src = prevSrc;
       document.querySelector('.zoomer-next img').src = nextSrc;
       document.querySelector('.zoomer-current img').src = img;
@@ -251,7 +313,7 @@ var Zoomer = /*#__PURE__*/function () {
       var width = zoomer === null || zoomer === void 0 ? void 0 : zoomer.clientWidth;
       $(zoomer).animate({
         scrollLeft: width * 2
-      }, 400, null, this.afterMatch.bind(this));
+      }, this.transitionMs, null, this.afterMatch.bind(this));
     }
   }, {
     key: "prev",
@@ -260,11 +322,12 @@ var Zoomer = /*#__PURE__*/function () {
       var width = zoomer === null || zoomer === void 0 ? void 0 : zoomer.clientWidth;
       $(zoomer).animate({
         scrollLeft: 0
-      }, 400, null, this.afterMatch.bind(this));
+      }, this.transitionMs, null, this.afterMatch.bind(this));
     }
   }, {
     key: "close",
     value: function close() {
+      var _this3 = this;
       var globalWrapper = document.querySelector('.zoomer-wrapper');
       if (!globalWrapper) return;
       var zoomer = globalWrapper.querySelector('.zoomer-viewer');
@@ -278,9 +341,54 @@ var Zoomer = /*#__PURE__*/function () {
       globalWrapper === null || globalWrapper === void 0 ? void 0 : globalWrapper.removeEventListener('click', this.close);
       document.body.onkeyup = null;
       globalWrapper.classList.remove('open');
-      setTimeout(function () {
-        globalWrapper === null || globalWrapper === void 0 ? void 0 : globalWrapper.remove();
-      }, 400);
+      var shadowImg = document.createElement('div');
+      var srcTop, srcLeft, srcWidth, srcHeight;
+      var rect = zoomer === null || zoomer === void 0 ? void 0 : zoomer.getBoundingClientRect();
+      srcTop = rect === null || rect === void 0 ? void 0 : rect.top;
+      srcLeft = rect === null || rect === void 0 ? void 0 : rect.left;
+      srcWidth = rect === null || rect === void 0 ? void 0 : rect.width;
+      srcHeight = rect === null || rect === void 0 ? void 0 : rect.height;
+      var img = this.slides[this.selectedIndex];
+      var transitionMs = this.transitionS + 's';
+      $(shadowImg).css({
+        backgroundImage: 'url(' + img + ')',
+        top: srcTop,
+        left: srcLeft,
+        width: srcWidth,
+        height: srcHeight,
+        position: 'fixed',
+        backgroundSize: 'contain',
+        backgroundPosition: 'center center',
+        backgroundRepeat: 'no-repeat',
+        transition: "top ".concat(transitionMs, ", left ").concat(transitionMs, ", width ").concat(transitionMs, ", height ").concat(transitionMs, ", opacity ").concat(transitionMs),
+        zIndex: 1000
+      });
+      if (!this.isAnimating) {
+        document.body.append(shadowImg);
+        zoomer.style.opacity = '0';
+        this.isAnimating = true;
+        var dest = this.slideElements[this.selectedIndex];
+        var targetTop, targetLeft, targetWidth, targetHeight;
+        var destRect = dest.getBoundingClientRect();
+        targetTop = destRect.top;
+        targetLeft = destRect.left;
+        targetWidth = destRect.width;
+        targetHeight = destRect.height;
+        setTimeout(function () {
+          $(shadowImg).css({
+            top: targetTop,
+            left: targetLeft,
+            width: targetWidth,
+            height: targetHeight,
+            opacity: 0
+          });
+          setTimeout(function () {
+            shadowImg.remove();
+            globalWrapper === null || globalWrapper === void 0 ? void 0 : globalWrapper.remove();
+            _this3.isAnimating = false;
+          }, _this3.transitionMs);
+        }, 80);
+      }
     }
   }, {
     key: "updateWidth",
@@ -36664,7 +36772,8 @@ var currentCity;
 var placemarks = [];
 window.placemarks = placemarks;
 var map;
-var zoomer = new _lib_zoomer__WEBPACK_IMPORTED_MODULE_4__["default"]('.zoomer', 'src', true);
+var zoomer = new _lib_zoomer__WEBPACK_IMPORTED_MODULE_4__["default"]('.zoomer', 'src', true, 300);
+window.zoomer = zoomer;
 
 //#region Materialize
 var lazy = new (vanilla_lazyload__WEBPACK_IMPORTED_MODULE_0___default())({}, document.querySelectorAll('.lazy'));
@@ -37168,6 +37277,16 @@ jquery__WEBPACK_IMPORTED_MODULE_1__('body').on('change', '#manual-date', functio
 jquery__WEBPACK_IMPORTED_MODULE_1__('body').on('click', '#submit', function (e) {
   var form = e.currentTarget.dataset['form'];
   jquery__WEBPACK_IMPORTED_MODULE_1__('#' + form).trigger('submit');
+});
+jquery__WEBPACK_IMPORTED_MODULE_1__('body').on('click', '.scroll-link', function (e) {
+  var _$$offset;
+  e.preventDefault();
+  var link = e.currentTarget;
+  var hash = '#' + link.href.split('#')[1];
+  var hashOffset = (_$$offset = jquery__WEBPACK_IMPORTED_MODULE_1__(hash).offset()) === null || _$$offset === void 0 ? void 0 : _$$offset.top;
+  jquery__WEBPACK_IMPORTED_MODULE_1__('html, body').animate({
+    scrollTop: hashOffset
+  }, 400);
 });
 
 //#endregion

@@ -24262,7 +24262,6 @@ body {
           background-color: #2962FF; }
       body .water-swiper ~ .swiper-pagination.swiper-pagination-bullets-dynamic {
         left: 50%;
-        transform: translateX(-50%);
         white-space: nowrap;
         overflow: hidden;
         font-size: 0; }
@@ -24502,7 +24501,7 @@ section#shops {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color;
+  transition: background-color .4s;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none; }
@@ -24532,8 +24531,6 @@ section#shops {
     height: 80%;
     display: flex;
     overflow: hidden;
-    transition: transform .2s, opacity .2s;
-    transform: scale(0.5);
     opacity: 0; }
     .zoomer-wrapper .zoomer-viewer .zoomer-slide {
       width: 100%;
@@ -24550,8 +24547,7 @@ section#shops {
   .zoomer-wrapper.open {
     background-color: rgba(0, 0, 0, 0.8); }
     .zoomer-wrapper.open .zoomer-viewer {
-      transform: none;
-      opacity: 1; }
+      transform: none; }
     .zoomer-wrapper.open .closer, .zoomer-wrapper.open .zoomer-arrow {
       opacity: 1; }
   .zoomer-wrapper .zoomer-arrow {

@@ -12,7 +12,9 @@ let placemarks = [];
 declare var ymaps:any;
 let map:any;
 
-let zoomer = new Zoomer('.zoomer', 'src', true);
+let zoomer = new Zoomer('.zoomer', 'src', true, 300);
+
+(window as any).zoomer = zoomer;
 
 //#region Materialize
 let lazy = new Lazy({}, document.querySelectorAll('.lazy'));
@@ -576,6 +578,18 @@ $('body').on('click', '#submit', (e:JQuery.ClickEvent) => {
 	let form = e.currentTarget.dataset['form'];
 	$('#'+form).trigger('submit');
 });
+
+$('body').on('click', '.scroll-link', (e:JQuery.ClickEvent) => {
+	e.preventDefault();
+	let link = <HTMLLinkElement>e.currentTarget;
+	let hash = '#' + link.href.split('#')[1];
+
+	let hashOffset = $(hash).offset()?.top;
+
+	$('html, body').animate({
+		scrollTop: hashOffset
+	}, 400);
+})
 
 //#endregion
 

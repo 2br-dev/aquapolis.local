@@ -15,7 +15,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	transition: background-color;
+	transition: background-color .4s;
 	user-select: none;
 
 	& .closer{
@@ -50,8 +50,6 @@
 		height: 80%;
 		display: flex;
 		overflow: hidden;
-		transition: transform .2s, opacity .2s;
-		transform: scale(.5);
 		opacity: 0;
 
 		& .zoomer-slide{
@@ -76,7 +74,6 @@
 
 		& .zoomer-viewer{
 			transform: none;
-			opacity: 1;
 		}
 
 		& .closer{

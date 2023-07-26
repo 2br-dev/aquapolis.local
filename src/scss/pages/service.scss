@@ -125,6 +125,7 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
+			z-index: 2;
 	
 			&:before{
 				content: '';
@@ -151,5 +152,47 @@
 
 	& #sanitarium{
 		margin: 4vmax 0;
+	}
+
+	& #feedback_form{
+
+		padding: 4vmax 0;
+
+		& h2{
+			margin: 0;
+			line-height: 1em;
+		}
+
+		background-color: #004585;
+		background-image: url(../../img/form_dots.svg);
+		background-repeat: no-repeat;
+		background-position: left center;
+		color: #fff;
+
+		& a:not(.bttn){
+			color: #fff;
+			text-decoration: underline;
+		}
+
+		& label{
+
+			display: block;
+
+			& + input, & + textarea{
+				display: block;
+				width: 100%;
+				padding: 8px 10px;
+				border-radius: $border-radius;
+				border: 0;
+
+				&::placeholder{
+					color: #ccc;
+				}
+
+				&:focus{
+					outline: none;
+				}
+			}
+		}
 	}
 }

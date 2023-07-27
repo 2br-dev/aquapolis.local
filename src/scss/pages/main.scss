@@ -7,6 +7,8 @@
 
 		&#hero{
 
+			position: relative;
+
 			@media(min-width: $medium){
 				min-height: 90vh;
 			}
@@ -14,9 +16,8 @@
 			position: relative;
 			
 			& .lazy{
-				position: absolute;
 				width: 100%;
-				height: 100%;
+				aspect-ratio: 16 / 7;
 				background-size: cover;
 				background-position: right center;
 
@@ -61,6 +62,39 @@
 				}
 			}
 
+			& .swiper-pagination{
+				transform: translateX(-50%);
+				z-index: 200;
+				display: flex;
+				position: absolute;
+				bottom: 4vmax;
+				left: 50%;
+
+				@media(max-width: $medium){
+					position: relative;
+					bottom: unset;
+					margin: auto;
+					justify-content: center;
+				}
+
+				&-bullet{
+					display: block;
+					width: 1em;
+					aspect-ratio: 1 / 1;
+					margin: 5px;
+					border-radius: 50%;
+					background: #ccc;
+					cursor: pointer;
+					box-shadow: 0 4px 8px rgba(black, .2) inset;
+					transition: background-color .4s, box-shadow .4s;
+
+					&-active{
+						background-color: $primary;
+						box-shadow: none;
+					}
+				}
+			}
+
 			@media(max-width: $medium){
 
 				& .lazy{
@@ -81,7 +115,6 @@
 					padding: 20px;
 					top: unset;
 					left: unset;
-					width: 100%;
 				}
 			}
 		}

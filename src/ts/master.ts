@@ -1,8 +1,8 @@
 import Lazy from 'vanilla-lazyload';
 import * as $ from 'jquery';
 import * as M from 'materialize-css';
-import Swiper, {Pagination, Controller, Autoplay, Manipulation} from 'swiper';
-Swiper.use([Pagination, Controller, Manipulation, Autoplay]);
+import Swiper, {Pagination, Controller, Autoplay, Manipulation, EffectFade} from 'swiper';
+Swiper.use([Pagination, Controller, Manipulation, Autoplay, EffectFade]);
 import Zoomer from './lib/zoomer';
 
 let currentCity:string;
@@ -273,6 +273,30 @@ if($('.entry-slider').length){
 			}
 		});
 	}
+}
+
+if($('#hero-swiper').length){
+	let heroSwiper = new Swiper('#hero-swiper', {
+		loop: true,
+		effect: 'fade',
+		speed: 800,
+		autoplay: {
+			delay: 5000
+		},
+		pagination: {
+			el: '#hero-pagination',
+			type: 'bullets',
+			clickable: true
+		},
+		fadeEffect: {
+			crossFade: true
+		},
+		on: {
+			slideChange: () => {
+				let lazy = new Lazy({}, document.querySelectorAll('.lazy'));
+			}
+		}
+	})
 }
 //#endregion
 

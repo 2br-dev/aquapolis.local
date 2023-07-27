@@ -36766,7 +36766,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-swiper__WEBPACK_IMPORTED_MODULE_3__["default"].use([swiper__WEBPACK_IMPORTED_MODULE_3__.Pagination, swiper__WEBPACK_IMPORTED_MODULE_3__.Controller, swiper__WEBPACK_IMPORTED_MODULE_3__.Manipulation, swiper__WEBPACK_IMPORTED_MODULE_3__.Autoplay]);
+swiper__WEBPACK_IMPORTED_MODULE_3__["default"].use([swiper__WEBPACK_IMPORTED_MODULE_3__.Pagination, swiper__WEBPACK_IMPORTED_MODULE_3__.Controller, swiper__WEBPACK_IMPORTED_MODULE_3__.Manipulation, swiper__WEBPACK_IMPORTED_MODULE_3__.Autoplay, swiper__WEBPACK_IMPORTED_MODULE_3__.EffectFade]);
 
 var currentCity;
 var placemarks = [];
@@ -37003,6 +37003,29 @@ if (jquery__WEBPACK_IMPORTED_MODULE_1__('.entry-slider').length) {
       }
     });
   }
+}
+if (jquery__WEBPACK_IMPORTED_MODULE_1__('#hero-swiper').length) {
+  var heroSwiper = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"]('#hero-swiper', {
+    loop: true,
+    effect: 'fade',
+    speed: 800,
+    autoplay: {
+      delay: 5000
+    },
+    pagination: {
+      el: '#hero-pagination',
+      type: 'bullets',
+      clickable: true
+    },
+    fadeEffect: {
+      crossFade: true
+    },
+    on: {
+      slideChange: function slideChange() {
+        var lazy = new (vanilla_lazyload__WEBPACK_IMPORTED_MODULE_0___default())({}, document.querySelectorAll('.lazy'));
+      }
+    }
+  });
 }
 //#endregion
 

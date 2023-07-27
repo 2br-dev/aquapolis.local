@@ -23730,8 +23730,7 @@ body {
   body .quick-navi {
     display: flex;
     overflow-x: auto;
-    padding-bottom: 4px;
-    margin-bottom: 4vmax; }
+    padding-bottom: 4px; }
     body .quick-navi::-webkit-scrollbar {
       height: 6px; }
     body .quick-navi::-webkit-scrollbar-thumb {
@@ -24222,9 +24221,10 @@ body {
       border-radius: 8px;
       box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.2);
       aspect-ratio: 1 / 1.6; }
-  body .pin {
-    position: sticky;
-    top: 120px; }
+  @media (min-width: 800px) {
+    body .pin {
+      position: sticky;
+      top: 120px; } }
   body .table-of-contents a.active,
   body .table-of-contents a:hover {
     border-color: #2962FF; }
@@ -24264,10 +24264,10 @@ body {
       white-space: nowrap; }
       body .water-swiper ~ .swiper-pagination .swiper-pagination-bullet {
         display: inline-block;
-        width: 16px;
+        width: .85rem;
         border-radius: 50%;
         aspect-ratio: 1 / 1;
-        margin: 0 3px;
+        margin: 5px;
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2) inset;
         transition: background-color .2s, box-shadow .2s; }
         body .water-swiper ~ .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
@@ -24330,6 +24330,30 @@ body {
               font-size: 12px;
               line-height: 1em;
               font-weight: 300; } }
+  body #categories-navi {
+    margin-top: 0;
+    padding-bottom: 44px; }
+    body #categories-navi li {
+      border-top: 1px solid #ccc; }
+      body #categories-navi li:last-of-type {
+        border-bottom: 1px solid #ccc; }
+      body #categories-navi li a {
+        display: flex;
+        align-items: center;
+        padding: 10px; }
+        body #categories-navi li a.active {
+          background-color: #26C6DA;
+          color: #fff; }
+        body #categories-navi li a img {
+          width: 2em;
+          aspect-ratio: 1 / 1;
+          margin-right: 10px;
+          border-radius: 6px; }
+        body #categories-navi li a span {
+          flex-grow: 1;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis; }
 
 footer {
   background-color: #2962FF;

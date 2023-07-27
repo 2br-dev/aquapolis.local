@@ -79,7 +79,7 @@
 
 				&-bullet{
 					display: block;
-					width: 1em;
+					width: .85rem;
 					aspect-ratio: 1 / 1;
 					margin: 5px;
 					border-radius: 50%;
@@ -101,9 +101,11 @@
 
 					position: relative;
 					width: 100%;
-					aspect-ratio: 16 / 9;
+					aspect-ratio: 1 / 1;
 					background-position: unset;
 					background-size: cover;
+					object-fit: right center;
+					background-position: right center;
 
 					&:before{
 						display: none;
@@ -115,7 +117,40 @@
 					padding: 20px;
 					top: unset;
 					left: unset;
+					max-width: 100%;
+					box-sizing: border-box;
+					position: relative;
+					z-index: 20;
+
+					& h1{
+						font-size: 32px;
+					}
 				}
+			}
+
+			& .main-hero-prev{
+				position: absolute;
+				top: 25%;
+				left: 20px;
+				z-index: 20;
+				border: 1px solid #fff;
+				color: #fff;
+				height: 2em;
+				line-height: 2em;
+				aspect-ratio: 1 / 1;
+				text-align: center;
+				border-radius: 50%;
+				background-color: rgba(#173869, .7);
+
+				@media(min-width: $small){
+					display: none;
+				}
+			}
+
+			& .main-hero-next{
+				@extend .main-hero-prev;
+				left: unset;
+				right: 20px;
 			}
 		}
 
@@ -220,10 +255,10 @@
 
 				& .swiper-pagination-bullet{
 					display: block;
-					width: 16px;
+					width: .85rem;
 					border-radius: 50%;
 					aspect-ratio: 1 / 1;
-					margin: 0 3px;
+					margin: 5px;
 					box-shadow: 0 2px 6px rgba(black, .2) inset;
 					transition: background-color .2s, box-shadow .2s;
 

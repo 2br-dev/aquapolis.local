@@ -1,8 +1,8 @@
 import Lazy from 'vanilla-lazyload';
 import * as $ from 'jquery';
 import * as M from 'materialize-css';
-import Swiper, {Pagination, Controller, Autoplay, Manipulation, EffectFade} from 'swiper';
-Swiper.use([Pagination, Controller, Manipulation, Autoplay, EffectFade]);
+import Swiper, {Pagination, Controller, Autoplay, Manipulation, EffectFade, Navigation} from 'swiper';
+Swiper.use([Pagination, Controller, Manipulation, Autoplay, EffectFade, Navigation]);
 import Zoomer from './lib/zoomer';
 
 let currentCity:string;
@@ -287,6 +287,10 @@ if($('#hero-swiper').length){
 			el: '#hero-pagination',
 			type: 'bullets',
 			clickable: true
+		},
+		navigation: {
+			nextEl: '.main-hero-next',
+			prevEl: '.main-hero-prev'
 		},
 		fadeEffect: {
 			crossFade: true
@@ -777,6 +781,7 @@ function animate(){
 //#region Инициализация
 $(() => {
 
+	document.body.scrollTop = 0;
 	let firstEl = $('.map-navi:first-of-type').get(0);
 	$(firstEl).addClass('active');
 	$('.city:first-of-type .city-description').removeClass('hidden');
@@ -794,6 +799,19 @@ $(() => {
 	if($('.product-tabs').length){
 		initProductTabs();
 	}
+
+	let url = new URL(window.location.href);
+	let params = new URLSearchParams(url.search);
+	let scroll = params.get('scroll');
+
+	let headerHeight = document.querySelector('header')?.offsetHeight;
+
+	if(scroll){
+		$('html, body').animate({
+			scrollTop: $('#content').offset().top - headerHeight - 20
+		}, 400)
+	}
+
 
 	animate();
 });

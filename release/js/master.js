@@ -36766,7 +36766,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-swiper__WEBPACK_IMPORTED_MODULE_3__["default"].use([swiper__WEBPACK_IMPORTED_MODULE_3__.Pagination, swiper__WEBPACK_IMPORTED_MODULE_3__.Controller, swiper__WEBPACK_IMPORTED_MODULE_3__.Manipulation, swiper__WEBPACK_IMPORTED_MODULE_3__.Autoplay, swiper__WEBPACK_IMPORTED_MODULE_3__.EffectFade]);
+swiper__WEBPACK_IMPORTED_MODULE_3__["default"].use([swiper__WEBPACK_IMPORTED_MODULE_3__.Pagination, swiper__WEBPACK_IMPORTED_MODULE_3__.Controller, swiper__WEBPACK_IMPORTED_MODULE_3__.Manipulation, swiper__WEBPACK_IMPORTED_MODULE_3__.Autoplay, swiper__WEBPACK_IMPORTED_MODULE_3__.EffectFade, swiper__WEBPACK_IMPORTED_MODULE_3__.Navigation]);
 
 var currentCity;
 var placemarks = [];
@@ -37016,6 +37016,10 @@ if (jquery__WEBPACK_IMPORTED_MODULE_1__('#hero-swiper').length) {
       el: '#hero-pagination',
       type: 'bullets',
       clickable: true
+    },
+    navigation: {
+      nextEl: '.main-hero-next',
+      prevEl: '.main-hero-prev'
     },
     fadeEffect: {
       crossFade: true
@@ -37448,6 +37452,8 @@ function animate() {
 
 //#region Инициализация
 jquery__WEBPACK_IMPORTED_MODULE_1__(function () {
+  var _document$querySelect;
+  document.body.scrollTop = 0;
   var firstEl = jquery__WEBPACK_IMPORTED_MODULE_1__('.map-navi:first-of-type').get(0);
   jquery__WEBPACK_IMPORTED_MODULE_1__(firstEl).addClass('active');
   jquery__WEBPACK_IMPORTED_MODULE_1__('.city:first-of-type .city-description').removeClass('hidden');
@@ -37462,6 +37468,15 @@ jquery__WEBPACK_IMPORTED_MODULE_1__(function () {
   }
   if (jquery__WEBPACK_IMPORTED_MODULE_1__('.product-tabs').length) {
     initProductTabs();
+  }
+  var url = new URL(window.location.href);
+  var params = new URLSearchParams(url.search);
+  var scroll = params.get('scroll');
+  var headerHeight = (_document$querySelect = document.querySelector('header')) === null || _document$querySelect === void 0 ? void 0 : _document$querySelect.offsetHeight;
+  if (scroll) {
+    jquery__WEBPACK_IMPORTED_MODULE_1__('html, body').animate({
+      scrollTop: jquery__WEBPACK_IMPORTED_MODULE_1__('#content').offset().top - headerHeight - 20
+    }, 400);
   }
   animate();
 });

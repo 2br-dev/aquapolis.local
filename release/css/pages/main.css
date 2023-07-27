@@ -94,7 +94,7 @@ body {
         justify-content: center; } }
     #main section#hero .swiper-pagination-bullet {
       display: block;
-      width: 1em;
+      width: .85rem;
       aspect-ratio: 1 / 1;
       margin: 5px;
       border-radius: 50%;
@@ -109,16 +109,44 @@ body {
     #main section#hero .lazy {
       position: relative;
       width: 100%;
-      aspect-ratio: 16 / 9;
+      aspect-ratio: 1 / 1;
       background-position: unset;
-      background-size: cover; }
+      background-size: cover;
+      -o-object-fit: right center;
+         object-fit: right center;
+      background-position: right center; }
       #main section#hero .lazy:before, #main section#hero .lazy.offers-swiper:after {
         display: none; }
     #main section#hero .communication {
       position: initial;
       padding: 20px;
       top: unset;
-      left: unset; } }
+      left: unset;
+      max-width: 100%;
+      box-sizing: border-box;
+      position: relative;
+      z-index: 20; }
+      #main section#hero .communication h1 {
+        font-size: 32px; } }
+  #main section#hero .main-hero-prev, #main section#hero .main-hero-next {
+    position: absolute;
+    top: 25%;
+    left: 20px;
+    z-index: 20;
+    border: 1px solid #fff;
+    color: #fff;
+    height: 2em;
+    line-height: 2em;
+    aspect-ratio: 1 / 1;
+    text-align: center;
+    border-radius: 50%;
+    background-color: rgba(23, 56, 105, 0.7); }
+    @media (min-width: 600px) {
+      #main section#hero .main-hero-prev, #main section#hero .main-hero-next {
+        display: none; } }
+  #main section#hero .main-hero-next {
+    left: unset;
+    right: 20px; }
 
 #main section#categories .category {
   border-radius: 8px;
@@ -205,10 +233,10 @@ body {
     margin: 20px 0; }
     #main section .offers-swiper ~ .swiper-pagination .swiper-pagination-bullet {
       display: block;
-      width: 16px;
+      width: .85rem;
       border-radius: 50%;
       aspect-ratio: 1 / 1;
-      margin: 0 3px;
+      margin: 5px;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2) inset;
       transition: background-color .2s, box-shadow .2s; }
       #main section .offers-swiper ~ .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {

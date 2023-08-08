@@ -21,7 +21,6 @@ footer{
 			width: 220px;
 			max-height: 80px;
 			max-width: 100%;
-			margin: auto;
 			margin-bottom: 40px;
 			aspect-ratio: 2.6 / 1;
 			background-color: transparent;
@@ -61,6 +60,32 @@ footer{
 				display: block;
 				text-align: center;
 			}
+		}
+	}
+
+	.appstore{
+
+		@media(max-width: $extra-large){
+			order: 1;
+		}
+	}
+
+	& .app-icons{
+		margin-top: 20px;
+	}
+
+	.app-icon{
+		border: 1px solid #fff;
+		padding: 4px 16px;
+		display: inline-block;
+		border-radius: 4px;
+
+		&:hover{
+			background-color: rgba(#fff, .1);
+		}
+
+		& i{
+			margin-right: 6px;
 		}
 	}
 }

@@ -37049,6 +37049,17 @@ jquery__WEBPACK_IMPORTED_MODULE_1__('body').on('mouseenter', '.image-trigger', f
   $triggers.removeClass('active');
   jquery__WEBPACK_IMPORTED_MODULE_1__(el).addClass('active');
 });
+jquery__WEBPACK_IMPORTED_MODULE_1__('body').on('click', '.city-trigger', function (e) {
+  e.preventDefault();
+  var el = e.currentTarget;
+  var $parent = jquery__WEBPACK_IMPORTED_MODULE_1__(el).parents('.cities');
+  var $descriptions = $parent.find('.city-description').slideUp('fast', null, function () {
+    $parent.find('.city-description').addClass('hidden');
+  });
+  jquery__WEBPACK_IMPORTED_MODULE_1__(el).next().slideDown('fast', function () {
+    jquery__WEBPACK_IMPORTED_MODULE_1__(el).next().removeClass('hidden');
+  });
+});
 
 // $('body').on('click', '.buy', (e:JQuery.ClickEvent) => {
 // 	e.preventDefault();

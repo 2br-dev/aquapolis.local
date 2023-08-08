@@ -326,6 +326,19 @@ $('body').on('mouseenter', '.image-trigger', (e:JQuery.MouseOverEvent) => {
 	$(el).addClass('active');
 });
 
+$('body').on('click', '.city-trigger', (e:JQuery.ClickEvent) => {
+	e.preventDefault();
+	let el = <HTMLLinkElement>e.currentTarget;
+	let $parent = $(el).parents('.cities');
+	let $descriptions = $parent.find('.city-description').slideUp('fast', null, () => {
+		$parent.find('.city-description').addClass('hidden');
+	});
+	$(el).next().slideDown('fast', () => {
+		$(el).next().removeClass('hidden');
+	});
+
+})
+
 // $('body').on('click', '.buy', (e:JQuery.ClickEvent) => {
 // 	e.preventDefault();
 // 	let el = e.currentTarget;

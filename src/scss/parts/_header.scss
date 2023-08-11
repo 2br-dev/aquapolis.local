@@ -316,6 +316,9 @@ header{
 
 .sidenav{
 
+	display: flex;
+	flex-direction: column;
+
 	& .sections{
 
 		display: flex;
@@ -408,6 +411,33 @@ header{
 		& li{
 
 			text-align: left;
+		}
+	}
+
+	& .divider{
+		flex-grow: 1;
+		background-color: #fff;
+	}
+
+	& .sidenav-buttons{
+
+		line-height: unset;
+		text-align: center;
+		padding-bottom: 30px;
+
+		& .bttn{
+			display: inline-block;
+			padding: 0 10px;
+			line-height: unset;
+			height: unset;
+			color: $primary;
+
+			& i{
+				line-height: unset;
+				height: unset;
+				margin: 0;
+				color: $primary;
+			}
 		}
 	}
 

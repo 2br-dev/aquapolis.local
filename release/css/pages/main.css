@@ -218,6 +218,74 @@ body {
 #main section .main-water-pagination {
   bottom: -20px; }
 
+#main section#mobile-app {
+  background-color: #2962FF;
+  color: #fff; }
+  #main section#mobile-app .desktop-header {
+    display: inline-block; }
+    @media (max-width: 1100px) {
+      #main section#mobile-app .desktop-header {
+        display: none; } }
+  #main section#mobile-app .mobile-header {
+    display: block; }
+    @media (min-width: 1100px) {
+      #main section#mobile-app .mobile-header {
+        display: none; } }
+  @media (max-width: 800px) {
+    #main section#mobile-app .text-content {
+      order: 1; } }
+  #main section#mobile-app .text-content .desktop-text {
+    display: block; }
+    @media (max-width: 1100px) {
+      #main section#mobile-app .text-content .desktop-text {
+        display: none; } }
+  #main section#mobile-app .text-content .mobile-text {
+    display: block; }
+    @media (min-width: 1100px) {
+      #main section#mobile-app .text-content .mobile-text {
+        display: none; } }
+  #main section#mobile-app .row {
+    margin: 0; }
+    #main section#mobile-app .row .col {
+      padding-bottom: 0; }
+      #main section#mobile-app .row .col .row {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; }
+  #main section#mobile-app h2 {
+    line-height: 1em;
+    margin: 0;
+    color: #fff;
+    font-size: clamp(1.8em, 2vw, 3em); }
+  #main section#mobile-app .section-wrapper {
+    height: 100%; }
+    #main section#mobile-app .section-wrapper .section-image {
+      display: block;
+      height: 100%;
+      -o-object-fit: cover;
+         object-fit: cover;
+      -o-object-position: right center;
+         object-position: right center; }
+      @media (max-width: 800px) {
+        #main section#mobile-app .section-wrapper .section-image.desktop-image {
+          display: none; } }
+      @media (min-width: 800px) {
+        #main section#mobile-app .section-wrapper .section-image.mobile-image {
+          display: none; } }
+  #main section#mobile-app .store-buttons {
+    margin-bottom: 4vmax; }
+    #main section#mobile-app .store-buttons a {
+      border: 1px solid #fff;
+      margin: 20px 0; }
+  #main section#mobile-app .qrs {
+    display: flex; }
+    #main section#mobile-app .qrs img {
+      width: 10vw;
+      max-width: 130px;
+      display: block;
+      margin-right: 20px; }
+
 #main section .offers-swiper {
   position: relative; }
   #main section .offers-swiper .swiper-slide {

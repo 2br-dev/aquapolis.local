@@ -23514,66 +23514,82 @@ header {
       header .container .separator {
         display: none; } }
 
-.sidenav .sections {
+.sidenav {
   display: flex;
-  border: 1px solid #2962FF;
-  width: -moz-fit-content;
-  width: fit-content;
-  margin: auto;
-  margin-bottom: 20px;
-  line-height: 2em;
-  height: -moz-fit-content;
-  height: fit-content;
-  align-items: center;
-  border-radius: 1.6em;
-  overflow: hidden; }
-  .sidenav .sections li {
-    line-height: 2em;
-    height: unset; }
-    .sidenav .sections li.active {
-      background-color: #2962FF; }
-      .sidenav .sections li.active a {
-        color: #fff; }
-    .sidenav .sections li a {
-      display: block;
-      line-height: 1.4em;
-      height: 1.4em;
-      padding: 0 16px;
-      font-size: 14px; }
-
-.sidenav .logo-wrapper {
-  margin-bottom: 6px; }
-  .sidenav .logo-wrapper .logo {
-    width: 100%;
-    height: unset;
-    aspect-ratio: 2.6 / 1;
-    background-image: url(../img/logo-light.svg);
-    background-color: transparent;
-    background-repeat: no-repeat;
-    background-position: center; }
-
-.sidenav li a {
-  font-size: 16px; }
-
-.sidenav li.geo-city-mobile {
-  border-bottom: 1px solid #ddd; }
-  .sidenav li.geo-city-mobile > a {
+  flex-direction: column; }
+  .sidenav .sections {
     display: flex;
-    justify-content: center; }
-    .sidenav li.geo-city-mobile > a i {
-      width: -moz-fit-content;
-      width: fit-content;
-      margin: 0; }
-      .sidenav li.geo-city-mobile > a i:first-of-type {
-        margin-left: 10px; }
-
-.sidenav .catalog ul {
-  border-left: 4px solid #2962FF; }
-
-.sidenav ul {
-  display: none; }
-  .sidenav ul li {
-    text-align: left; }
+    border: 1px solid #2962FF;
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: auto;
+    margin-bottom: 20px;
+    line-height: 2em;
+    height: -moz-fit-content;
+    height: fit-content;
+    align-items: center;
+    border-radius: 1.6em;
+    overflow: hidden; }
+    .sidenav .sections li {
+      line-height: 2em;
+      height: unset; }
+      .sidenav .sections li.active {
+        background-color: #2962FF; }
+        .sidenav .sections li.active a {
+          color: #fff; }
+      .sidenav .sections li a {
+        display: block;
+        line-height: 1.4em;
+        height: 1.4em;
+        padding: 0 16px;
+        font-size: 14px; }
+  .sidenav .logo-wrapper {
+    margin-bottom: 6px; }
+    .sidenav .logo-wrapper .logo {
+      width: 100%;
+      height: unset;
+      aspect-ratio: 2.6 / 1;
+      background-image: url(../img/logo-light.svg);
+      background-color: transparent;
+      background-repeat: no-repeat;
+      background-position: center; }
+  .sidenav li a {
+    font-size: 16px; }
+  .sidenav li.geo-city-mobile {
+    border-bottom: 1px solid #ddd; }
+    .sidenav li.geo-city-mobile > a {
+      display: flex;
+      justify-content: center; }
+      .sidenav li.geo-city-mobile > a i {
+        width: -moz-fit-content;
+        width: fit-content;
+        margin: 0; }
+        .sidenav li.geo-city-mobile > a i:first-of-type {
+          margin-left: 10px; }
+  .sidenav .catalog ul {
+    border-left: 4px solid #2962FF; }
+  .sidenav ul {
+    display: none; }
+    .sidenav ul li {
+      text-align: left; }
+  .sidenav .divider {
+    flex-grow: 1;
+    background-color: #fff; }
+  .sidenav .sidenav-buttons {
+    line-height: unset;
+    text-align: center;
+    padding-bottom: 30px; }
+    .sidenav .sidenav-buttons .bttn, .sidenav .sidenav-buttons body .bttn-outline, body .sidenav .sidenav-buttons .bttn-outline, .sidenav .sidenav-buttons body .bttn-flat, body .sidenav .sidenav-buttons .bttn-flat, .sidenav .sidenav-buttons body .bttn-large, body .sidenav .sidenav-buttons .bttn-large {
+      display: inline-block;
+      padding: 0 10px;
+      line-height: unset;
+      height: unset;
+      color: #2962FF; }
+      .sidenav .sidenav-buttons .bttn i, .sidenav .sidenav-buttons body .bttn-outline i, body .sidenav .sidenav-buttons .bttn-outline i, .sidenav .sidenav-buttons body .bttn-flat i, body .sidenav .sidenav-buttons .bttn-flat i, .sidenav .sidenav-buttons body .bttn-large i, body .sidenav .sidenav-buttons .bttn-large i {
+        line-height: unset;
+        height: unset;
+        margin: 0;
+        color: #2962FF; }
 
 .select-wrapper.valid .helper-text[data-success],
 .select-wrapper.invalid ~ .helper-text[data-error] {

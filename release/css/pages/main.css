@@ -262,7 +262,6 @@ body {
     height: 100%; }
     #main section#mobile-app .section-wrapper .section-image {
       display: block;
-      height: 100%;
       -o-object-fit: cover;
          object-fit: cover;
       -o-object-position: right center;
@@ -270,14 +269,18 @@ body {
       @media (max-width: 800px) {
         #main section#mobile-app .section-wrapper .section-image.desktop-image {
           display: none; } }
-      @media (min-width: 800px) {
-        #main section#mobile-app .section-wrapper .section-image.mobile-image {
-          display: none; } }
+    @media (min-width: 800px) {
+      #main section#mobile-app .section-wrapper .mobile-image {
+        display: none !important; } }
   #main section#mobile-app .store-buttons {
     margin-bottom: 4vmax; }
     #main section#mobile-app .store-buttons a {
-      border: 1px solid #fff;
-      margin: 20px 0; }
+      margin: 20px 0;
+      display: inline-block;
+      margin: 0 5px; }
+      #main section#mobile-app .store-buttons a img {
+        display: block;
+        height: 40px; }
   #main section#mobile-app .qrs {
     display: flex; }
     #main section#mobile-app .qrs img {

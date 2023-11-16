@@ -307,7 +307,6 @@
 
 				& .section-image{
 					display: block;
-					height: 100%;
 					object-fit: cover;
 					object-position: right center;
 
@@ -316,12 +315,12 @@
 							display: none;
 						}
 					}
+				}
+				
+				& .mobile-image{
 
-					&.mobile-image{
-
-						@media(min-width: $medium){
-							display: none;
-						}
+					@media(min-width: $medium){
+						display: none !important;
 					}
 				}
 			}
@@ -330,8 +329,14 @@
 				margin-bottom: 4vmax;
 
 				& a{
-					border: 1px solid #fff;
 					margin: $gutter-width 0;
+					display: inline-block;
+					margin: 0 5px;
+
+					& img{
+						display: block;
+						height: 40px;
+					}
 				}
 			}
 

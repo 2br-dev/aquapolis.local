@@ -3,6 +3,7 @@ header{
 	background: rgba(#fff, .7);
 	backdrop-filter: blur(10px);
 	box-shadow: 0 4px 40px rgba(black, .05);
+	position: relative;
 	position: sticky;
 	top: 0;
 	z-index: 20;
@@ -310,6 +311,22 @@ header{
 			& .separator{
 				display: none;
 			}
+		}
+	}
+
+	&.snow{
+
+		&:after{
+			content: '';
+			display: block;
+			position: absolute;
+			top: 100%;
+			left: 0;
+			height: clamp(40px, 4vmax, 80px);
+			width: 100%;
+			pointer-events: none;
+			background: url(/img/christmas-border.png) repeat-x;
+			background-size: contain;
 		}
 	}
 }

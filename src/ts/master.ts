@@ -4,6 +4,7 @@ import * as M from 'materialize-css';
 import Swiper, {Pagination, Controller, Autoplay, Manipulation, EffectFade, Navigation} from 'swiper';
 Swiper.use([Pagination, Controller, Manipulation, Autoplay, EffectFade, Navigation]);
 import Zoomer from './lib/zoomer';
+import Flaker from './lib/flaker';
 
 let currentCity:string;
 let placemarks = [];
@@ -71,6 +72,13 @@ function loadIntervals(date:Date){
     });
 }
 //#endregion
+
+(() => {
+	let mainElement = <HTMLElement>document.querySelector('header');
+	if(mainElement.classList.contains('snow')){
+		let flaker = new Flaker();
+	}
+})();
 
 $('.city').each((index, city) => {
 

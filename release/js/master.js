@@ -1,6 +1,68 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/ts/lib/flaker.ts":
+/*!******************************!*\
+  !*** ./src/ts/lib/flaker.ts ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Flaker)
+/* harmony export */ });
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+var Flaker = /*#__PURE__*/_createClass(function Flaker() {
+  var count = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 40;
+  _classCallCheck(this, Flaker);
+  _defineProperty(this, "durations", [0, .5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8]);
+  var fragment = document.createDocumentFragment();
+  var step = 100 / count;
+  for (var i = 0; i < count; i++) {
+    var flakeEl = document.createElement('div');
+    flakeEl.className = "snowflake";
+    $(flakeEl).css({
+      position: 'fixed',
+      top: '-10%',
+      zIndex: 9999,
+      userSelect: 'none',
+      animationName: 'snowflakes-shake',
+      animationDuration: '3s',
+      animationTimingFunction: 'ease-in-out',
+      animationDelay: this.durations[Math.round(Math.random() * this.durations.length)] + 's',
+      left: i * step + '%',
+      animationIterationCount: 'infinite',
+      animationPlayState: 'running',
+      pointerEvent: 'none'
+    });
+    var inner = document.createElement('div');
+    inner.className = "inner";
+    inner.textContent = "•";
+    $(inner).css({
+      animationName: 'snowflakes-fall',
+      animationDuration: '10s',
+      animationTimingFunction: 'linear',
+      animationDelay: this.durations[Math.round(Math.random() * this.durations.length)] + 's',
+      animationIterationCount: 'infinite',
+      animationPlayState: 'running'
+    });
+    flakeEl.appendChild(inner);
+    fragment.appendChild(flakeEl);
+  }
+  document.body.appendChild(fragment);
+});
+
+
+/***/ }),
+
 /***/ "./src/ts/lib/zoomer.ts":
 /*!******************************!*\
   !*** ./src/ts/lib/zoomer.ts ***!
@@ -36762,11 +36824,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var materialize_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(materialize_css__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var swiper__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! swiper */ "./node_modules/swiper/swiper.esm.js");
 /* harmony import */ var _lib_zoomer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./lib/zoomer */ "./src/ts/lib/zoomer.ts");
+/* harmony import */ var _lib_flaker__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./lib/flaker */ "./src/ts/lib/flaker.ts");
 
 
 
 
 swiper__WEBPACK_IMPORTED_MODULE_3__["default"].use([swiper__WEBPACK_IMPORTED_MODULE_3__.Pagination, swiper__WEBPACK_IMPORTED_MODULE_3__.Controller, swiper__WEBPACK_IMPORTED_MODULE_3__.Manipulation, swiper__WEBPACK_IMPORTED_MODULE_3__.Autoplay, swiper__WEBPACK_IMPORTED_MODULE_3__.EffectFade, swiper__WEBPACK_IMPORTED_MODULE_3__.Navigation]);
+
 
 var currentCity;
 var placemarks = [];
@@ -36830,6 +36894,12 @@ function loadIntervals(date) {
 }
 //#endregion
 
+(function () {
+  var mainElement = document.querySelector('header');
+  if (mainElement.classList.contains('snow')) {
+    var flaker = new _lib_flaker__WEBPACK_IMPORTED_MODULE_5__["default"]();
+  }
+})();
 jquery__WEBPACK_IMPORTED_MODULE_1__('.city').each(function (index, city) {
   var slidesCount = city.querySelectorAll('.fasad-swiper .swiper-slide').length;
   var pagination = city.querySelector('.swiper-pagination');
